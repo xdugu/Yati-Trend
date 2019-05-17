@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<title> Yati-Trend | Review</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="/css/normalize.css"/>
+<link rel="stylesheet" href="/css/common.css"/>
+<link rel="stylesheet" href="/css/categories.css"/>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+
+<script src="/scripts/common.js" ></script>
+<script src="/scripts/shop.js" ></script>
+<script src="/scripts/review.js" ></script>
+<script src="/scripts/directives/directives.js" ></script>
+
+</head> 
+
+<body ng-app="myApp">
+
+<div id="header_placeholder"> </div>
+<div class="w3-margin-top" ng-controller="Review" ng-init="showBank=false;">
+	<div class="w3-large w3-center w3-xxlarge" style="font-weight:bold">A kosár tartalma</div>
+	<div class="w3-row">
+	<div class="w3-col l6 w3-padding">
+		<div ng-repeat="item in order.items track by item.id" class="w3-row w3-card toEdit w3-padding w3-margin-top" style="width: 100%; height:15vh;overflow-y:hidden;">
+				<div class="w3-col s2" style="height:12vh; overflow: hidden;">
+					<img class="preview_img" ng-src="{{item.thumbnail}}"style="width:auto; height:12vh;"></img>
+				</div>
+				<div class="w3-display-container w3-col s10" style="height:11vh;">
+					<div id="description" class="w3-display-topleft" style="width:100%;">{{item.name}}</div>
+					<div id="size" class="w3-display-bottommiddle">Méret: {{item.size}}</div>
+					<div id="quantity" class="w3-display-bottomleft ">Mennyiség: {{item.quantity}}</div>
+					<div my-cost-str="item.price * item.quantity" id="price" class="w3-display-bottomright price"></div>
+				</div>		
+		</div>
+		<div class="w3-margin-top" style="font-weight: bold">Szállítási költség: <span my-cost-str="order.delivery" class="price"></span></div>
+		<div class="w3-xlarge" style="font-weight: bold">Összesen: <span my-cost-str="order.total" class="price"></span></div>
+	</div>
+	<div class="w3-col l6 w3-padding">	
+		<div class="w3-card w3-padding w3-margin-top">
+		<div class="w3-large w3-center w3-large" style="font-weight:bold">Rendelési adatok</div>
+			<div>{{order.contact.firstName}}</div>
+			<div>{{order.contact.email}}</div>
+			<div>{{order.contact.number}}</div>
+			
+			<div class="w3-margin-top"><strong>Címzett:</strong></div>
+			<div>{{order.contact.firstName}}</div>
+			<div>{{order.contact.address1}}</div>
+			<div ng-hide="order.contact.address2==''">{{order.contact.address2}}</div>
+			<div>{{order.contact.city}}</div>
+			<div>{{order.contact.postCode}}</div>
+			<div>{{order.contact.country}}</div>
+		</div>
+	</div>
+	</div>
+	
+	
+	<div class="w3-padding">
+		<div id="paypal-button" class="w3-margin-top"></div>
+		<div class="w3-row">
+			<div ng-show="order.contact.country=='Hungary'" ng-click="backbone.showBank=true" class="w3-col l3 m6 w3-mobile w3-button w3-black  w3-margin-bottom w3-margin-top w3-padding w3-round">Banki átutalás</div>	
+		</div>
+		<div class="w3-row">
+			<div ng-show="order.contact.country=='Hungary'" ng-click="backbone.showPayLater=true" class="w3-col l3 m6 w3-mobile w3-button w3-purple  w3-margin-bottom w3-margin-top w3-padding w3-round">Utánvétes fizetés</div>	
+		</div>
+	</div>
+	
+	<div class="w3-modal" ng-show="backbone.showBank==true" style="display:block;z-index:1000">
+		<div class="w3-modal-content w3-animate-top w3-card-4" style="top:25vh;">
+		 <span ng-click="backButtonPressed()" class="material-icons w3-large w3-display-topright" style="cursor:pointer">cancel</span>
+		  <div class="w3-container" ng-show="backbone.showConfirmed==false">
+			<div class="w3-medium" style="margin-top:1vh">Kérjük erősítse meg, hogy valóban banki átutalással szerete-e fizetni. Amennyiben megerősíti, küldeni fogunk Önnek egy e-mailt, amelyben megtalálja az utaláshoz szükséges adatokat, illetve a referencia számot.
+			</div>
+			<a ng-click="backbone.showConfirmed=true" class="w3-button w3-red w3-margin-top w3-margin-bottom">Megerősít</a>
+		  </div>
+		   <div class="w3-container" ng-show="backbone.showConfirmed==true">
+			<div class="w3-medium" style="margin-top:1vh">A következő e-mail címre <strong>{{order.contact.email}}</strong> küldjük el az utaláshoz szükséges információkat.
+			Kérjük, hogy az utalást 24 órán belül tegye meg, hogy legyen időnk feldolgozni a rendelését.
+			</div>
+		  </div>
+		</div>
+	</div>
+	
+	<div class="w3-modal" ng-show="backbone.showPaypalReceipt==true" style="display:block;z-index:1000">
+		<div class="w3-modal-content w3-animate-top w3-card-4" style="top:25vh;">
+		 <span ng-click="backButtonPressed()" class="material-icons w3-large w3-display-topright" style="cursor:pointer">cancel</span>
+		  <div class="w3-container">
+			<div class="w3-large w3-text-green" style="font-weight:bold">Rendelés megerősítése</div>
+			<div class="w3-medium" style="margin-top:1vh">Köszönjük, hogy leadta rendelését. Igyekszünk, hogy a megrendelt termék minél hamarabb eljusson Önhöz.
+			</div>
+		  </div>
+		</div>
+	</div>
+	
+	<div class="w3-modal" ng-show="backbone.showPayLater==true" style="display:block;z-index:1000">
+		<div class="w3-modal-content w3-animate-top w3-card-4" style="top:25vh;">
+		 <span ng-click="backButtonPressed()" class="material-icons w3-large w3-display-topright" style="cursor:pointer">cancel</span>
+		  <div class="w3-container" ng-show="backbone.showConfirmed==false">
+			<div class="w3-medium" style="margin-top:1vh">Kérjük erősítse meg, hogy utánvéttel szeretne fizetni. A megerősítéshez küldünk Önnek egy e-mailt.
+			Kérjük vegye figyelembe, hogy utánvét esetén a végösszeghez hozzáadódik az utánvét díja, mely <span class="price">300 Ft</span>. Így a végösszeg <span my-cost-str="{{order.total + 300}}" class="price"></span>
+			</div>
+			<a ng-click="backbone.showConfirmed=true" class="w3-button w3-red w3-margin-top w3-margin-bottom">Megerősít</a>
+		  </div>
+		   <div class="w3-container" ng-show="backbone.showConfirmed==true">
+			<div class="w3-medium" style="margin-top:1vh">A megrendelés megerősítését a következő e-mail címre küldjük <strong>{{order.contact.email}}</strong>. Megrendelését hamarosan kézbesítjük!
+			</div>
+		  </div>
+		</div>
+	</div>
+	
+</div>
+
+
+
+
+</body>
+</html>

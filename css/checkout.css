@@ -1,0 +1,18 @@
+/* We will use a table to store each item in the store*/
+:root /*Variables*/
+{
+	--main-theme: Goldenrod;/*Crimson;*/
+	--home-button: #C0C0C0;
+}
+
+.entry input.ng-touched {
+	
+  
+ }
+ 
+ .entry input.ng-invalid.ng-touched {
+	
+ }
+ 
+ 
+

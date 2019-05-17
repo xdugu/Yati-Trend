@@ -1,0 +1,56 @@
+html
+	head
+		meta(name="viewport", content="width=device-width, initial-scale=1")
+		link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Parisienne")
+		link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat")
+		style
+			include common.css
+	body
+		div.header
+			img(src='http://localhost/images/logo2.jpg')
+			div Yati-Trend
+		p <br><br>Dear #{order.contact.firstName},
+		|
+		|
+		p You have recently ordered from Yati-Trend. Please see the details below:
+		|
+		|
+		table
+			tr
+				th Description
+				th Size
+				th Quantity
+				th Price (HUF)
+			each row in order.items
+				tr
+					td #{row.name}
+					td #{row.size}
+					td #{row.quantity}
+					td.price #{row.price} Ft
+		|<br>
+		div Subtotal: 
+			span.price #{order.subTotal} Ft<br>
+		|
+		|
+		div Delivery: 
+			span.price #{order.delivery} Ft<br>
+		|
+		|
+		div(class="price-total" ) Total: 
+			span(class="price" style="color:Goldenrod") #{order.total} Ft<br><br>
+		|
+		|
+		div Please transfer the total amount to the account details below:<br><br>
+			div 
+				strong Name: 
+				|Patricia Horvath <br> 
+				strong Account No: 
+				|112233-112239 <br> 
+				strong Reference: 
+				|Order10001
+		|
+		|
+		div <br>We will send an order Confirmation once the transfer is completed
+		|
+		|
+		div Regards, <br><br> Yati-Trend Team

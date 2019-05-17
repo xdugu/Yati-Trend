@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<clothes>
+	<mens>
+		<shirts>
+			<item id="SHIRT-MEN-01">
+				<description>
+				<en>Coffee leaf patterned shirt</en>
+				<hu>Kávé levél mintás ing</hu>				
+				</description>
+				<image>/images/shop/men/shirt_men_01</image>
+				<price>
+				<huf>1800</huf>
+				</price>			
+				<sizes>S,M,L</sizes>
+				<categories>shirt</categories>
+			</item>
+			<item id="SHIRT-MEN-02">
+				<description>
+				<en>Yellow rhombus patterned shirt</en>
+				<hu>Sárga rombusz mintás ing</hu>				
+				</description>
+				<image>/images/shop/men/shirt_men_02</image>
+				<price>
+				<huf>2300</huf>
+				</price>			
+				<sizes>S,M,L</sizes>
+				<categories>shirt</categories>
+			</item>
+		</shirts>
+		<t-shirts>
+			<item id="SHIRT-T-MEN-01">
+				<description>
+					<en>T-shirt with patterns on the shoulders</en>
+					<hu>Póló vállon futó mintával</hu>				
+				</description>
+				<image>/images/shop/men/short_men_01</image>
+				<price>
+					<huf>1800</huf>
+				</price>
+				<sizes>S,M,L</sizes>
+				<categories>short</categories>
+			</item>
+			<item id="SHIRT-T-MEN-02">
+				<description>
+					<en>V-neck T-shirt with rhombus</en>
+					<hu>V-nyakú póló rombusszal</hu>				
+				</description>
+				<image>/images/shop/men/short_men_02</image>
+				<price>
+					<huf>1800</huf>
+				</price>
+				<sizes>S,M,L</sizes>
+				<categories>short</categories>
+			</item>
+
+		</t-shirts>
+	
+	</mens>
+	
+	<womens>
+		<blouses>
+			<item id="BLOUSE-WOMEN-01">
+				<description>
+					<en>Blue patterned blouse with lace</en>
+					<hu>Kék mintàs blúz csipkével</hu>				
+				</description>
+				<image>/images/shop/women/blouse_women_01</image>
+				<price>
+					<huf>12500</huf>
+				</price>			
+				<sizes>S,M,L</sizes>
+				<categories>shirt</categories>
+				<accessories>
+					<accessory>NECKLACE_1</accessory>
+					<accessory>BLOUSE-WOMEN-03</accessory>
+					<accessory>BLOUSE-WOMEN-04</accessory>
+				</accessories>
+			</item>
+			<item id="BLOUSE-WOMEN-02">
+				<description>
+					<en>Leaf patterned 3/4 sleeved peplum blouse</en>
+					<hu>Levél mintàs 3/4-es ujjú peplum blúz</hu>				
+				</description>
+				<image>/images/shop/women/blouse_women_02</image>
+				<price>
+					<huf>16900</huf>
+				</price>			
+				<sizes>S,M,L</sizes>
+				<categories>shirt</categories>
+			</item>
+			<item id="BLOUSE-WOMEN-03">
+				<description>
+					<en>Bird patterned sleeveless peplum blouse</en>
+					<hu>Madàr mintàs ujjatlan peplum blúz</hu>				
+				</description>
+				<image>/images/shop/women/blouse_women_02</image>
+				<price>
+					<huf>16900</huf>
+				</price>			
+				<sizes>S,M,L</sizes>
+				<categories>shirt</categories>
+			</item>
+			<item id="BLOUSE-WOMEN-04">
+				<description>
+					<en>Pink fluted sleeve blouse</en>
+					<hu>Rózsaszín tölcsér ujjú blúz</hu>				
+				</description>
+				<image>/images/shop/women/blouse_women_02</image>
+				<price>
+					<huf>16900</huf>
+				</price>			
+				<sizes>S,M,L</sizes>
+				<categories>shirt</categories>
+			</item>
+			<item id="BLOUSE-WOMEN-05">
+				<description>
+					<en>Rhombus patterned blouse with tassel</en>
+					<hu>Rombusz mintàs blúz bojttal</hu>				
+				</description>
+				<image>/images/shop/women/blouse_women_02</image>
+				<price>
+					<huf>16900</huf>
+				</price>			
+				<sizes>S,M,L</sizes>
+				<categories>shirt</categories>
+			</item>
+			<item id="BLOUSE-WOMEN-06">
+				<description>
+					<en>Sleeveless peplum blouse with flower pattern</en>
+					<hu>Ujjatlan peplum blúz viràgmintàval</hu>				
+				</description>
+				<image>/images/shop/women/blouse_women_02</image>
+				<price>
+					<huf>16900</huf>
+				</price>			
+				<sizes>S,M,L</sizes>
+				<categories>shirt</categories>
+			</item>
+		</blouses>
+		<dresses en="Dresses" hu="Ruhak">
+			<item id="DRESS-WOMEN-01">
+				<description>
+					<en>Yellow-blue tendril patterned carmen dress</en>
+					<hu>Sárga-kék indamintás carmen ruha</hu>				
+				</description>
+				<image>/images/shop/women/dress_women_01</image>
+				<price>
+					<huf>6500</huf>
+				</price>			
+				<sizes>S,M,L</sizes>
+				<categories>dress</categories>
+			</item>
+			<item id="DRESS-WOMEN-02">
+				<description>
+					<en>Fluted sleeved dress with V-neck</en>
+					<hu>V-nyakú, tölcsérujjas ruha</hu>				
+				</description>
+				<image>/images/shop/women/dress_women_01</image>
+				<price>
+					<huf>6500</huf>
+				</price>			
+				<sizes>S,M,L</sizes>
+				<categories>dress</categories>
+			</item>
+			<item id="DRESS-WOMEN-03">
+				<description>
+					<en>A-lined dress with rhombus pattern</en>
+					<hu>Rombusz mintás A-vonalú ruha</hu>				
+				</description>
+				<image>/images/shop/women/dress_women_01</image>
+				<price>
+					<huf>6500</huf>
+				</price>			
+				<sizes>S,M,L</sizes>
+				<categories>dress</categories>
+			</item>
+			<item id="DRESS-WOMEN-04">
+				<description>
+					<en>Tight-fitting strapped dress</en>
+					<hu>Testhezálló pántos ruha</hu>				
+				</description>
+				<image>/images/shop/women/dress_women_01</image>
+				<price>
+					<huf>6500</huf>
+				</price>			
+				<sizes>S,M,L</sizes>
+				<categories>dress</categories>
+			</item>
+		</dresses>
+		<trousers en="Trousers" hu="Nadrag">
+			<item id="TROUSER-WOMEN-01">
+				<description>
+					<en>Blue-white peacock feathered trousers</en>
+					<hu>Kék-fehér pávatollas nadrág</hu>				
+				</description>
+				<image>/images/shop/women/trouser_women_01</image>
+				<price>
+					<huf>9500</huf>
+				</price>			
+				<sizes>S,M,L</sizes>
+				<categories>shirt</categories>
+			</item>
+			<item id="TROUSER-WOMEN-02">
+				<description>
+					<en>Tie belt pleated trousers with coffee leaf pattern</en>
+					<hu>Megkötős nadrág kávé levél mintával</hu>				
+				</description>
+				<image>/images/shop/women/trouser_women_01</image>
+				<price>
+					<huf>9500</huf>
+				</price>			
+				<sizes>S,M,L</sizes>
+				<categories>shirt</categories>
+			</item>
+			<item id="TROUSER-WOMEN-03">
+				<description>
+					<en>Trousers with bordure</en>
+					<hu>Bordűrös nadrág</hu>				
+				</description>
+				<image>/images/shop/women/trouser_women_01</image>
+				<price>
+					<huf>9500</huf>
+				</price>			
+				<sizes>S,M,L</sizes>
+				<categories>shirt</categories>
+			</item>
+		</trousers>
+		<skirts en="skirts" hu="zognya">
+			<item id="SKIRT-WOMEN-01">
+				<description>
+					<en>Leaf patterned bell skirt</en>
+					<hu>Levél mintàs harangszoknya</hu>				
+				</description>
+				<image>/images/shop/women/trouser_women_01</image>
+				<price>
+					<huf>9500</huf>
+				</price>			
+				<sizes>S,M,L</sizes>
+				<categories>shirt</categories>
+			</item>
+			<item id="SKIRT-WOMEN-02">
+				<description>
+					<en>Peacock feathered pattern slitted pencil skirt</en>
+					<hu>Pàvatoll mintàs ceruzaszoknya</hu>				
+				</description>
+				<image>/images/shop/women/trouser_women_01</image>
+				<price>
+					<huf>9500</huf>
+				</price>			
+				<sizes>S,M,L</sizes>
+				<categories>shirt</categories>
+			</item>
+			<item id="SKIRT-WOMEN-03">
+				<description>
+					<en>Yellow-blue tendril patterned mermaid skirt</en>
+					<hu>Sàrga-kék indamintás sellő szoknya</hu>				
+				</description>
+				<image>/images/shop/women/trouser_women_01</image>
+				<price>
+					<huf>9500</huf>
+				</price>			
+				<sizes>S,M,L</sizes>
+				<categories>shirt</categories>
+			</item>
+			<item id="SKIRT-WOMEN-04">
+				<description>
+					<en>A-lined colourful skirt</en>
+					<hu>A-vonalú színes szoknya</hu>				
+				</description>
+				<image>/images/shop/women/trouser_women_01</image>
+				<price>
+					<huf>9500</huf>
+				</price>			
+				<sizes>S,M,L</sizes>
+				<categories>shirt</categories>
+			</item>
+			<item id="SKIRT-WOMEN-05">
+				<description>
+					<en>Denim skirt african styled</en>
+					<hu>Farmer szoknya afrikai módra</hu>				
+				</description>
+				<image>/images/shop/women/trouser_women_01</image>
+				<price>
+					<huf>9500</huf>
+				</price>			
+				<sizes>S,M,L</sizes>
+				<categories>shirt</categories>
+			</item>
+		</skirts>
+		<jumpsuits en="Jumpsuit" hu="Overrall">
+			<item id="JUMPSUIT-WOMEN-01">
+				<description>
+					<en>Tie belt pleated red-beige jumpsuit</en>
+					<hu>Átlapolt, megkötős piros-bézs overál</hu>				
+				</description>
+				<image>/images/shop/women/blouse_women_01</image>
+				<price>
+					<huf>12500</huf>
+				</price>			
+				<sizes>S,M,L</sizes>
+				<categories>shirt</categories>
+			</item>
+			<item id="JUMPSUIT-WOMEN-02">
+				<description>
+					<en>Yellow-blue rhombus patterned jumpsuit</en>
+					<hu>Sárga-kék rombusz mintás overál</hu>				
+				</description>
+				<image>/images/shop/women/blouse_women_01</image>
+				<price>
+					<huf>12500</huf>
+				</price>			
+				<sizes>S,M,L</sizes>
+				<categories>shirt</categories>
+			</item>
+		</jumpsuits>
+	</womens>
+	<accessories>
+		<item id="NECKLACE_1">
+			<description>
+					<en>Beautiful Necklace</en>
+					<hu>Beautiful necklace</hu>				
+				</description>
+				<image>/images/shop/accessories/necklaces/necklace_1</image>
+				<price>
+					<huf>12500</huf>
+				</price>			
+				<sizes>S,M,L</sizes>
+				<categories>shirt</categories>
+		</item>
+	
+	</accessories>
+	
+
+
+</clothes>

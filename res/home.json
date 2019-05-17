@@ -1,0 +1,19 @@
+{
+	"en":
+			[
+				{"item":"BLOUSE-WOMEN-01","label":"Blouses","link":"Categories.html?w_blouses"},
+				{"item":"BLOUSE-WOMEN-02","label":"Dresses","link":"Categories.html?w_dresses"},
+				{"item":"SHIRT-MEN-01","label":"Shirts","link":"Categories.html?m_shirts"},
+				{"item":"BLOUSE-WOMEN-03","label":"Skirts","link":"Categories.html?w_skirts"}
+			]
+		,
+	"hu":
+			[
+				{"item":"BLOUSE-WOMEN-01","label":"Blúzok","link":"Categories.html?w_blouses"},
+				{"item":"BLOUSE-WOMEN-02","label":"Ruhák","link":"Categories.html?w_dresses"},
+				{"item":"SHIRT-MEN-01","label":"Ingek","link":"Categories.html?m_shirts"},
+				{"item":"BLOUSE-WOMEN-03","label":"Szoknyák","link":"Categories.html?w_skirts"}
+			]	
+	
+	
+}
