@@ -28,7 +28,7 @@
  {
    "Name": "Mammut 1. Príma",
    "City": "Budapest",
-   "Address": "1024 Budapest Löv?ház utca 12.",
+   "Address": "1024 Budapest Lövőház utca 12.",
    "Monday": " 6:00–20:00",
    "Tuesday": " 6:00–20:00",
    "Wednesday": " 6:00–20:00",
@@ -36,7 +36,7 @@
    "Friday": " 6:00–20:00",
    "Saturday": " 6:00–20:00",
    "Sunday": " 6:00–20:00",
-   "Description": "Mammut I. Fény utcai piac alatt lév?, Príma üzlet új bejáratánál. Az automatát hétköznaponként 8:45-9:15,19:00-20:00 között ürítjük és töltjük"
+   "Description": "Mammut I. Fény utcai piac alatt lévő, Príma üzlet új bejáratánál. Az automatát hétköznaponként 8:45-9:15,19:00-20:00 között ürítjük és töltjük"
  },
  {
    "Name": "Budagyöngye",
@@ -62,7 +62,7 @@
    "Friday": " 08:00 - 19:00",
    "Saturday": " 08:00 - 19:00",
    "Sunday": " 10:00 - 15:00",
-   "Description": "II. emeleten található, a lifttel szemben (Kormányablaknál). Megközelítés hétf?t?l-szombatig a f?bejáraton és a parkoló fel?li bejáratokon keresztül. Az automatát hétköznaponként 8:15-8:45,20:00-21:00 között ürítjük és töltjük"
+   "Description": "II. emeleten található, a lifttel szemben (Kormányablaknál). Megközelítés hétfőtől-szombatig a főbejáraton és a parkoló felőli bejáratokon keresztül. Az automatát hétköznaponként 8:15-8:45,20:00-21:00 között ürítjük és töltjük"
  },
  {
    "Name": "Eurocenter",
@@ -75,7 +75,7 @@
    "Friday": " 7:00-22:00",
    "Saturday": " 7:00-22:00",
    "Sunday": " 8:30-19:30",
-   "Description": "Kívülr?l: Fels? parkolóból lehet bemenni, ajtó mellett közvetlenül, Belülr?l: 1.em. Vidámszínpad jegyirodával szemben. Alphazoo kirakata el?tt. Az automatát hétköznaponként 9:45-10:15,20:45-21:15 között ürítjük és töltjük"
+   "Description": "Kívülről: Felső parkolóból lehet bemenni, ajtó mellett közvetlenül, Belülről: 1.em. Vidámszínpad jegyirodával szemben. Alphazoo kirakata előtt. Az automatát hétköznaponként 9:45-10:15,20:45-21:15 között ürítjük és töltjük"
  },
  {
    "Name": "Auchan Aquincum",
@@ -88,7 +88,7 @@
    "Friday": " 5:00–22:00",
    "Saturday": " 5:00–22:00",
    "Sunday": " 8:00-20:00",
-   "Description": "Vev?szolgálati pult mellett. Az automatát hétköznaponként 10:15-10:45,20:30-21:00 között ürítjük és töltjük"
+   "Description": "Vevőszolgálati pult mellett. Az automatát hétköznaponként 10:15-10:45,20:30-21:00 között ürítjük és töltjük"
  },
  {
    "Name": "Westend",
@@ -114,7 +114,7 @@
    "Friday": " 7:00-22:00",
    "Saturday": " 7:00-22:00",
    "Sunday": " 8:00-20:00",
-   "Description": "A Corvin Pláza közepén, a mosdókhoz vezet? folyosó mellett, a Corvin Office aulájában, a földszinten. Az automatát hétköznaponként 6:30-7:30,17:00-18:00 között ürítjük és töltjük"
+   "Description": "A Corvin Pláza közepén, a mosdókhoz vezető folyosó mellett, a Corvin Office aulájában, a földszinten. Az automatát hétköznaponként 6:30-7:30,17:00-18:00 között ürítjük és töltjük"
  },
  {
    "Name": "Europeum",
@@ -127,7 +127,7 @@
    "Friday": " 9:00-20:00",
    "Saturday": " 9:00-20:00",
    "Sunday": "9:00-18:00",
-   "Description": "Els? emeleten a Deichmanntól balra nyíló folyosó végén. Az automatát hétköznaponként 6:45-7:45, 17:30-18:00 között ürítjük és töltjük"
+   "Description": "Első emeleten a Deichmanntól balra nyíló folyosó végén. Az automatát hétköznaponként 6:45-7:45, 17:30-18:00 között ürítjük és töltjük"
  },
  {
    "Name": "Lurdy",
@@ -153,10 +153,10 @@
    "Friday": " 6:50-22:00",
    "Saturday": " 6:50-22:00",
    "Sunday": " 7:50-20:00",
-   "Description": "A lakótelep fel?li bejáratnál, a Starbucks mellett. Az automatát hétköznaponként 7:45-8:45,19:00-20:00 között ürítjük és töltjük"
+   "Description": "A lakótelep felőli bejáratnál, a Starbucks mellett. Az automatát hétköznaponként 7:45-8:45,19:00-20:00 között ürítjük és töltjük"
  },
  {
-   "Name": "Family Center K?bánya",
+   "Name": "Family Center Kőbánya",
    "City": "Budapest",
    "Address": "1108 Budapest Sibrik Miklós út 30",
    "Monday": " 6:00–22:00",
@@ -192,7 +192,7 @@
    "Friday": " 7:00-22:00",
    "Saturday": " 7:00-22:00",
    "Sunday": " 8:00-20:00",
-   "Description": "A -3. parkoló szinten (INTERSPAR alatt) a mozgójárda mellett (-2 mozgólépcs?). Az automatát hétköznaponként 6:45-7:45,17:00-18:00 között ürítjük és töltjük"
+   "Description": "A -3. parkoló szinten (INTERSPAR alatt) a mozgójárda mellett (-2 mozgólépcső). Az automatát hétköznaponként 6:45-7:45,17:00-18:00 között ürítjük és töltjük"
  },
  {
    "Name": "MOM Park",
@@ -218,7 +218,7 @@
    "Friday": " 10:00-22:45",
    "Saturday": " 9:30-22:45",
    "Sunday": " 9:30-20:45",
-   "Description": "A -1 szinten a metróhoz vezet? folyosón. Az automatát hétköznaponként 8:00-9:00,18:30-19:00 között ürítjük és töltjük"
+   "Description": "A -1 szinten a metróhoz vezető folyosón. Az automatát hétköznaponként 8:00-9:00,18:30-19:00 között ürítjük és töltjük"
  },
  {
    "Name": "Bp. 13. ker. Tesco Váci út",
@@ -244,7 +244,7 @@
    "Friday": " 9:00 - 20:00",
    "Saturday": " 9:00-18:00",
    "Sunday": " 9:00-18:00",
-   "Description": "Az emeleti galérián, melyet a CBA Príma üzlet fel?li lifttel és lépcs?n keresztül lehet megközelíteni. Az automatát hétköznaponként 7:00-8:00, 18:00-18:30 között ürítjük és töltjük."
+   "Description": "Az emeleti galérián, melyet a CBA Príma üzlet felőli lifttel és lépcsőn keresztül lehet megközelíteni. Az automatát hétköznaponként 7:00-8:00, 18:00-18:30 között ürítjük és töltjük."
  },
  {
    "Name": "Bp. 14. ker. Tesco Fogarasi út",
@@ -270,7 +270,7 @@
    "Friday": " 9:00-23:00",
    "Saturday": " 9:00-23:00",
    "Sunday": " 9:00-23:00",
-   "Description": "A jégpálya feletti galérián, a 6-os bejárat melletti lépcs?nél. Az edz?terem mellett. Az automatát hétköznaponként 9:00-10:00,20:00-21:00 között ürítjük és töltjük"
+   "Description": "A jégpálya feletti galérián, a 6-os bejárat melletti lépcsőnél. Az edzőterem mellett. Az automatát hétköznaponként 9:00-10:00,20:00-21:00 között ürítjük és töltjük"
  },
  {
    "Name": "Bp. 17. ker. Tesco Pesti út",
@@ -286,9 +286,9 @@
    "Description": "Bal oldali bejárat szélfogóban. Az automatát hétköznaponként 13:30-14:30,19:30-20:00 között ürítjük és töltjük"
  },
  {
-   "Name": "L?rinc Center",
+   "Name": "Lőrinc Center",
    "City": "Budapest",
-   "Address": "1182 Budapest, Üll?i út 661.",
+   "Address": "1182 Budapest, Üllői út 661.",
    "Monday": " 07:00 - 22:00",
    "Tuesday": " 07:00 - 22:00",
    "Wednesday": " 07:00 - 22:00",
@@ -301,7 +301,7 @@
  {
    "Name": "Shopmark",
    "City": "Budapest",
-   "Address": "1191 Budapest, Üll?i út 201.",
+   "Address": "1191 Budapest, Üllői út 201.",
    "Monday": "09:00-20:00",
    "Tuesday": "09:00-20:00",
    "Wednesday": "09:00-20:00",
@@ -309,7 +309,7 @@
    "Friday": "09:00-20:00",
    "Saturday": "09:00-20:00",
    "Sunday": "09:00-18:00",
-   "Description": "Csomagautomatánk az els? emeleten, az Unicredit és Takko üzletek között, hátul a liftnél található. Az automatát hétköznaponként 9:45-10:15,20:15-20:45 között ürítjük és töltjük."
+   "Description": "Csomagautomatánk az első emeleten, az Unicredit és Takko üzletek között, hátul a liftnél található. Az automatát hétköznaponként 9:45-10:15,20:15-20:45 között ürítjük és töltjük."
  },
  {
    "Name": "Bp. 20. ker. Interspar Széchenyi utca",
@@ -335,7 +335,7 @@
    "Friday": " 7:00-21:00",
    "Saturday": " 7:00-21:00",
    "Sunday": " 7:00-21:00",
-   "Description": "Az els? emeleten, a mozgólépcs?t?l balra. Az automatát hétköznaponként 9:00-9:00,16:00-16:30 között ürítjük és töltjük"
+   "Description": "Az első emeleten, a mozgólépcsőtől balra. Az automatát hétköznaponként 9:00-9:00,16:00-16:30 között ürítjük és töltjük"
  },
  {
    "Name": "Campona",
@@ -366,7 +366,7 @@
  {
    "Name": "Szentendre Interspar",
    "City": "Szentendre",
-   "Address": "2000 Szentendre, Dobogók?i út 4.",
+   "Address": "2000 Szentendre, Dobogókői út 4.",
    "Monday": " 06:00 - 21:00",
    "Tuesday": " 06:00 - 21:00",
    "Wednesday": " 06:00 - 21:00",
@@ -426,7 +426,7 @@
    "Friday": " 0:00 - 24:00",
    "Saturday": " 0:00 - 24:00",
    "Sunday": " 0:00 - 24:00",
-   "Description": "Fressnapf üzlet el?tt. Az automatát minden hétköznap 13:00 és 14:00 között ürítjük és töltjük"
+   "Description": "Fressnapf üzlet előtt. Az automatát minden hétköznap 13:00 és 14:00 között ürítjük és töltjük"
  },
  {
    "Name": "Auchan Solymár",
@@ -455,9 +455,9 @@
    "Description": "Bejárati szélfogóban.. Az automatát minden hétköznap 13:30 és 14:30 között ürítjük és töltjük."
  },
  {
-   "Name": "Tesco Gödöll?",
-   "City": "Gödöll?",
-   "Address": "2100 Gödöll? Thegze Lajos utca",
+   "Name": "Tesco Gödöllő",
+   "City": "Gödöllő",
+   "Address": "2100 Gödöllő Thegze Lajos utca",
    "Monday": " 06:00-22:00",
    "Tuesday": " 06:00-22:00",
    "Wednesday": " 06:00-22:00",
@@ -478,7 +478,7 @@
    "Friday": " 6:00–22:00",
    "Saturday": " 6:00–22:00",
    "Sunday": " 8:00-20:00",
-   "Description": "A CCC Cip?vel szembeni falnál az ATM-ek mellett. Az automatát minden hétköznap 11:00 és 12:00 között ürítjük és töltjük"
+   "Description": "A CCC Cipővel szembeni falnál az ATM-ek mellett. Az automatát minden hétköznap 11:00 és 12:00 között ürítjük és töltjük"
  },
  {
    "Name": "Tesco Dunakeszi-Fót",
@@ -504,12 +504,12 @@
    "Friday": " 9:00–20:00",
    "Saturday": " 9:00–20:00",
    "Sunday": " 9:00-19:00",
-   "Description": "A mosdókhoz vezet? folyosón. Az automatát minden hétköznap 14:00 és 15:00 között ürítjük és töltjük"
+   "Description": "A mosdókhoz vezető folyosón. Az automatát minden hétköznap 14:00 és 15:00 között ürítjük és töltjük"
  },
  {
    "Name": "Tesco Vecsés",
    "City": "Vecsés",
-   "Address": "2220 Vecsés F? út 246",
+   "Address": "2220 Vecsés Fő út 246",
    "Monday": " 5:00-22:00",
    "Tuesday": " 5:00-22:00",
    "Wednesday": " 5:00-22:00",
@@ -530,7 +530,7 @@
    "Friday": " 6:00–22:00",
    "Saturday": " 6:00–22:00",
    "Sunday": " 8:00-20:00",
-   "Description": "A vev?szolgálat melletti folyosón (a Takko mögött). Az automatát minden hétköznap 14:30 és 15:30 között ürítjük és töltjük"
+   "Description": "A vevőszolgálat melletti folyosón (a Takko mögött). Az automatát minden hétköznap 14:30 és 15:30 között ürítjük és töltjük"
  },
  {
    "Name": "Auchan Szigetszentmiklós",
@@ -543,7 +543,7 @@
    "Friday": " 6:00–22:00",
    "Saturday": " 6:00–22:00",
    "Sunday": " 8:00-20:00",
-   "Description": "A mosdókhoz vezet? folyosón. Az automatát minden hétköznap 8:30 és 9:30 között ürítjük és töltjük"
+   "Description": "A mosdókhoz vezető folyosón. Az automatát minden hétköznap 8:30 és 9:30 között ürítjük és töltjük"
  },
  {
    "Name": "Dunaharaszti Tesco",
@@ -613,7 +613,7 @@
  {
    "Name": "Interspar Tatabánya",
    "City": "Tatabánya",
-   "Address": "2800 Tatabánya Gy?ri út 25.",
+   "Address": "2800 Tatabánya Győri út 25.",
    "Monday": " 6:00-22:00",
    "Tuesday": " 6:00-22:00",
    "Wednesday": " 6:00-22:00",
@@ -621,7 +621,7 @@
    "Friday": " 6:00-22:00",
    "Saturday": " 6:00-22:00",
    "Sunday": " 9:00-18:00",
-   "Description": "A f?bejáratnál a lift melletti részen. Az automatát minden hétköznap 13:00 és 13:30 között ürítjük és töltjük"
+   "Description": "A főbejáratnál a lift melletti részen. Az automatát minden hétköznap 13:00 és 13:30 között ürítjük és töltjük"
  },
  {
    "Name": "Tatabánya Tesco",
@@ -673,7 +673,7 @@
    "Friday": " 6:00-22:00",
    "Saturday": " 6:00-22:00",
    "Sunday": " 7:00-20:00",
-   "Description": "F?bejáratnál az el?térben, a szélfogóban. Az automatát minden hétköznap 9:45 és 10:30 között ürítjük és töltjük"
+   "Description": "Főbejáratnál az előtérben, a szélfogóban. Az automatát minden hétköznap 9:45 és 10:30 között ürítjük és töltjük"
  },
  {
    "Name": "Agria Park",
@@ -712,7 +712,7 @@
    "Friday": " 8:00-23:00",
    "Saturday": " 8:00-23:00",
    "Sunday": " 9:00-22:00",
-   "Description": "Els? emeleten, a mozi mögött, a C parkolóhoz vezet? folyosó végén a Lengyel Shoppal szemben. (Kocsival: C parkoló teteje). Az automatát minden hétköznap 12:45 és 13:15 között ürítjük és töltjük"
+   "Description": "Első emeleten, a mozi mögött, a C parkolóhoz vezető folyosó végén a Lengyel Shoppal szemben. (Kocsival: C parkoló teteje). Az automatát minden hétköznap 12:45 és 13:15 között ürítjük és töltjük"
  },
  {
    "Name": "Miskolc Szinva Park",
@@ -725,7 +725,7 @@
    "Friday": " 6:00-24:00",
    "Saturday": " 6:00-01:00",
    "Sunday": " 8:00-23:00",
-   "Description": "A Média Markthoz vezet? folyosó bejáratának a bal oldalán. Az automatát minden hétköznap 12:30 és 13:00 között ürítjük és töltjük"
+   "Description": "A Média Markthoz vezető folyosó bejáratának a bal oldalán. Az automatát minden hétköznap 12:30 és 13:00 között ürítjük és töltjük"
  },
  {
    "Name": "Miskolc Tesco Szentpéteri kapu",
@@ -790,7 +790,7 @@
    "Friday": " 07:00 - 21:00",
    "Saturday": " 07:00 - 21:00",
    "Sunday": " 08:00 - 19:00",
-   "Description": "A Malompark Interspar el?tti folyosón a f?bejárattól távolodva, a hátsó kijárati folyosón, az üvegvisszaváltó gépnél találod meg az automantánk. Az automatát minden hétköznap 7:15 és 7:45 között ürítjük, ill. 13:30 és 14:30 között töltjük."
+   "Description": "A Malompark Interspar előtti folyosón a főbejárattól távolodva, a hátsó kijárati folyosón, az üvegvisszaváltó gépnél találod meg az automantánk. Az automatát minden hétköznap 7:15 és 7:45 között ürítjük, ill. 13:30 és 14:30 között töltjük."
  },
  {
    "Name": "Korzó Nyíregyháza",
@@ -881,7 +881,7 @@
    "Friday": " 7:00-02:00",
    "Saturday": " 7:00-02:00",
    "Sunday": " 7:00 - 0:00",
-   "Description": "Az els? emeleten a parkolóházi átjáróban. Az automatát minden hétköznap 9:30 és 10:30 között ürítjük és töltjük"
+   "Description": "Az első emeleten a parkolóházi átjáróban. Az automatát minden hétköznap 9:30 és 10:30 között ürítjük és töltjük"
  },
  {
    "Name": "Orosháza Tesco",
@@ -959,12 +959,12 @@
    "Friday": " 06:00-22:00",
    "Saturday": " 06:00-22:00",
    "Sunday": " 07:00-20:00",
-   "Description": "Az okmányiroda fel?li bejárat szélfogójában. Az automatát minden hétköznap 12:30 és 13:30 között ürítjük és töltjük"
+   "Description": "Az okmányiroda felőli bejárat szélfogójában. Az automatát minden hétköznap 12:30 és 13:30 között ürítjük és töltjük"
  },
  {
    "Name": "Szeged Nova",
    "City": "Szeged",
-   "Address": "6726 Szeged, Sz?regi út 80.",
+   "Address": "6726 Szeged, Szőregi út 80.",
    "Monday": " 07:00 - 21:00",
    "Tuesday": " 07:00 - 21:00",
    "Wednesday": " 07:00 - 21:00",
@@ -972,7 +972,7 @@
    "Friday": " 07:00 - 21:00",
    "Saturday": " 07:00 - 21:00",
    "Sunday": " 08:00 - 16:00",
-   "Description": "parkolószinten a mozgólépcs? mellett. Az automatát minden hétköznap 12:00 és 13:00 között ürítjük és töltjük."
+   "Description": "parkolószinten a mozgólépcső mellett. Az automatát minden hétköznap 12:00 és 13:00 között ürítjük és töltjük."
  },
  {
    "Name": "Árkád Szeged",
@@ -1001,9 +1001,9 @@
    "Description": "Bejárati szélfogóban."
  },
  {
-   "Name": "Interspar Hódmez?vásárhely",
-   "City": "Hódmez?vásárhely",
-   "Address": "6800 Hódmez?vásárhely Kaszap u 20",
+   "Name": "Interspar Hódmezővásárhely",
+   "City": "Hódmezővásárhely",
+   "Address": "6800 Hódmezővásárhely Kaszap u 20",
    "Monday": " 6:00-21:00",
    "Tuesday": " 6:00-21:00",
    "Wednesday": " 6:00-21:00",
@@ -1063,7 +1063,7 @@
    "Friday": " 7:00-21:00",
    "Saturday": " 7:00-21:00",
    "Sunday": " 8:00-19:00",
-   "Description": "A mosdókhoz vezet? folyosón. Az automatát minden hétköznap 10:45 és 11:30 között ürítjük és töltjük"
+   "Description": "A mosdókhoz vezető folyosón. Az automatát minden hétköznap 10:45 és 11:30 között ürítjük és töltjük"
  },
  {
    "Name": "Pécs Tesco Budai Vám",
@@ -1154,12 +1154,12 @@
    "Friday": " 6:00-22:00",
    "Saturday": " 6:00-22:00",
    "Sunday": " 8:00-19:00",
-   "Description": "A vev?szolgálati pulttal szemben. Az automatát minden hétköznap 9:45 és 10:15 között ürítjük és töltjük"
+   "Description": "A vevőszolgálati pulttal szemben. Az automatát minden hétköznap 9:45 és 10:15 között ürítjük és töltjük"
  },
  {
    "Name": "Veszprém Tesco",
    "City": "Veszprém",
-   "Address": "8200 Veszprém, Küls?-Kádártai út 3.",
+   "Address": "8200 Veszprém, Külső-Kádártai út 3.",
    "Monday": " 06:00 - 22:00",
    "Tuesday": " 06:00 - 22:00",
    "Wednesday": " 06:00 - 22:00",
@@ -1193,7 +1193,7 @@
    "Friday": " 06:00 - 22:00",
    "Saturday": " 06:00 - 22:00",
    "Sunday": " 07:00 - 20:00",
-   "Description": "Bejárat után balra lév? folyosón haladva, bal kéz felé található a beugróban.. Az automatát minden hétköznap 14:00 és 15:00 között ürítjük és töltjük."
+   "Description": "Bejárat után balra lévő folyosón haladva, bal kéz felé található a beugróban.. Az automatát minden hétköznap 14:00 és 15:00 között ürítjük és töltjük."
  },
  {
    "Name": "Interspar Nagykanizsa",
@@ -1222,9 +1222,9 @@
    "Description": "A szélfogóban. Az automatát minden hétköznap 12:15 és 12:45 között ürítjük és töltjük"
  },
  {
-   "Name": "Tesco Gy?r",
-   "City": "Gy?r",
-   "Address": "9012 Gy?r Királyszék  út 33",
+   "Name": "Tesco Győr",
+   "City": "Győr",
+   "Address": "9012 Győr Királyszék  út 33",
    "Monday": " 00:00 - 24:00",
    "Tuesday": " 00:00 - 24:00",
    "Wednesday": " 00:00 - 24:00",
@@ -1232,12 +1232,12 @@
    "Friday": " 00:00 - 24:00",
    "Saturday": " 00:00 - 24:00",
    "Sunday": " 00:00 - 24:00",
-   "Description": "A vev?szolgálati pult mellett. Az automatát minden hétköznap 9:00 és 10:00 között ürítjük és töltjük"
+   "Description": "A vevőszolgálati pult mellett. Az automatát minden hétköznap 9:00 és 10:00 között ürítjük és töltjük"
  },
  {
-   "Name": "Gy?r Interspar",
-   "City": "Gy?r",
-   "Address": "9023 Gy?r, Fehérvári út 3.",
+   "Name": "Győr Interspar",
+   "City": "Győr",
+   "Address": "9023 Győr, Fehérvári út 3.",
    "Monday": " 06:00 - 22:00",
    "Tuesday": " 06:00 - 22:00",
    "Wednesday": " 06:00 - 22:00",
@@ -1245,12 +1245,12 @@
    "Friday": " 06:00 - 22:00",
    "Saturday": " 06:00 - 22:00",
    "Sunday": " 08:00 - 19:00",
-   "Description": "LIDL fel?li bejáraton (hátsó bejárat) keresztül a Herbaház és a Játszóház közötti folyosórészen. Az automatát minden hétköznap 08:00 és 08:30 között ürítjük és töltjük."
+   "Description": "LIDL felőli bejáraton (hátsó bejárat) keresztül a Herbaház és a Játszóház közötti folyosórészen. Az automatát minden hétköznap 08:00 és 08:30 között ürítjük és töltjük."
  },
  {
-   "Name": "Tesco Mini Gy?r",
-   "City": "Gy?r",
-   "Address": "9024 Gy?r Mécs László utca 4.",
+   "Name": "Tesco Mini Győr",
+   "City": "Győr",
+   "Address": "9024 Győr Mécs László utca 4.",
    "Monday": " 6:00 - 22:00",
    "Tuesday": " 6:00 - 22:00",
    "Wednesday": " 6:00 - 22:00",
@@ -1261,9 +1261,9 @@
    "Description": "A szélfogóban található az automata. Az automatát minden hétköznap 08:45 és 09:45 között ürítjük és töltjük."
  },
  {
-   "Name": "Árkád Gy?r",
-   "City": "Gy?r",
-   "Address": "9027 Gy?r Budai út 1",
+   "Name": "Árkád Győr",
+   "City": "Győr",
+   "Address": "9027 Győr Budai út 1",
    "Monday": " 8:00-21:00",
    "Tuesday": " 8:00-21:00",
    "Wednesday": " 8:00-21:00",

@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.4/angular.min.js"></script>
-<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular-animate.js"></script>
 
 <link rel="stylesheet" href="/css/normalize.css"/>
 <link rel="stylesheet" href="/css/common.css"/>
@@ -19,39 +19,80 @@
 <script src="/scripts/common.js" ></script>
 <script src="/scripts/shop.js" ></script>
 <script src="/scripts/checkout.js" ></script>
+<script src="/scripts/directives/directives.js" ></script>
 
 </head> 
 
 <body>
 
 <div id="header_placeholder"> </div>
-<div id="product_shelf_placeholder" class="w3-container w3-margin-top" ng-app="myApp" ng-controller="Checkout" ng-init="agreed=false">
+<div id="product_shelf_placeholder" class="w3-container w3-margin-top" ng-app="myApp" ng-controller="Checkout" 
+		ng-init="agreed=false;tempAddr={};showDialog=false;showAddr=true">
 	
 
 	<div class="w3-card w3-mobile" style="width:70%">
 	<div class="w3-large w3-center" >Contact Details</div>
-	<form name="form1" novalidate class="entry">
-		<input type="text" class="w3-input" name="name" ng-model="user.firstName" required placeholder="Name"  autocomplete="name"/>
+	<form name="form1" novalidate class="entry w3-padding">
+		<input type="text" class="w3-input" name="name" ng-model="user.firstName" required placeholder=""  autocomplete="name"/>
+		<label>Name</label>
 		<span class="w3-text-red" ng-show="form1.name.$touched && form1.name.$invalid">Name is required</span>
 		
-		<input type="email" class="w3-input" name="email" ng-model="user.email" placeholder="Email" required  autocomplete="email"/>
+		<input type="email" class="w3-input" name="email" ng-model="user.email" placeholder="" required  autocomplete="email"/>
+		<label>Email</label>
 		<span class="w3-text-red" ng-show="form1.email.$touched && form1.email.$invalid">Email is required</span>
 		
-		<input type="tel" class="w3-input" name="number" ng-model="user.number" placeholder="Phone Number" autocomplete="tel" required /><br/>
+		<input type="tel" class="w3-input" name="number" ng-model="user.number" placeholder="" autocomplete="tel" required />
+		<label>Phone Number</label>
 		<span class="w3-text-red" ng-show="form1.number.$touched && form1.number.$invalid">Phone number is required</span>
 	</form>
 	</div>
-	<div class="w3-card w3-margin-top w3-mobile" style="width:70%">
+	<div class="w3-margin-top w3-padding w3-card w3-mobile" style="width:70%">
+		<h4 ng-click="showAddr=true"> Select a fox post address </h4>
+		<div ng-show="showAddr" class="animate-height">
+			<input type="text" ng-model="search" class="w3-input w3-border w3-border-green w3-margin-bottom" placeholder="Enter a location e.g. Budapest"/>
+			<div style="overflow-y:auto;overflow-x:hidden;height:40vh">
+				<ul class="w3-ul" >
+					<li class="w3-padding w3-hover-black w3-small" ng-click="$parent.showDialog=true;$parent.tempAddr=place" ng-repeat="place in places | accentsfilter:search">{{ place.Name}}<br>{{place.Address}}<br>{{place.City}}</li>
+				</ul>
+			</div>
+		</div>
+	
+	</div>
+	<div class="w3-modal" style="display:block" ng-show="showDialog==true">
+		<div class="w3-modal-content w3-container">
+			<b>{{tempAddr.Name}}</b><br><br>
+			{{tempAddr.Address}}<br>
+			{{tempAddr.City}}<br><br>
+			Monday: {{tempAddr.Monday}}<br>
+			Tuesday:{{tempAddr.Tuesday}}<br>
+			Wednesday: {{tempAddr.Wednesday}}<br>
+			Thursday: {{tempAddr.Thursday}}<br>
+			Friday: {{tempAddr.Friday}}<br>
+			Saturday: {{tempAddr.Saturday}}<br>
+			Sunday: {{tempAddr.Sunday}}<br><br>
+			{{tempAddr.Description}}<br>
+			<button class="w3-button w3-green w3-margin-top w3-margin-bottom" ng-click="showDialog=false;foxpostChosenLoc(tempAddr)">Choose this location</button>
+			
+		</div>
+	
+	</div>
+	
+	<div ng-show="!showAddr" class="animate-address w3-card w3-margin-top w3-mobile" style="width:70%">
 		<div class="w3-large w3-center" >Shipping Details</div>
-		<form  name="form" novalidate class="entry">
-			<input type="text" class="w3-input" name="addr" ng-model="user.address1" required placeholder="Address"  autocomplete="address-line1" />
+		<form  name="form" novalidate class="entry w3-padding">
+			<input type="text" class="w3-input" name="addr" ng-model="user.address1" required placeholder=""  autocomplete="address-line1" />
+			<label> Address</label>
 			<span class="w3-text-red" ng-show="form.addr.$touched && form.addr.$invalid">Address is required</span>
 			
-			<input type="text" class="w3-input" ng-model="user.address2" placeholder="Address 2 (optional)"  autocomplete="address-line2"/>
-			<input type="text" class="w3-input" name="city" ng-model="user.city" required placeholder="City/Town"/>
+			<input type="text" class="w3-input" ng-model="user.address2" placeholder=""  autocomplete="address-line2"/>
+			<label>Address 2 (optional)</label>
+			
+			<input type="text" class="w3-input" name="city" ng-model="user.city" required placeholder=""/>
+			<label>City/Town</label>
 			<span class="w3-text-red" ng-show="form.city.$touched && form.city.$invalid">City/Town is required</span>
 			
-			<input type="text" class="w3-input" name="pcode"ng-model="user.postCode" required placeholder="Post Code"  autocomplete="postal-code"/>
+			<input type="text" class="w3-input" name="pcode"ng-model="user.postCode" required placeholder=""  autocomplete="postal-code"/>
+			<label>Post Code</label>
 			<span class="w3-text-red" ng-show="form.pcode.$touched && form.pcode.$invalid">PostCode is required</span>
 			
 			
