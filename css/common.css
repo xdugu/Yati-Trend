@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Parisienne');
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
-@import url('https://fonts.googleapis.com/css?family=El+Messiri');
 
 body {
   width: 100%;
@@ -11,7 +10,7 @@ body {
 }
 html
 {
-	overflow: scroll;
+	overflow-y: scroll;
 }
 
 h1, h2, h5 {
@@ -173,16 +172,14 @@ ul#mobile-submenu ul li:hover
 	transition: opacity 3s linear;
 }
 
-/*#shop_list ul:nth-of-type(even)/* Every second item to have margin left */
-/*{
-	margin-left: 3vw;
+.w3-main-theme{
+	background-color:  var(--main-theme)!important;
+	color: white;
 }
 
-#shop_list ul:nth-of-type(odd)/* Every second item to have margin left */
-/*{
-	clear: both;
-	margin-left: 5vw;
-}*/
+.hoverable{
+	cursor:pointer;
+}
 
 
 .price-total{
@@ -192,7 +189,7 @@ ul#mobile-submenu ul li:hover
 
 /*slick*/
  .slick-prev:before, .slick-next:before{
-    color:Goldenrod;
+    color: var(--main-theme);
 }
 	
 .slick-prev {
@@ -218,10 +215,7 @@ ul#mobile-submenu ul li:hover
 .bold{
 	font-weight: bold;
 }
-.discount-info{
-	font-family:' El Messiri', calibri;
-	
-}
+
 @media only screen and (min-width: 601px) {
   #register-button{
 	 margin-left: 1vw;

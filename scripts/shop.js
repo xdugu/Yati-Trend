@@ -8,186 +8,94 @@ Storage.prototype.getObj = function(key) {
     return JSON.parse(this.getItem(key))
 }
 
-order={ items:[], 
-		subTotal:0, 
-		delivery:0,
-		total:0,
-		contact:{firstName:"",lastName:"",email:"",address1:"",address2:"",city:"",country:"default",number:"",postCode:"", countryCode:""}
-	
-};
+var currentVersion=5;//add dog's name variable
 
-
-//Called when customer wants to add an item into the basket
-function Shop_addToBasket(id, size, quantity)
-{
-		let myOrder=localStorage.getObj("order");
-		let myBasket = myOrder.items;
-		
-		idMatched=false;
-		if(myBasket.length<=0)
-			myBasket.push({"id":id+size,"size":size,"quantity":quantity,"price":0,thumbnail:""});
-		else
-		{ 
-			myBasket.forEach(function(item, index, array) {
-			if(item.id==id+size)
-			{
-				item.quantity+=quantity;
-				idMatched=true;
-			}
-		});
-			if(idMatched==false)//if we currently don't have the id of the item
-				 myBasket.push({"id":id+size,"size":size,"quantity":quantity,"price":0,thumbnail:""});
-		}
-		//Shop_fillItemData();
-		//myOrder = Shop_updateTotal(myOrder);
-		localStorage.setObj("order",myOrder);
-		Shop_refreshBasket();	
-		return myOrder;
-
-	
+var shopping={ contact:{firstName:"",lastName:"",email:"",address1:"",address2:"",city:"",
+				country:"default",number:"",postCode:"", countryCode:"", dogsName:"", 
+				lang:"hu"},
+				currency:"HUF", paymentMethod:"bankTransfer", lastBasketSize: 0
 }
+	
+
+
+
+
+
 
 //To ensure continuity of user experience, this function is called on every page to update the items in the Basket
 function Shop_refreshBasket()
 {
-	let myOrder=localStorage.getObj("order");
-	if(myOrder==null)
-	{
-		myOrder=order;
-		localStorage.setObj("order",myOrder);
-
+	let old=localStorage.getObj("order");
+	if (old!=null){//old local storage item tobe removed
+		localStorage.removeItem("order");
 	}
+	let savedVersion = parseInt(localStorage.getItem("version"));//This is important so we know to refresh everything if we have just updated the software
+	let myOrder=localStorage.getObj("shopping");
 	
-	let myBasket= myOrder.items;
-	let totalQuantity=0;
-	for(let i=0; i<myBasket.length; i++)
+	if(myOrder==null || isNaN(savedVersion) || savedVersion<currentVersion)
 	{
-		totalQuantity+=myBasket[i].quantity;		
-	}	
+		myOrder=shopping;
+		localStorage.setObj("shopping",myOrder);
+		localStorage.setItem("version", currentVersion.toString());
+	}
+	Common_checkLang();
 	
-	if (totalQuantity>0)
+	if (myOrder.lastBasketSize>0)
 	{
-		$(".basket-num").html(totalQuantity);
+		$(".basket-num").html(myOrder.lastBasketSize);
 	}
 	else
 		$(".basket-num").html('');
-	Shop_fillItemData();
 }
 
-
-//Called to increment or decrement the quanity of an item in the shopping basket
-function Shop_changeQuantity(id,changeBy)
-{
-	let myOrder=localStorage.getObj("order");
-	let myBasket=myOrder.items;
+function Shop_updateBasketSize(len){//function is called to store the last given basket size
+	if(len>0)
+		$(".basket-num").html(len);	
+	else
+		$(".basket-num").html('');
 	
-	for(let i=0; i<myBasket.length; i++)
-	{
-		if(id == myBasket[i].id)
-		{
-			myBasket[i].quantity +=changeBy;
-			if(myBasket[i].quantity<=0)
-				myBasket[i].quantity=1;
-		}		
-	}	
-	myOrder = Shop_updateTotal(myOrder);
-	localStorage.setObj("order",myOrder);
-	Shop_refreshBasket();
-	return myOrder;
+	let myOrder=localStorage.getObj("shopping");
+	myOrder.lastBasketSize = len;
+	localStorage.setObj("shopping",myOrder);
 }
 
-function Shop_removeItem(id)
-{
-	let myOrder=localStorage.getObj("order");
-	let myBasket=myOrder.items;
-	
-	for(let i=0; i<myBasket.length; i++)
-	{
-		if(id == myBasket[i].id)
-		{
-			myBasket.splice(i,1);
-		}		
-	}
-	
-	myOrder = Shop_updateTotal(myOrder);
-	localStorage.setObj("order",myOrder);
-	Shop_refreshBasket();
-	return myOrder;
+function Shop_updateCurrency(curr){	
+	let myOrder=localStorage.getObj("shopping");
+	myOrder.currency = curr;
+	localStorage.setObj("shopping",myOrder);
+	location.reload();//Reload to ensure we correctly update page
 }
 
-//called after customer has paid for items, then we clear the local storage
-function Shop_finishedShopping()
-{
-	localStorage.removeItem("order");
-}
-
-//This function is called to update the data in the item. It calls the products.xml file
-function Shop_fillItemData()
-{
+//As required by paypal, returns the country code
+function Shop_getCountryCode(country){
 	
-	$.get('/res/products.xml','text').done(function (library){
-		let myOrder=localStorage.getObj("order");
-		let myBasket=myOrder.items;
-		for(let i=0;i<myBasket.length;i++)
-		{
-			let tag = Common_getItemById(library, myBasket[i].id);
-			/*myBasket[i].name = tag.getElementsByTagName('description')[0].getElementsByTagName('en')[0].innerHTML;
-			myBasket[i].price = parseFloat(tag.getElementsByTagName('price')[0].getElementsByTagName('huf')[0].innerHTML, 10);
-			myBasket[i].thumbnail = tag.getElementsByTagName('image')[0].innerHTML + "/img_1.jpg"; */
-			let specificItem = Common_getItemInner(library,"//item[@id='"+ tag.id +"']/description/en");
-
-			if( window.location.href.search('/en/')>0)
-			{
-				myBasket[i].name = specificItem;
-			}
-			else myBasket[i].name = Common_getItemInner(library,"//item[@id='"+tag.id+"']/description/hu");
-			
-			myBasket[i].price = parseFloat(Common_getItemInner(library,"//item[@id='"+ tag.id+"']/price/huf"),10);
-			
-			myBasket[i].thumbnail = Common_getItemInner(library,"//item[@id='"+ tag.id +"']/image")+ "/img_1.jpg";
-			}
-			localStorage.setObj("order", Shop_updateTotal(myOrder));
-			
+	switch(country){
 		
-	});
-	
+		case "Hungary":
+			return "HU";
+		case "Germany":
+			return "DE";
+		case "UK":
+			return "GB";
+		case "Switzerland":
+			return "CH";
+		case "France":
+			return "FR";
+		case "Switzerland":
+			return "CH";
+		case "Romania":
+			return "RO";
+		case "Italy":
+			return "IT";
+		case "Slovakia":
+			return "SK";
+		default:
+			return "HU";
+		
+	}
 }
 
-function Shop_updateContact(contact){
-	let myOrder=localStorage.getObj("order");
-	myOrder.contact=contact;
-	myOrder = Shop_updateTotal(myOrder);
-	localStorage.setObj("order",myOrder);
-	return myOrder;
-}
-//
-function Shop_updateTotal(myOrder)
-{
-	let myBasket=myOrder.items;
-	
-	switch(myOrder.contact.country)
-	{
-		case 'Hungary':
-			myOrder.delivery=1600;
-			break;
-		case 'UK':
-			myOrder.delivery=7000;
-			break;
-		default:
-			myOrder.delivery=6000;					
-	}
-	
-	myOrder.subTotal=0;
-	for(let i=0; i<myBasket.length;i++)
-	{
-			myOrder.subTotal+= myBasket[i].price * myBasket[i].quantity;
-	}
-	
-	myOrder.total=myOrder.delivery + myOrder.subTotal;
-	
-	return myOrder;
-	
-}
+
 
 	
 
