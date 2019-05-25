@@ -33,7 +33,7 @@
 <div id="category-name" class="w3-xxlarge w3-center w3-white"></div>
 
 <!--Currency chooser  -->
-<div class="w3-large  w3-hide-small w3-margin">
+<div class="w3-large  w3-hide-small w3-margin w3-center">
 	<span class="w3-white w3-padding w3-round-large hoverable">
 		<span class="button" onclick="Shop_updateCurrency('HUF')" ng-class="{'w3-tag w3-main-theme':currency=='HUF'}">HUF</span> | 
 		<span class="button" onclick="Shop_updateCurrency('EUR')" ng-class="{'w3-tag w3-main-theme':currency=='EUR'}">EURO</span>
@@ -47,10 +47,12 @@
 	</span>
 </div>
 
-<select class="w3-input w3-xlarge w3-mobile" style="width:30%"
-      ng-options="option.name for option in categoryOptions.availableOptions track by option.name"
-      ng-model="categoryOptions.selectedOption">
-</select>
+<div class="w3-container w3-margin w3-center">
+	<select class=" w3-border w3-padding w3-xlarge w3-mobile w3-center w3-border-black " style="width:20%"
+		  ng-options="option.name for option in categoryOptions.availableOptions track by option.name"
+		  ng-model="categoryOptions.selectedOption">
+	</select>
+</div>
 	  
 <div id="product-shelf-placeholder" class="w3-container" style="padding:0;margin:0">
 	<a ng-repeat="product in products | filter: categoryOptions.selectedOption.value" href="{{product.href}}" class="w3-left w3-center w3-large w3-mobile my-product" style="width:48.5%; margin-top:2vh;cursor:pointer">
