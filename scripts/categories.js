@@ -37,6 +37,9 @@ app.controller('Categories', function($scope, $http, $timeout, $location) {
 		]	
 	};
 	
+	$scope.myFilter = function (product) { 
+    return (product.subCategoryName[$scope.backbone.lang]== $scope.categoryOptions.selectedOption.value) || $scope.categoryOptions.selectedOption.value=='' ; 
+};
 	
 	/////////////////////////////////
 	let category = Common_getUrlParam("category=")
@@ -82,6 +85,8 @@ app.controller('Categories', function($scope, $http, $timeout, $location) {
 			}
 		
 		}, 100);
+		
+		
 	});
 	
 

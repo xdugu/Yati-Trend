@@ -9,12 +9,10 @@ Storage.prototype.getObj = function(key) {
 var fixedMenu=false;
 
   $(document).ready(function() {
-	  if(isPathCorrect())//if we can't find any of these strings in the path in means that we are in the 
-	  //root directory so we will then default to the hungarian header
-         $('#header_placeholder').load("header.html", Shop_refreshBasket);	
-	  else
-		  $('#header_placeholder').load("/hu/header.html", Shop_refreshBasket);	 
-		 //checkCookie();
+	  
+
+      $('#header_placeholder').load("header.html", Shop_refreshBasket);	
+
 
     }); 
 

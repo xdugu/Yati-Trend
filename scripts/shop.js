@@ -15,16 +15,12 @@ var shopping={ contact:{firstName:"",lastName:"",email:"",address1:"",address2:"
 				lang:"hu"},
 				currency:"HUF", paymentMethod:"bankTransfer", lastBasketSize: 0
 }
-	
+
+//first function to be called initialise parameters that other scripts need	
+Shop_initialise();
 
 
-
-
-
-
-//To ensure continuity of user experience, this function is called on every page to update the items in the Basket
-function Shop_refreshBasket()
-{
+function Shop_initialise(){
 	let old=localStorage.getObj("order");
 	if (old!=null){//old local storage item tobe removed
 		localStorage.removeItem("order");
@@ -39,6 +35,14 @@ function Shop_refreshBasket()
 		localStorage.setItem("version", currentVersion.toString());
 	}
 	Common_checkLang();
+	
+}
+
+
+//To ensure continuity of user experience, this function is called on every page to update the items in the Basket
+function Shop_refreshBasket()
+{
+	let myOrder=localStorage.getObj("shopping");
 	
 	if (myOrder.lastBasketSize>0)
 	{

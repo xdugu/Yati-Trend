@@ -16,8 +16,11 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular-animate.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.4/angular-sanitize.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 <script type="text/javascript" src="../slick/slick.min.js"></script>
+<script type="text/javascript" src="/slick/angular-slick.js"></script>
 
 <script src="../scripts/common.js" ></script>
 <script src="../scripts/shop.js" ></script>
@@ -29,41 +32,57 @@
 
 <div id="header_placeholder"> </div>
 
-<div class="w3-container discount-info w3-large">
- <div class="w3-center "> BUY TWO OR MORE ITEMS AND GET THE CHEAPEST <b>10% OFF</b></div>
- <div class="w3-center">ORDERS ABOVE <span class="price-total w3-wide">25.000Ft</span>GET SHIPPING FREE in Hungary</div>
+
+
+<div class="w3-container">
+ <div class="w3-center" style="font-size:1em"> BUY TWO OR MORE ITEMS AND GET THE CHEAPEST <b>10% OFF</b><br>
+ORDERS ABOVE <span class="price-total w3-wide">25.000Ft</span>GET SHIPPING FREE in Hungary</div>
  
 </div>
+
 	
 <div class="w3-row">
- <div id="img_stage" class="w3-margin-top w3-col l8">
-	<div style="height:85vh; overflow-y:hidden;" ng-repeat="x in [].constructor(3) track by $index">
+ <slick ng-if="product.numOfImg!=0" settings="slickConfig" id="img_stage" class="w3-margin-top w3-col l8">
+	<div style="height:85vh; overflow-y:hidden;" ng-repeat="x in [].constructor(product.numOfImg) track by $index">
 		<img ng-if="product.imgSrc!=null" class="sub_image" ng-src="{{product.imgSrc}}/img_{{$index+1}}.jpg" style="width:100%;height:auto;margin:auto"></img>
 		<!-- To prevent situation where the imgSrc is not loaded causing get errors -->
 	</div>
- </div>
+ </slick>
 
  <div class="w3-container w3-col l4 " style="">
 	<div id="product_title" class="w3-margin-top w3-margin-bottom w3-large">{{product.description}}</div>
-	<div my-cost-str="product.price"id="product_price" class="w3-margin-top w3-margin-bottom price w3-wide w3-large"></div>
+	<div my-cost-str="product.price[currency.toLowerCase()]"id="product_price" class="w3-margin-top w3-margin-bottom price w3-wide w3-large"></div>
+
+	<!--Currency chooser  -->
+		<div class="w3-large  w3-hide-small w3-margin-bottom">
+			<span class="w3-white w3-round-large hoverable">
+				<span class="button" onclick="Shop_updateCurrency('HUF')" ng-class="{'w3-tag w3-main-theme':currency=='HUF'}">HUF</span> | 
+				<span class="button" onclick="Shop_updateCurrency('EUR')" ng-class="{'w3-tag w3-main-theme':currency=='EUR'}">EURO</span>
+			</span>
+		</div>
+
+		<div class="w3-large w3-hide-large w3-hide-medium  w3-margin-bottom">
+			<span class="w3-white w3-round-large hoverable">
+				<span class="button" onclick="Shop_updateCurrency('HUF')" ng-class="{'w3-tag w3-main-theme':currency=='HUF'}">HUF</span> | 
+				<span class="button" onclick="Shop_updateCurrency('EUR')" ng-class="{'w3-tag w3-main-theme':currency=='EUR'}">EURO</span>
+			</span>
+		</div>
 
 	<div class="w3-container" style="width:100%;padding:0">
-		<select id="product_size" class="w3-input w3-border w3-border-black w3-left" style="width:50%">
-			<option value="default">Select a Size</option>
-			<option value="S">S</option>
-			<option value="M">M</option>
-			<option value="L">L</option>
+		<select id="product_size" class="w3-input w3-border w3-border-black w3-left" style="width:50%"
+		  ng-options="option.name disable when option.disable for option in variantOptions.availableOptions track by option.value"
+		  ng-model="variantOptions.selectedOption">
 		</select>
-		<span class="w3-margin-left w3-left" style="text-decoration:underline">Size chart</span>
+		<span class="w3-margin-left w3-left hoverable" style="text-decoration:underline">Size chart</span>
 	</div>
-	<div id="show_size_prompt" class="w3-container" style="padding:0">
-		<div class="w3-center w3-yellow  w3-margin-top w3-padding"> Please select a size</div>
+	<div id="show_size_prompt" class="w3-container" ng-show="variantOptions.selectedOption.value=='default' && showPrompt" style="padding:0">
+		<div class="w3-center w3-yellow  w3-margin-top w3-padding" > Please select a size</div>
 	</div>
 
 	<div class="w3-row w3-margin-top"  style="">
-		<button id="add_basket_button" class="w3-button w3-xlarge w3-hover-black  w3-col m6 l12" style="background-color:Goldenrod;" ng-click="checkBasket()">Add to Basket</button>
+		<button id="add_basket_button" class="w3-black w3-button w3-xlarge w3-hover-black  w3-col m6 l12" ng-click="checkBasket()">Add to Basket</button>
 	</div>
-	<div class="w3-container" id="added-prompt" style="padding:0;margin:0;opacity:0">
+	<div class="w3-container w3-margin-top" id="added-prompt" style="padding:0;opacity:0">
 		<div class="w3-center w3-animate-left w3-padding w3-green w3-xlarge">Item has been Added</div>
 	</div>
 	
@@ -71,7 +90,7 @@
 	<div class="gapper w3-hide-small w3-hide-medium" style="height:50px">
 	</div>
 	
-	<div ng-controller="Accordions" ng-init="des=false;del=false;ret=false;" class="w3-margin-bottom more-info">
+	<div ng-controller="Accordions" ng-init="des=true;del=false;ret=false;" class="w3-margin-bottom more-info">
 		<div ng-click="des=!des;del=false;ret=false" class="w3-border-bottom w3-border-black w3-padding" style="width:100%;height=auto;overflow:auto">
 				<span class="w3-left w3-large">Description</span>
 				<span class="w3-right w3-large"> <i ng-show="des==false">+</i><i ng-show="des==true">-</i></span>
