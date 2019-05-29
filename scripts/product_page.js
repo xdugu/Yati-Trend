@@ -70,16 +70,15 @@ app.controller('ProductDisplay',function($scope, $timeout,$http,$location,$windo
 	});
 	  
 	$scope.checkBasket = function(){//called when customer presses the "Add to Basket" button
-			
+		  let data = {itemId: $scope.product.id, basketId:$scope.basketId};
 		  if($scope.itemInfo.Variants.hasVariants){
 			  if($scope.variantOptions.selectedOption.value=='default'){
 				 $scope.showPrompt = true;
 				 return;
 			  }
-		  }
-		  $scope.showPrompt = false;	
-		  runButtonAnimation();
-			/*
+			  else
+				  data.chosenVariant = $scope.variantOptions.selectedOption.value;
+		  }			
 			 $http({
 				method: 'POST',
 				crossDomain : true,
@@ -92,8 +91,9 @@ app.controller('ProductDisplay',function($scope, $timeout,$http,$location,$windo
 					localStorage.setObj("basketId", $scope.basketId);
 					Shop_updateBasketSize(res.data.data.basketNum);
 					runButtonAnimation();
+					$scope.showPrompt = false;	
 				}
-			}); */
+			}); 
 
 	 }
 	 
