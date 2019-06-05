@@ -51,30 +51,48 @@
 				</div>
 				<div class="w3-display-container w3-col s9 m10 l10 " style="height:15vh;">
 					<div id="description" class="w3-display-topmiddle w3-center w3-small" style="width:100%;">{{item.Description.en}}</div>
-					<div ng-if="item.Variants.hasVariants" id="size" class="w3-display-left">Size: {{item.chosenVariant}}</div>
+					<div ng-if="item.Variants.hasVariants" id="size" class="w3-display-left">Size: {{item.Variants.chosenVariant}}</div>
 					<div id="quantity" class="w3-display-bottomleft " style="height: 2vw;">
-						<span ng-click="changeQuantity($index,-1)" class="w3-black w3-round w3-padding w3-hover-grey">-</span>
+						<span ng-click="changeQuantity($index,-1)" class="w3-black w3-round w3-padding w3-hover-grey hoverable">-</span>
 						<span class="w3-padding">{{item.Quantity}}</span>
-						<span ng-click="changeQuantity($index,1)" class="w3-black w3-round w3-padding w3-hover-grey">+</span>
+						<span ng-click="changeQuantity($index,1)" class="w3-black w3-round w3-padding w3-hover-grey hoverable">+</span>
 					</div>
 					<div my-cost-str="item.Price[currency.toLowerCase()] * item.Quantity" id="price" class="w3-display-right price"></div>
-					<div id="remove" ng-click="removeItem($index)" class="w3-display-bottomright" Style="text-decoration: underline">Remove</div>
+					<div id="remove" ng-click="removeItem($index)" class="w3-display-bottomright hoverable" Style="text-decoration: underline">Remove</div>
 				</div>		
 		</div>
 	</div>
 	<div class="w3-col l6 w3-padding w3-mobile">
 		<div ng-hide="order.length==0">
-			<select class="w3-padding w3-margin-top" ng-model="shopping.contact.country" ng-change="updateDeliveryCost()" style="width:100%;">
+			<select class="w3-padding w3-margin-top" ng-model="shopping.contact.country" ng-change="updateDeliveryCost();shopping.deliveryMethod='GLSDelivery'" 
+			style="width:100%;">
 							<option value="default">Choose Country for delivery cost</option>
 							<option value="Hungary">Hungary</option>
 							<option value="Germany">Germany</option>
 							<option value="Austria">Austria</option>
 							<option value="UK">United Kingdom</option>
 			</select>
+						
 			
-			<div ng-hide="shopping.contact.country =='default'" class="w3-white w3-padding w3-margin-top">
-				<div class="w3-large w3-margin-top ">Delivery: <span my-cost-str="order.Costs.GLS.delivery" class="price" ></span></div>
-				<div class="w3-xlarge w3-margin-top ">Total: <span my-cost-str="order.Costs.GLS.total" class="price-total"></span></div>
+			<div ng-hide="shopping.contact.country =='default'" class="w3-white w3-padding-top w3-margin-top">
+				
+				<form ng-show="shopping.contact.country=='Hungary'" name="deliveryMethod">
+				<div class="w3-large"><b>Choose a courier</b></div>
+				  <label>
+					<input type="radio" ng-model="shopping.deliveryMethod" value="FoxpostPickup" class="w3-radio">
+					Foxpost Pickup (<b my-cost-str="order.Costs.FoxpostPickup.delivery"></b>)
+				  </label><br/>
+				  <label>
+					<input type="radio" ng-model="shopping.deliveryMethod" value="FoxpostDelivery" class="w3-radio">
+					Foxpost Home Delivery (<b my-cost-str="order.Costs.FoxpostDelivery.delivery"></b>)
+				  </label><br/>
+				  <label ng-hide="order.Costs[shopping.deliveryMethod].delivery==0">
+					<input type="radio" ng-model="shopping.deliveryMethod" value="GLSDelivery" class="w3-radio">
+					GLS Home Delivery (<b my-cost-str="order.Costs.GLSDelivery.delivery"></b>)
+				  </label><br/>
+				</form>
+				<div class="w3-large w3-margin-top ">Delivery: <span my-cost-str="order.Costs[shopping.deliveryMethod].delivery" class="price" ></span></div>
+				<div class="w3-xlarge w3-margin-top ">Total: <span my-cost-str="order.Costs[shopping.deliveryMethod].total" class="price-total"></span></div>
 				
 				<a class="w3-button w3-black w3-round w3-large w3-margin-top w3-padding" href="checkout.html">Proceed to Checkout</a>
 			</div>

@@ -13,7 +13,6 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.4/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://www.paypalobjects.com/api/checkout.js"></script>
 
 <script src="/scripts/common.js" ></script>
 <script src="/scripts/shop.js" ></script>
@@ -29,46 +28,48 @@
 	<div class="w3-large w3-center w3-xxlarge" style="font-weight:bold">Review</div>
 	<div class="w3-row">
 	<div class="w3-col l6 w3-padding">
-		<div ng-repeat="item in order.items track by item.id" class="w3-row w3-card toEdit w3-padding w3-margin-top" style="width: 100%; height:15vh;overflow-y:hidden;">
+		<div ng-repeat="item in order.Items track by item.ItemId" class="w3-row w3-card toEdit w3-padding w3-margin-top" style="width: 100%; height:15vh;overflow-y:hidden;">
 				<div class="w3-col s2" style="height:12vh; overflow: hidden;">
-					<img class="preview_img" ng-src="{{item.thumbnail}}"style="width:auto; height:12vh;"></img>
+					<img class="preview_img" ng-src="{{item.Image.src}}/img_1.jpg"style="width:auto; height:12vh;"></img>
 				</div>
 				<div class="w3-display-container w3-col s10" style="height:11vh;">
-					<div id="description" class="w3-display-topleft" style="width:100%;">{{item.name}}</div>
-					<div id="size" class="w3-display-bottommiddle">Size: {{item.size}}</div>
-					<div id="quantity" class="w3-display-bottomleft ">Qty: {{item.quantity}}</div>
-					<div my-cost-str="item.price * item.quantity" id="price" class="w3-display-bottomright price"></div>
+					<div id="description" class="w3-display-topleft" style="width:100%;">{{item.Description.en}}</div>
+					<div id="size" class="w3-display-bottommiddle">Size: {{item.Variants.chosenVariant}}</div>
+					<div id="quantity" class="w3-display-bottomleft ">Qty: {{item.Quantity}}</div>
+					<div my-cost-str="item.Price[currency.toLowerCase()] * item.Quantity" id="price" class="w3-display-right price"></div>
 				</div>		
 		</div>
-		<div class="w3-margin-top" style="font-weight: bold">Delivery: <span my-cost-str="order.delivery" class="price"></span></div>
-		<div class="w3-xlarge" style="font-weight: bold">Total: <span my-cost-str="order.total" class="price"></span></div>
+		<div class="w3-margin-top" style="font-weight: bold">Delivery: <span my-cost-str="order.Costs[shopping.deliveryMethod].delivery" class="price"></span></div>
+		<div class="w3-xlarge" style="font-weight: bold">Total: <span my-cost-str="order.Costs[shopping.deliveryMethod].total" class="price"></span></div>
 	</div>
 	<div class="w3-col l6 w3-padding">	
 		<div class="w3-card w3-padding w3-margin-top">
 		<div class="w3-large w3-center w3-large" style="font-weight:bold">Order Details</div>
-			<div>{{order.contact.firstName}}</div>
-			<div>{{order.contact.email}}</div>
+			<div>{{shopping.contact.firstName}}</div>
+			<div>{{shopping.contact.email}}</div>
 			<div>{{order.contact.number}}</div>
 			
 			<div class="w3-margin-top"><strong>Post To:</strong></div>
-			<div>{{order.contact.firstName}}</div>
-			<div>{{order.contact.address1}}</div>
-			<div ng-hide="order.contact.address2==''">{{order.contact.address2}}</div>
-			<div>{{order.contact.city}}</div>
-			<div>{{order.contact.postCode}}</div>
-			<div>{{order.contact.country}}</div>
+			<div>{{shopping.contact.firstName}}</div>
+			<div>{{shopping.contact.address1}}</div>
+			<div ng-hide="order.contact.address2==''">{{shopping.contact.address2}}</div>
+			<div>{{shopping.contact.city}}</div>
+			<div>{{shopping.contact.postCode}}</div>
+			<div>{{shopping.contact.country}}</div>
 		</div>
 	</div>
 	</div>
 	
 	
 	<div class="w3-padding">
-		<div id="paypal-button" class="w3-margin-top"></div>
 		<div class="w3-row">
-			<div ng-show="order.contact.country=='Hungary'" ng-click="backbone.showBank=true" class="w3-col l3 m6 w3-mobile w3-button w3-black  w3-margin-bottom w3-margin-top w3-padding w3-round">Pay by Bank transfer</div>	
+			<div id="paypal-button" class="w3-col l3 m6 w3-mobile w3-margin-top w3-white w3-round"></div>
+		</div>
+		<div class="w3-row" ng-show="shopping.contact.country=='Hungary' && currency=='HUF'">
+			<div ng-click="backbone.showBank=true" class="w3-col l3 m6 w3-mobile w3-button w3-black  w3-margin-bottom w3-margin-top w3-padding w3-round">Bank Transfer</div>	
 		</div>
 		<div class="w3-row">
-			<div ng-show="order.contact.country=='Hungary'" ng-click="backbone.showPayLater=true" class="w3-col l3 m6 w3-mobile w3-button w3-purple  w3-margin-bottom w3-margin-top w3-padding w3-round">Pay On Delivery</div>	
+			<div ng-show="shopping.contact.country=='Hungary' && currency=='HUF'" ng-click="backbone.showPayLater=true" class="w3-col l3 m6 w3-mobile w3-button w3-purple  w3-margin-bottom w3-margin-top w3-padding w3-round">Pay On Delivery</div>	
 		</div>
 	</div>
 	

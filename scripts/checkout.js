@@ -8,15 +8,17 @@ app.run(function() {
 $('input, select').on('change',function() { $(this).trigger('input'); });
 });
 app.controller('Checkout',  function($scope, $http, $timeout) {
-	order = localStorage.getObj("order");
-	$scope.user=[];
+	$scope.order = localStorage.getObj("shopping");
+	$scope.user=$scope.order.contact;
 	$scope.places =[];
+	$scope.showFoxpost=true;
 	$http.get("/convertcsv.json").then(function(resp){
 		$scope.places = resp.data;
 	});
 	
 	$scope.proceedToPayment= function (){
-		Shop_updateContact($scope.user);
+		$scope.order.contact = $scope.user;
+		localStorage.setObj("shopping", $scope.order);
 		window.location.href = 'review.html';
 	}
 	
@@ -25,7 +27,11 @@ app.controller('Checkout',  function($scope, $http, $timeout) {
 		$scope.user.address2 = place.Address;
 		$scope.user.city = place.City;
 		$scope.user.postCode = place.Address.substring(0,4);
-		$scope.showAddr =false;
+		$scope.showFoxpost =false;
+		
+	}
+	if($scope.order.deliveryMethod!='FoxpostPickup' || $scope.order.contact.country!='Hungary'){
+		$scope.showFoxpost = false;
 		
 	}
 

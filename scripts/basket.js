@@ -19,6 +19,10 @@ app.controller('Basket', function($scope, $http) {
 		$scope.order=null;
 		return;
 	}
+	
+	$scope.$watch('shopping.deliveryMethod', function(value) {
+       localStorage.setObj("shopping",$scope.shopping);
+	});
 		
 	 $http({
 				method: 'POST',
@@ -76,6 +80,8 @@ app.controller('Basket', function($scope, $http) {
 	
 	$scope.updateDeliveryCost = function()//called when customer chooses/changes the Country to post 
 	{
+		if($scope.shopping.contact.country=='default')//dont need to request for a price if we don't know the country
+			return;
 		$http({
 				method: 'POST',
 				crossDomain : true,
@@ -86,6 +92,9 @@ app.controller('Basket', function($scope, $http) {
 				if(res.data.Result=="OK"){
 					let temp = res.data.data;
 					$scope.order = temp.Item;
+					if($scope.shopping.contact.country=='Hungary'){
+						$scope.shopping.deliveryMethod="FoxpostDelivery";
+					}
 					Shop_updateBasketSize( temp.Item.Items.length);
 					$scope.shopping.contact.countryCode = Shop_getCountryCode($scope.shopping.contact.country);
 					localStorage.setObj("shopping",$scope.shopping);

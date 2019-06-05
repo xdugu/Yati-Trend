@@ -114,6 +114,7 @@ app.controller('ProductDisplay',function($scope, $timeout,$http,$location,$windo
 		$scope.product.imgPref = $scope.itemInfo.Image.imagePref;
 		
 		$scope.product.category = $scope.itemInfo.Category;
+		
 		let numOfImg = $scope.itemInfo.Image.numberOfImages;
 		/*
 		$scope.product.firstInfo = $scope.itemInfo.additionalInfo.FirstInfo.en;

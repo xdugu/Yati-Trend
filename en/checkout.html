@@ -27,7 +27,7 @@
 
 <div id="header_placeholder"> </div>
 <div id="product_shelf_placeholder" class="w3-container w3-margin-top" ng-app="myApp" ng-controller="Checkout" 
-		ng-init="agreed=false;tempAddr={};showDialog=false;showAddr=true">
+		ng-init="agreed=false;tempAddr={};showDialog=false;">
 	
 
 	<div class="w3-card w3-mobile" style="width:70%">
@@ -46,9 +46,12 @@
 		<span class="w3-text-red" ng-show="form1.number.$touched && form1.number.$invalid">Phone number is required</span>
 	</form>
 	</div>
-	<div class="w3-margin-top w3-padding w3-card w3-mobile" style="width:70%">
-		<h4 ng-click="showAddr=true"> Select a fox post address </h4>
-		<div ng-show="showAddr" class="animate-height">
+	<div ng-show="order.deliveryMethod=='FoxpostPickup'" class="w3-margin-top w3-padding w3-card w3-mobile" style="width:70%">
+		<h4 ng-click="showFoxpost=true" ng-class="{'hoverable': !showFoxpost}"> Select a fox post address 
+			<span ng-hide="!showFoxpost" class="material-icons w3-xlarge w3-text-black w3-right">keyboard_arrow_down</span>
+			<span ng-hide="showFoxpost" class="material-icons w3-xlarge w3-text-black w3-right">keyboard_arrow_up</span>
+		</h4>
+		<div ng-show="showFoxpost" class="animate-height">
 			<input type="text" ng-model="search" class="w3-input w3-border w3-border-green w3-margin-bottom" placeholder="Enter a location e.g. Budapest"/>
 			<div style="overflow-y:auto;overflow-x:hidden;height:40vh">
 				<ul class="w3-ul" >
@@ -58,8 +61,10 @@
 		</div>
 	
 	</div>
-	<div class="w3-modal" style="display:block" ng-show="showDialog==true">
+	<div class="w3-modal" style="display:block;" ng-show="showDialog==true">
 		<div class="w3-modal-content w3-container">
+			<div class="w3-display-container">
+		<span ng-click="showDialog=false" class="material-icons w3-xxxlarge w3-text-black w3-display-topright hoverable" style="z-index:1000">cancel</span>
 			<b>{{tempAddr.Name}}</b><br><br>
 			{{tempAddr.Address}}<br>
 			{{tempAddr.City}}<br><br>
@@ -72,14 +77,15 @@
 			Sunday: {{tempAddr.Sunday}}<br><br>
 			{{tempAddr.Description}}<br>
 			<button class="w3-button w3-green w3-margin-top w3-margin-bottom" ng-click="showDialog=false;foxpostChosenLoc(tempAddr)">Choose this location</button>
-			
+			</div>
 		</div>
 	
 	</div>
 	
-	<div ng-show="!showAddr" class="animate-address w3-card w3-margin-top w3-mobile" style="width:70%">
+	<div ng-show="!showFoxpost" class="animate-address w3-card w3-margin-top w3-mobile" style="width:70%">
 		<div class="w3-large w3-center" >Shipping Details</div>
-		<form  name="form" novalidate class="entry w3-padding">
+		<form  name="form" novalidate class="entry w3-padding" >
+		<fieldset ng-disabled="order.deliveryMethod=='FoxpostPickup'" style="border: 0">
 			<input type="text" class="w3-input" name="addr" ng-model="user.address1" required placeholder=""  autocomplete="address-line1" />
 			<label> Address</label>
 			<span class="w3-text-red" ng-show="form.addr.$touched && form.addr.$invalid">Address is required</span>
@@ -97,7 +103,8 @@
 			
 			
 			<input type="text" class="w3-input" name="country" ng-model="user.country" disabled />
-
+			<label>Country</label>
+		</fieldset>
 		</form>
 	</div>
 

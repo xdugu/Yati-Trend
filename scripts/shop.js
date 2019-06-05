@@ -8,12 +8,13 @@ Storage.prototype.getObj = function(key) {
     return JSON.parse(this.getItem(key))
 }
 
-var currentVersion=5;//add dog's name variable
+var currentVersion=6;//add dog's name variable
 
 var shopping={ contact:{firstName:"",lastName:"",email:"",address1:"",address2:"",city:"",
-				country:"default",number:"",postCode:"", countryCode:"", dogsName:"", 
+				country:"default",number:"",postCode:"", countryCode:"", 
 				lang:"hu"},
-				currency:"HUF", paymentMethod:"bankTransfer", lastBasketSize: 0
+				currency:"HUF", paymentMethod:"bankTransfer", lastBasketSize: 0,
+				deliveryMethod:"FoxpostPickup"
 }
 
 //first function to be called initialise parameters that other scripts need	
