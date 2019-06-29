@@ -42,8 +42,8 @@ app.controller('Review', function($scope, $http, $timeout) {
 	
 	///////////////////////////////////////////////
 	$scope.updatePaymentMethod = function(method){
-			localStorage.removeItem("shopping");
-			localStorage.removeItem("basketId");
+			//localStorage.removeItem("shopping");
+			//localStorage.removeItem("basketId");
 			$scope.createOrderCode();
 			$scope.shopping['comments']=$scope.temp.comments;
 			$scope.shopping['basketId']= $scope.basketId;
@@ -57,7 +57,7 @@ app.controller('Review', function($scope, $http, $timeout) {
 			$http({
 				method: 'POST',
 				crossDomain : true,
-				url: 'https://api.yati-trend.com/v2/Request/SubmitOrder',
+				url: 'https://api.yati-trend.com/v1/Request/SubmitOrder',
 				data: JSON.stringify($scope.shopping),
 				headers: {'Content-Type': 'application/json'}
 			});

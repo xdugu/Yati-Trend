@@ -80,7 +80,7 @@
 			<div class="w3-medium" style="margin-top:1vh">Please confirm that you want to pay by bank transfer. We will send you an email
 			with our account details and payment reference number
 			</div>
-			<a ng-click="backbone.showConfirmed=true" class="w3-button w3-red w3-margin-top w3-margin-bottom">Confirm</a>
+			<a ng-click="backbone.showConfirmed=true;updatePaymentMethod('bankTransfer')" class="w3-button w3-red w3-margin-top w3-margin-bottom">Confirm</a>
 		  </div>
 		   <div class="w3-container" ng-show="backbone.showConfirmed==true">
 			<div class="w3-medium" style="margin-top:1vh">We have sent an email to <strong>{{order.contact.email}}</strong> with instructions of bank transfer. Please do
@@ -107,9 +107,10 @@
 		 <span ng-click="backButtonPressed()" class="material-icons w3-large w3-display-topright" style="cursor:pointer">cancel</span>
 		  <div class="w3-container" ng-show="backbone.showConfirmed==false">
 			<div class="w3-medium" style="margin-top:1vh">Please confirm that you want to pay on delivery. We will send you an email to confirm.
-			Please note that this will increase the total price by <span class="price">300 Ft</span>. Your total to pay will be <span my-cost-str="{{order.total + 300}}" class="price"></span>
+			Please note that this will increase the total price by <span class="price">{{order.Costs[shopping.deliveryMethod].payOnDeliveryAdditional}} Ft</span>. Your total to pay will be
+				<span my-cost-str="order.Costs[shopping.deliveryMethod].total + order.Costs[shopping.deliveryMethod].payOnDeliveryAdditional" class="price"></span>
 			</div>
-			<a ng-click="backbone.showConfirmed=true" class="w3-button w3-red w3-margin-top w3-margin-bottom">Confirm</a>
+			<a ng-click="backbone.showConfirmed=true; updatePaymentMethod('payOnDelivery')" class="w3-button w3-red w3-margin-top w3-margin-bottom">Confirm</a>
 		  </div>
 		   <div class="w3-container" ng-show="backbone.showConfirmed==true">
 			<div class="w3-medium" style="margin-top:1vh">We have sent an email to <strong>{{order.contact.email}}</strong>. We will dispatch your order soon
