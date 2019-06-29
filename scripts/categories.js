@@ -55,14 +55,18 @@ app.controller('Categories', function($scope, $http, $timeout, $location) {
 			product.description = $scope.categoryData[i].Description[$scope.backbone.lang];
 			product.price = $scope.categoryData[i].Price;
 			product.imgSrc = $scope.categoryData[i].Image.src;
-			product.imgPref = $scope.categoryData[i].Image.imagePref;
+			product.imgPref = $scope.categoryData[i].Image.imgPref;
+			product.numberOfImages = $scope.categoryData[i].Image.numberOfImages;
+			if($scope.categoryData[i].Image.numberOfImages<=1){
+				$scope.slickConfig.slidesToShow = 1;
+			}
 			product.href = 'ProductPage.html?itemId=' +  $scope.categoryData[i].ItemId;
 			product.subCategoryName = $scope.categoryData[i].SubCategoryName;
 			$scope.products.push(product);
 			
 			//building select list to filter results
 			let matchFound=false;
-			for(let j=0;j<$scope.categoryOptions.availableOptions;j++){
+			for(let j=0;j<$scope.categoryOptions.availableOptions.length;j++){
 				if($scope.categoryData[i].SubCategoryName[$scope.backbone.lang] == $scope.categoryOptions.availableOptions[j].name){
 					matchFound=true;
 					break;
@@ -72,20 +76,18 @@ app.controller('Categories', function($scope, $http, $timeout, $location) {
 			if(!matchFound){
 				let val = $scope.categoryData[i].SubCategoryName[$scope.backbone.lang];
 				$scope.categoryOptions.availableOptions.push({name: val, value: val});
-			}         
+			}
+					
 		}
 		
-		
-		
-		$timeout(function (){		
-			if($scope.products[0].imgPref=="width")
-			{
-				$('.shop_img').css({width:"100%",height:"auto"});
-				
-			}
-		
-		}, 100);
-		
+		$timeout(function(){
+		if($scope.products[0].imgPref=="width")
+				{
+					$('.shop_img').css({width:"100%",height:"auto"});
+					
+				}	
+		},100);
+	
 		
 	});
 	

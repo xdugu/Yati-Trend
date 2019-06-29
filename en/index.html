@@ -18,6 +18,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.4/angular.min.js"></script>
 <script type="text/javascript" src="/slick/slick.min.js"></script>
+<script type="text/javascript" src="/slick/angular-slick.js"></script>
  
 <script src="/scripts/common.js" ></script>
 <script src="/scripts/index.js" ></script>
@@ -34,14 +35,74 @@
 </div>
 
 <div id="list" class="w3-container" style="padding:0">
-<a ng-repeat="product in products" ng-href="{{product.link}}" class="w3-mobile w3-margin-top w3-left" style="width:48.5%; overflow:hidden;" >
-	<div class="slide">
-		<div style="overflow: hidden;" class="w3-display-container display" ng-repeat="x in [].constructor(3) track by $index">
-			<img  ng-src="{{product.src}}/img_{{$index+1}}.jpg" style="width:100%;height:auto;margin:auto"></img>
-			<div class="w3-display-topleft w3-xxlarge w3-wide" style="">{{product.label}}</div>
+<a href="Categories.html?category=Clothes" class="w3-mobile w3-margin-top w3-left" style="width:48.5%; overflow:hidden;" >
+	<slick settings="slickConfig">
+		<div style="overflow: hidden;" class="w3-display-container display">
+			<img  data-lazy="/images/shop/women/blouse_women_01/img_1.jpg" style="width:100%;height:auto;margin:auto"></img>
+			<div class="w3-display-topleft w3-xxlarge w3-wide" style="">Blouses</div>
 		</div>
-	</div>
+		<div style="overflow: hidden;" class="w3-display-container display">
+			<img  data-lazy="/images/shop/women/blouse_women_01/img_2.jpg" style="width:100%;height:auto;margin:auto"></img>
+			<div class="w3-display-topleft w3-xxlarge w3-wide" style="">Blouses</div>
+		</div>
+		<div style="overflow: hidden;" class="w3-display-container display">
+			<img  data-lazy="/images/shop/women/blouse_women_01/img_3.jpg" style="width:100%;height:auto;margin:auto"></img>
+			<div class="w3-display-topleft w3-xxlarge w3-wide" style="">Blouses</div>
+		</div>
+
+	</slick>
 </a> 
+
+<a href="Categories.html?category=Clothes" class="w3-mobile w3-margin-top w3-left" style="width:48.5%; overflow:hidden;" >
+	<slick settings="slickConfig">
+		<div style="overflow: hidden;" class="w3-display-container display">
+			<img  data-lazy="/images/shop/women/trouser_women_01/img_1.jpg" style="width:100%;height:auto;margin:auto"></img>
+			<div class="w3-display-topleft w3-xxlarge w3-wide" style="">Trousers</div>
+		</div>
+		<div style="overflow: hidden;" class="w3-display-container display">
+			<img  data-lazy="/images/shop/women/trouser_women_01/img_2.jpg" style="width:100%;height:auto;margin:auto"></img>
+			<div class="w3-display-topleft w3-xxlarge w3-wide" style="">Trousers</div>
+		</div>
+		<div style="overflow: hidden;" class="w3-display-container display">
+			<img  data-lazy="/images/shop/women/trouser_women_01/img_3.jpg" style="width:100%;height:auto;margin:auto"></img>
+			<div class="w3-display-topleft w3-xxlarge w3-wide" style="">Trousers</div>
+		</div>
+	</slick>
+</a>
+<a href="Categories.html?category=Clothes" class="w3-mobile w3-margin-top w3-left" style="width:48.5%; overflow:hidden;" >
+	<slick settings="slickConfig">
+		<div style="overflow: hidden;" class="w3-display-container display">
+			<img  data-lazy="/images/shop/women/jumpsuit_women_01/img_1.jpg" style="width:100%;height:auto;margin:auto"></img>
+			<div class="w3-display-topleft w3-xxlarge w3-wide" style="">Jumpsuits</div>
+		</div>
+		<div style="overflow: hidden;" class="w3-display-container display">
+			<img  data-lazy="/images/shop/women/jumpsuit_women_01/img_2.jpg" style="width:100%;height:auto;margin:auto"></img>
+			<div class="w3-display-topleft w3-xxlarge w3-wide" style="">Jumpsuits</div>
+		</div>
+		<div style="overflow: hidden;" class="w3-display-container display">
+			<img  data-lazy="/images/shop/women/jumpsuit_women_01/img_3.jpg" style="width:100%;height:auto;margin:auto"></img>
+			<div class="w3-display-topleft w3-xxlarge w3-wide" style="">Jumpsuits</div>
+		</div>
+	</slick>
+</a>
+<a href="Categories.html?category=Clothes" class="w3-mobile w3-margin-top w3-left" style="width:48.5%; overflow:hidden;" >
+	<slick settings="slickConfig">
+		<div style="overflow: hidden;" class="w3-display-container display">
+			<img  data-lazy="/images/shop/women/dress_women_01/img_1.jpg" style="width:100%;height:auto;margin:auto"></img>
+			<div class="w3-display-topleft w3-xxlarge w3-wide" style="">Dresses</div>
+		</div>
+		<div style="overflow: hidden;" class="w3-display-container display">
+			<img  data-lazy="/images/shop/women/dress_women_01/img_2.jpg" style="width:100%;height:auto;margin:auto"></img>
+			<div class="w3-display-topleft w3-xxlarge w3-wide" style="">Dresses</div>
+		</div>
+		<div style="overflow: hidden;" class="w3-display-container display">
+			<img  data-lazy="/images/shop/women/dress_women_01/img_3.jpg" style="width:100%;height:auto;margin:auto"></img>
+			<div class="w3-display-topleft w3-xxlarge w3-wide" style="">Dresses</div>
+		</div>
+	</slick>
+</a>
+
+ 
 </div>
 
 <div ng-include="'footer.html'" class="w3-margin-top">
