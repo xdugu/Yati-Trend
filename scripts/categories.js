@@ -81,12 +81,12 @@ app.controller('Categories', function($scope, $http, $timeout, $location) {
 		}
 		
 		$timeout(function(){
-		if($scope.products[0].imgPref=="width")
-				{
-					$('.shop_img').css({width:"100%",height:"auto"});
+		if($scope.products[0].imgPref=="height")
+		{
+					$('.shop_img').css({width:"auto",height:"100%"});
 					
-				}	
-		},100);
+		}	
+		},2000);
 	
 		
 	});

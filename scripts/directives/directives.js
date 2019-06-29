@@ -78,3 +78,28 @@ angular.module('myApp').filter('accentsfilter',function(){
     };
 	
 });
+
+angular.module('myApp').directive('myImageSizer', function($interval) {
+  return {
+	restrict: 'A',
+    link: function($scope,elem, attr) {
+		let promise = $interval(function(){
+			indexOfShortestImage=0;
+			shortestHeight=2000;
+			images = $(elem).find('img');
+			for(let i=0;i< images.length; i++){
+				if(!images[i].complete)
+					return;
+				if(images[i].height<shortestHeight)
+				{
+					shortestHeight = images[i].height;
+					indexOfShortestImage = i;
+				}
+			}
+			$(elem).children('div').css({'height': shortestHeight.toString() + 'px'});
+			$interval.cancel(promise);
+
+		},100);
+    }
+  };
+});
