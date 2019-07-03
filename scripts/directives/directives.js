@@ -78,7 +78,7 @@ angular.module('myApp').filter('accentsfilter',function(){
     };
 	
 });
-
+//directive to help keep images of items at the same height
 angular.module('myApp').directive('myImageSizer', function($interval) {
   return {
 	restrict: 'A',
@@ -102,4 +102,29 @@ angular.module('myApp').directive('myImageSizer', function($interval) {
 		},100);
     }
   };
+});
+
+//function to deal with newletter sign up
+angular.module('myApp').directive('myNewsletter', function($http) {
+    return {
+        restrict: 'A',
+        link: function($scope, element, attrs) {
+			
+            $scope.submitEmail= function(email) {
+				data={"email": email};
+                 $http({
+				method: 'POST',
+				crossDomain : true,
+				url: 'https://api.yati-trend.com/v1/Request/AddNewsletter',
+				data: JSON.stringify(data),
+				headers: {'Content-Type': 'application/json'}
+			}).then(function(res){
+					$scope.showThanks = true;
+				
+			}).catch(function(err){
+				$scope.showError = true;
+			}); 
+            }
+        }
+    }
 });

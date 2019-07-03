@@ -1,20 +1,26 @@
 
 <div class="w3-padding w3-margin-bottom w3-mobile w3-main-theme w3-text-black">
-	<div ng-init="showPrivacy=false">
+	<div ng-init="showPrivacy=false; showThanks=false; showError=false;email=''">
 		<div class="w3-margin-bottom">
-			<img onclick="Common_changeLanguage('hu')" src="../images/hun_flag.jpg" style="height:3vh;width:auto"></img>
-			<img onclick="Common_changeLanguage('en')"class="w3-margin-left" src="../images/eng_flag.jpg" style="height:3vh;width:auto"></img>
+			<img onclick="Common_changeLanguage('hu')" src="../images/hun_flag.jpg" style="height:3vh;width:auto" class="hoverable"></img>
+			<img onclick="Common_changeLanguage('en')"class="w3-margin-left" src="../images/eng_flag.jpg" class="hoverable" style="height:3vh;width:auto"></img>
 		</div>
 		<div class="w3-medium "> SIGN UP FOR MORE NEWS AND DISCOUNTS</div> 
-		<div class="w3-row">
-		   <input ng-focus="showPrivacy=true" ng-blur="showPrivacy=false" class="w3-padding w3-white w3-col m5 l4 w3-input w3-round w3-mobile w3-center w3-margin-top" type="text" placeholder="Email">
-		   <button id="register-button" class="w3-col m3 l2 w3-padding w3-round w3-mobile w3-center w3-hover-green w3-black w3-margin-top" style="border:1px solid black">Subscribe</button>
+		<div class="w3-row" my-newsletter="true" ng-show="!showThanks && !showError">
+		  <form name="newsletter">
+		   <input ng-focus="showPrivacy=true" ng-model="email" ng-blur="showPrivacy=false" class="w3-padding w3-white w3-col m5 l4 w3-input w3-round w3-mobile w3-center w3-margin-top" 
+		   type="email" placeholder="Email" required  autocomplete="email" name="email"/>
+		   </form>
+		   <button ng-disabled="newsletter.email.$invalid || !newsletter.email.$dirty " ng-click="submitEmail(email)" id="register-button" class="w3-col m3 l2 w3-padding w3-round w3-mobile w3-center w3-hover-green w3-black w3-margin-top" style="border:1px solid black">Subscribe</button>
 		</div>
-		<div class="w3-small" ng-show="showPrivacy"> Please read our terms and privacy policy to understand how we use your data when you sign up</div>
+		<div ng-show="newsletter.email.$touched && newsletter.email.$invalid" class="w3-text-red bold">Please enter a valid email </div>
+		<div ng-show="showPrivacy"> Please read our terms and privacy policy to understand how we use your data when you sign up</div>
+		<div ng-if="showThanks" class="w3-text-white" >Thank you for signing up</div>
+		<div ng-if="showError" class="w3-text-red bold"> Something went wrong. Please try again later</div>
 		<div class="w3-margin-top"><i class="fa fa-copyright w3-text-black"></i> Copyright Yati-Trend 2019</div>
 		<div class="w3-xxlarge">
-			<i class="fa fa-facebook "></i>
-			<i class="fa fa-instagram"></i>
+			<i class="fa fa-facebook hoverable"></i>
+			<i class="fa fa-instagram hoverable"></i>
 		</div>
 		<div>
 			<a class="underlined w3-small" href="help.html?show=use-of-personal-data" >Privacy Policy </a>|
@@ -22,5 +28,7 @@
 		</div>
 	</div>
 </div>
+
+
 
 

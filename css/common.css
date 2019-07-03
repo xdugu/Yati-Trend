@@ -216,6 +216,10 @@ ul#mobile-submenu ul li:hover
 	font-weight: bold;
 }
 
+.w3-text-golden{
+	color: var(--main-theme) ;
+}
+
 @media only screen and (min-width: 601px) {
   #register-button{
 	 margin-left: 1vw;

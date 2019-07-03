@@ -34,15 +34,15 @@
 	<div class="w3-large w3-center" >Contact Details</div>
 	<form name="form1" novalidate class="entry w3-padding">
 		<input type="text" class="w3-input" name="name" ng-model="user.firstName" required placeholder=""  autocomplete="name"/>
-		<label>Name</label>
+		<label  class="bold w3-text-golden"> Name</label>
 		<span class="w3-text-red" ng-show="form1.name.$touched && form1.name.$invalid">Name is required</span>
 		
 		<input type="email" class="w3-input" name="email" ng-model="user.email" placeholder="" required  autocomplete="email"/>
-		<label>Email</label>
+		<label class="bold w3-text-golden">Email</label>
 		<span class="w3-text-red" ng-show="form1.email.$touched && form1.email.$invalid">Email is required</span>
 		
 		<input type="tel" class="w3-input" name="number" ng-model="user.number" placeholder="" autocomplete="tel" required />
-		<label>Phone Number</label>
+		<label class="bold w3-text-golden">Phone Number</label>
 		<span class="w3-text-red" ng-show="form1.number.$touched && form1.number.$invalid">Phone number is required</span>
 	</form>
 	</div>
@@ -61,7 +61,7 @@
 		</div>
 	
 	</div>
-	<div class="w3-modal" style="display:block;" ng-show="showDialog==true">
+	<div class="w3-modal" style="display:block;" ng-show="showDialog">
 		<div class="w3-modal-content w3-container">
 			<div class="w3-display-container">
 		<span ng-click="showDialog=false" class="material-icons w3-xxxlarge w3-text-black w3-display-topright hoverable" style="z-index:1000">cancel</span>
@@ -87,23 +87,23 @@
 		<form  name="form" novalidate class="entry w3-padding" >
 		<fieldset ng-disabled="order.deliveryMethod=='FoxpostPickup'" style="border: 0">
 			<input type="text" class="w3-input" name="addr" ng-model="user.address1" required placeholder=""  autocomplete="address-line1" />
-			<label> Address</label>
+			<label class="bold w3-text-golden"> Address</label>
 			<span class="w3-text-red" ng-show="form.addr.$touched && form.addr.$invalid">Address is required</span>
 			
 			<input type="text" class="w3-input" ng-model="user.address2" placeholder=""  autocomplete="address-line2"/>
-			<label>Address 2 (optional)</label>
+			<label class="bold w3-text-golden">Address 2 (optional)</label>
 			
 			<input type="text" class="w3-input" name="city" ng-model="user.city" required placeholder=""/>
-			<label>City/Town</label>
+			<label class="bold w3-text-golden">City/Town</label>
 			<span class="w3-text-red" ng-show="form.city.$touched && form.city.$invalid">City/Town is required</span>
 			
 			<input type="text" class="w3-input" name="pcode"ng-model="user.postCode" required placeholder=""  autocomplete="postal-code"/>
-			<label>Post Code</label>
+			<label class="bold w3-text-golden">Post Code</label>
 			<span class="w3-text-red" ng-show="form.pcode.$touched && form.pcode.$invalid">PostCode is required</span>
 			
 			
 			<input type="text" class="w3-input" name="country" ng-model="user.country" disabled />
-			<label>Country</label>
+			<label class="bold w3-text-golden">Country</label>
 		</fieldset>
 		</form>
 	</div>
