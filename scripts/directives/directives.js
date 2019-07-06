@@ -7,13 +7,15 @@ angular.module('myApp').directive('myCostStr', function() {
 		function calc(myCost)
 		{
 			//let myCost=parseInt(attr.myCostStr);
+			costSign = Math.abs(myCost)/myCost;
+			myCost= Math.abs(myCost);
 			if(myCost==null)
 			{
 				return '';
 			}
 			
 			if($scope.currency=="EUR"){
-				myCost = "€" + Number.parseFloat(myCost).toFixed(2);
+				myCost = "€" + Number.parseFloat(costSign * myCost).toFixed(2);
 				myCost+= " EUR";
 				
 			}
@@ -27,11 +29,11 @@ angular.module('myApp').directive('myCostStr', function() {
 					let partBeforePoint = Math.trunc(myCost/1000);
 					let partAfterPoint = myCost - partBeforePoint * 1000;
 					if(partAfterPoint<10)
-					myCost= partBeforePoint.toString() +'.00'+ partAfterPoint.toString();
+					myCost= (costSign * partBeforePoint).toString() +'.00'+ partAfterPoint.toString();
 					else if(partAfterPoint<100)
-						myCost= partBeforePoint.toString() +'.0'+ partAfterPoint.toString();
+						myCost= (costSign * partBeforePoint).toString() +'.0'+ partAfterPoint.toString();
 					else
-						myCost= partBeforePoint.toString() +'.'+ partAfterPoint.toString();
+						myCost= (costSign * partBeforePoint).toString() +'.'+ partAfterPoint.toString();
 				}
 				myCost+=" Ft";
 			}

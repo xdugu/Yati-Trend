@@ -39,7 +39,9 @@
 					<div my-cost-str="item.Price[currency.toLowerCase()] * item.Quantity" id="price" class="w3-display-right price"></div>
 				</div>		
 		</div>
-		<div class="w3-margin-top" style="font-weight: bold">Delivery: <span my-cost-str="order.Costs[shopping.deliveryMethod].delivery" class="price"></span></div>
+		<div class="w3-margin-top" style="font-weight: bold">Subtotal: <span my-cost-str="order.Costs[shopping.deliveryMethod].subTotal" class="price"></span></div>
+		<div ng-if="order.Discount!=null" style="font-weight: bold">Discount: <span my-cost-str="order.Costs[shopping.deliveryMethod].discount*-1" class="price"></span></div>
+		<div  style="font-weight: bold">Delivery: <span my-cost-str="order.Costs[shopping.deliveryMethod].delivery" class="price"></span></div>
 		<div class="w3-xlarge" style="font-weight: bold">Total: <span my-cost-str="order.Costs[shopping.deliveryMethod].total" class="price"></span></div>
 	</div>
 	<div class="w3-col l6 w3-padding">	

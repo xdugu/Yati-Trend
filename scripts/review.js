@@ -119,6 +119,10 @@ app.controller('Review', function($scope, $http, $timeout) {
 					  value: $scope.order.Costs[$scope.shopping.deliveryMethod].subTotal.toString(),
 					  currency_code: $scope.currency
 				  },
+				  discount: {
+					  value: $scope.order.Costs[$scope.shopping.deliveryMethod].discount.toString(),
+					  currency_code: $scope.currency
+				  },
 				  shipping: {
 					  value: $scope.order.Costs[$scope.shopping.deliveryMethod].delivery.toString(),
 					  currency_code: $scope.currency

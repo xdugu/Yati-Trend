@@ -14,6 +14,7 @@ app.controller('Basket', function($scope, $http) {
 	$scope.basketId = localStorage.getObj("basketId");
 	$scope.shopping= localStorage.getObj("shopping");
 	$scope.currency = $scope.shopping.currency;
+	$scope.discounts = {code:'',showError:false,showSuccess: false};
 	
 	if($scope.basketId==null || $scope.basketId=="" || $scope.basketId.length<2){
 		$scope.order=null;
@@ -100,6 +101,24 @@ app.controller('Basket', function($scope, $http) {
 					localStorage.setObj("shopping",$scope.shopping);
 				}
 			});
+	}
+	
+	$scope.applyDiscount = function(code){
+		$http({
+				method: 'POST',
+				crossDomain : true,
+				url: 'https://api.yati-trend.com/v1/Request/ValidateDiscount',
+				data: JSON.stringify({basketId:$scope.basketId,discountCode: code, country:$scope.shopping.contact.country, currency:$scope.currency }),
+				headers: {'Content-Type': 'application/json'}
+			}).then(function(res){
+					$scope.order = res.data.data;
+					$scope.discounts.showSuccess=true;
+					
+			}).catch(function(err){
+				$scope.discounts.code='';
+				$scope.discounts.showError=true;
+			});
+			
 	}
 	
 	

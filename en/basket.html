@@ -75,6 +75,16 @@
 						
 			
 			<div ng-hide="shopping.contact.country =='default'" class="w3-white w3-padding-top w3-margin-top">
+			
+			<br><br>
+			<div ng-if="order.Discount==null" class="w3-padding-top">
+				<span> Enter your discount code here </span> <br>
+				<input style="width:60%" class="w3-mobile w3-margin-top w3-padding" ng-model="discounts.code"/>
+				<button style="width:25%" ng-disabled="discounts.code.length<5" ng-click="applyDiscount(discounts.code)" class=" w3-button w3-mobile w3-black w3-hover-grey w3-padding w3-margin-top">Apply Code</button>						
+			</div>
+			<br>
+			<div class="w3-red" ng-show="discounts.code.length==0 && discounts.showError">Discount code is not valid</div>
+			<div class="w3-green" ng-show="discounts.showSuccess">Discount code successfully applied </div>
 				
 				<form ng-show="shopping.contact.country=='Hungary'" name="deliveryMethod">
 				<div class="w3-large"><b>Choose a courier</b></div>
@@ -91,7 +101,9 @@
 					GLS Home Delivery (<b my-cost-str="order.Costs.GLSDelivery.delivery"></b>)
 				  </label><br/>
 				</form>
-				<div class="w3-large w3-margin-top ">Delivery: <span my-cost-str="order.Costs[shopping.deliveryMethod].delivery" class="price" ></span></div>
+				<div class="w3-large w3-margin-top ">SubTotal: <span my-cost-str="order.Costs[shopping.deliveryMethod].subTotal" class="price" ></span></div>
+				<div ng-if="order.Discount!=null" class="w3-large">Discount: <span my-cost-str="order.Costs[shopping.deliveryMethod].discount*-1" class="price"></span></div>
+				<div class="w3-large ">Delivery: <span my-cost-str="order.Costs[shopping.deliveryMethod].delivery" class="price" ></span></div>				
 				<div class="w3-xlarge w3-margin-top ">Total: <span my-cost-str="order.Costs[shopping.deliveryMethod].total" class="price-total"></span></div>
 				
 				<a class="w3-button w3-black w3-round w3-large w3-margin-top w3-padding" href="checkout.html">Proceed to Checkout</a>
