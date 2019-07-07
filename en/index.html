@@ -40,15 +40,53 @@ body{
 #text{
 	overflow-y: hidden;
 	max-height: 0px;
-	transition: max-height 5s linear;
-	transition-delay: 3s;
+	transition: max-height 3s linear;
 
-
+}
+.myVideo {
+  position: fixed;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  opacity: 1;
+  transition-delay: 2s;
+  transition: opacity 3s linear;
+  
+  /*min-height: 100%;*/
+  /*min-width: 100%;*/  
+}
+.landscape{
+	display:none;
 }
 
 .fa:hover{
 	color: Goldenrod !important;
 
+}
+
+@media only screen and (min-width: 600px) {
+  .myVideo {
+  top: -500px;
+  left: 0;
+  width: 100%; 
+}
+
+}
+@media only screen and (min-width: 1100px) {
+  .myVideo {
+  top: 0px;
+  left: 0;
+  width: 100%; 
+}
+
+.landscape{
+	display:block;
+}
+
+.portrait{
+	display:none;
+
+}
 }
 
 </style>
@@ -57,9 +95,17 @@ body{
 </head> 
 
 <body  ng-app="myApp" ng-controller="HomePage" >
-<img id="background_img" src="/images/main_pic.jpg"/>
+<!--img id="background_img" src="/images/main_pic.jpg"/-->
 
-	<div id="text" style="width:100%;background-color:white;opacity: 0.9; z-index:1000;" >
+<video autoplay playsinline muted loop class="myVideo portrait">
+  <source src="/videos/back4.mov" >
+</video>
+
+<video autoplay playsinline muted loop class="myVideo landscape">
+  <source src="/videos/back_land2.mov" >
+</video>
+
+	<div id="text" style="width:100%;background-color:white;opacity: 0.8; z-index:1000;" >
 		<div style="font-size: 1.2em; height: 100%; color: black;text-align:center;" class="bold "> 
 		<img  src="/images/logo.jpg" style="margin: auto; width:20%; display: block"/>
 			Welcome to the home of Afro-European fashion<br><br>
@@ -86,8 +132,15 @@ body{
 				</div>
 		   </div>
 		   
+		   
 		   </div>
-		</div>
+		   
+	</div>
+	
+	<div id="arrow" style="visibility:hidden;position:relative;width:10%;margin: 16px auto;z-index:10001;">
+		<span id="actual_arrow" ng-click="rowUp()" class="material-icons w3-jumbo hoverable" style="color:black;background-color:white;border-radius: 50%;z-index:20001">expand_less</span>
+	</div>
+	
 	
 	<!--div class="my-bg" class="" style="width: 100vw"></div-->
 
