@@ -10,6 +10,7 @@ Storage.prototype.getObj = function(key) {
 var app = angular.module('myApp', ['ngSanitize','slickCarousel']);
 app.controller('Categories', function($scope, $http, $timeout, $location) {
 	$scope.products=[];
+	$scope.urlParams = Common_parseUrlParam();
 	//Language stuff
 	$scope.backbone = {lang:null};
 	$scope.backbone.lang= localStorage.getObj("shopping").contact.lang;//for choosing of language	
@@ -42,8 +43,7 @@ app.controller('Categories', function($scope, $http, $timeout, $location) {
 };
 	
 	/////////////////////////////////
-	let category = Common_getUrlParam("category=")
-	$http.get('https://api.yati-trend.com/v1/Request/Category?category='+ category).then(function(res){
+	$http.get('https://api.yati-trend.com/v1/Request/Category?category='+ $scope.urlParams.category).then(function(res){
 		$scope.categoryData = res.data.data;
 		
 		$('#category-name').append($scope.categoryData[0].CategoryName[$scope.backbone.lang]);
@@ -75,11 +75,17 @@ app.controller('Categories', function($scope, $http, $timeout, $location) {
 			}
 			if(!matchFound){
 				let val = $scope.categoryData[i].SubCategoryName[$scope.backbone.lang];
-				$scope.categoryOptions.availableOptions.push({name: val, value: val});
+				$scope.categoryOptions.availableOptions.push({name: val, value: $scope.categoryData[i].SubCategoryName.en});
 			}
+			
 					
 		}
-		
+		for(let j=0; j<$scope.categoryOptions.availableOptions.length; j++){
+				if($scope.categoryOptions.availableOptions[j].value ==  $scope.urlParams.subCategory){
+					$scope.categoryOptions.selectedOption = $scope.categoryOptions.availableOptions[j];
+					break;
+				}
+			}
 		$timeout(function(){
 		if($scope.products[0].imgPref=="height")
 		{

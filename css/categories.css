@@ -24,8 +24,11 @@ div#product-shelf-placeholder
 	/*font-family: Verdana, serif;	*/
 	font-family: Muli, serif;
 	letter-spacing:	2px;
-	color: var(--main-theme);
 	font-weight: bold;
+}
+
+.theme-color{
+		color: var(--main-theme);	
 }
 
 

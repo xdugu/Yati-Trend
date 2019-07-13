@@ -111,6 +111,34 @@ function Common_getUrlParam(param){
 	
 }
 
+function Common_parseUrlParam(){
+	let url = window.location.href;
+	let returnParams = {};
+	paramPos = url.indexOf('?');
+	if(paramPos<0)
+		return null;
+	url = url.substring(paramPos+1);//don't need the '?' any more
+	for(;;){
+		paramPos = url.indexOf('=');
+		valPos = url.indexOf('&');
+		if(paramPos>0 && valPos>0){
+			returnParams[url.substring(0,paramPos)] = url.substring(paramPos+1,valPos);
+			url = url.substring(valPos+1);
+		}
+		else if(paramPos>0 && valPos<0){
+			returnParams[url.substring(0,paramPos)] = url.substring(paramPos+1);
+			url='';
+		}
+		else if(paramPos<0){
+			break;
+		}
+		
+	}
+	
+	return returnParams;
+	
+}
+
 function Common_changeLanguage(lang){
 	
 	let store = localStorage.getObj("shopping");
