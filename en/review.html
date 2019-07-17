@@ -3,7 +3,7 @@
 <head>
 <title> Yati-Trend | Review</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
+<link rel="icon" type="image/jpeg" href="/images/logo.jpg">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="/css/normalize.css"/>
@@ -36,13 +36,13 @@
 					<div id="description" class="w3-display-topleft" style="width:100%;">{{item.Description.en}}</div>
 					<div id="size" class="w3-display-bottommiddle">Size: {{item.Variants.chosenVariant}}</div>
 					<div id="quantity" class="w3-display-bottomleft ">Qty: {{item.Quantity}}</div>
-					<div my-cost-str="item.Price[currency.toLowerCase()] * item.Quantity" id="price" class="w3-display-right price"></div>
+					<div my-cost-str="item.Price[currency.toLowerCase()] * item.Quantity" id="price" class="w3-display-right price theme-color"></div>
 				</div>		
 		</div>
 		<div class="w3-margin-top" style="font-weight: bold">Subtotal: <span my-cost-str="order.Costs[shopping.deliveryMethod].subTotal" class="price"></span></div>
 		<div ng-if="order.Discount!=null" style="font-weight: bold">Discount: <span my-cost-str="order.Costs[shopping.deliveryMethod].discount*-1" class="price"></span></div>
 		<div  style="font-weight: bold">Delivery: <span my-cost-str="order.Costs[shopping.deliveryMethod].delivery" class="price"></span></div>
-		<div class="w3-xlarge" style="font-weight: bold">Total: <span my-cost-str="order.Costs[shopping.deliveryMethod].total" class="price"></span></div>
+		<div class="w3-xlarge" style="font-weight: bold">Total: <span my-cost-str="order.Costs[shopping.deliveryMethod].total" class="price theme-color"></span></div>
 	</div>
 	<div class="w3-col l6 w3-padding">	
 		<div class="w3-card w3-padding w3-margin-top">
@@ -59,6 +59,13 @@
 			<div>{{shopping.contact.postCode}}</div>
 			<div>{{shopping.contact.country}}</div>
 		</div>
+	</div>
+	</div>
+	
+	<div class="w3-row w3-padding"> 
+	<div class="w3-col l5">
+		<b>Comments: Maximum length  ({{temp.comments.length}}/500)</b><br>
+		<textarea style="width:100%" rows="5" name="fname" ng-model="temp.comments" maxlength="500"></textarea>
 	</div>
 	</div>
 	
