@@ -9,7 +9,7 @@ angular.module('myApp').directive('myCostStr', function() {
 			//let myCost=parseInt(attr.myCostStr);
 			costSign = Math.abs(myCost)/myCost;
 			myCost= Math.abs(myCost);
-			if(myCost==null)
+			if(myCost==null || isNaN(myCost))
 			{
 				return '';
 			}

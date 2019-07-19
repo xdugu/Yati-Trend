@@ -12,7 +12,7 @@ app.controller('Checkout',  function($scope, $http, $timeout) {
 	$scope.user=$scope.order.contact;
 	$scope.places =[];
 	$scope.showFoxpost=true;
-	$http.get("/convertcsv.json").then(function(resp){
+	$http.get("/foxpostdb.json").then(function(resp){
 		$scope.places = resp.data;
 	});
 	
@@ -23,10 +23,10 @@ app.controller('Checkout',  function($scope, $http, $timeout) {
 	}
 	
 	$scope.foxpostChosenLoc = function(place){
-		$scope.user.address1 = "Foxpost";
+		$scope.user.address1 = "Foxpost "+ place.Name;
 		$scope.user.address2 = place.Address;
 		$scope.user.city = place.City;
-		$scope.user.postCode = place.Address.substring(0,4);
+		$scope.user.postCode = place.PostCode;
 		$scope.showFoxpost =false;
 		
 	}

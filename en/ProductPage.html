@@ -70,11 +70,10 @@ Orders above <span class="price-total w3-wide">25.000Ft</span>get FREE shipping 
 		</div>
 
 	<div ng-show="itemInfo.Variants.hasVariants" class="w3-container" style="width:100%;padding:0">
-		<select id="product_size" class="w3-input w3-border w3-border-black w3-left w3-large" style="width:70%"
+		<select id="product_size" class="w3-input w3-border w3-border-black w3-left w3-large" style="width:100%"
 		  ng-options="option.name disable when option.disable for option in variantOptions.availableOptions track by option.value"
 		  ng-model="variantOptions.selectedOption">
 		</select>
-		<span class="w3-margin-left w3-left hoverable" style="text-decoration:underline">Size chart</span>
 	</div>
 	<div id="show_size_prompt" class="w3-container" ng-show="variantOptions.selectedOption.value=='default' && showPrompt" style="padding:0">
 		<div class="w3-center w3-yellow  w3-margin-top w3-padding" > Please select a size</div>
@@ -91,18 +90,32 @@ Orders above <span class="price-total w3-wide">25.000Ft</span>get FREE shipping 
 	<div class="gapper w3-hide-small w3-hide-medium" style="height:50px">
 	</div>
 	
-	<div ng-controller="Accordions" ng-init="des=true;del=false;ret=false;" class="w3-margin-bottom more-info">
-		<div ng-click="des=!des;del=false;ret=false" class="w3-border-bottom w3-border-black w3-padding" style="width:100%;height=auto;overflow:auto">
+	<div ng-controller="Accordions" ng-init="des=true;del=false;ret=false;size=false" class="w3-margin-bottom more-info">
+		<div ng-click="des=!des;del=false;ret=false;size=false;" class="w3-border-bottom w3-border-black w3-padding" style="width:100%;height=auto;overflow:auto">
 				<span class="w3-left w3-large">Description</span>
 				<span class="w3-right w3-large"> <i ng-show="des==false">+</i><i ng-show="des==true">-</i></span>
 		<div ng-show="des==true" class="w3-margin-top"><br>Some random stuff to say. A whole lot to say. What to say but to say what is said</div>
 		</div>
-		<div ng-click="del=!del;des=false;ret=false" class="w3-border-bottom w3-border-black w3-padding" style="width:100%;height=auto;overflow:auto">
+		<div ng-click="size=!size;des=false;del=false;ret=false" class="w3-border-bottom w3-border-black w3-padding" style="width:100%;height=auto;overflow:auto">
+				<span class="w3-left w3-large">Size Chart</span>
+				<span class="w3-right w3-large"> <i ng-show="size==false">+</i><i ng-show="size==true">-</i></span>
+		</div>
+		<div ng-show="size==true" class="w3-margin-top">
+			<div style="overflow-x:auto">
+				<table class="w3-table w3-striped">
+				<tr><th>Size</th><th>Height(cm)</th><th>Bust(cm)</th><th>Waist(cm)</th><th>Hips(cm)</th></tr>
+				<tr><td>S</td><td>162-168</td><td>88</td><td>66</td><td>92</td> </tr>
+				<tr><td>M</td><td>166-172</td><td>92</td><td>70</td><td>96</td> </tr>
+				<tr><td>L</td><td>173-176</td><td>96</td><td>74</td><td>100</td> </tr>		
+				</table>
+			</div>
+		</div>
+		<div ng-click="del=!del;des=false;ret=false;size=false;" class="w3-border-bottom w3-border-black w3-padding" style="width:100%;height=auto;overflow:auto">
 				<span class="w3-left w3-large">Delivery</span>
 				<span class="w3-right w3-large"> <i ng-show="del==false">+</i><i ng-show="del==true">-</i></span>
 		<div ng-show="del==true" class="w3-margin-top"><br>Some random stuff to say. A whole lot to say. What to say but to say what is said</div>
 		</div>
-		<div ng-click="ret=!ret;del=false;des=false" class="w3-border-bottom w3-border-black w3-padding" style="width:100%;height=auto;overflow:auto">
+		<div ng-click="ret=!ret;del=false;des=false;size=false;" class="w3-border-bottom w3-border-black w3-padding" style="width:100%;height=auto;overflow:auto">
 				<span class="w3-left w3-large">Returns</span>
 				<span class="w3-right w3-large"> <i ng-show="ret==false">+</i><i ng-show="ret==true">-</i></span>
 		<div ng-show="ret==true" class="w3-margin-top"><br>Some random stuff to say. A whole lot to say. What to say but to say what is said</div>

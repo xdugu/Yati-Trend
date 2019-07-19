@@ -7,7 +7,7 @@
 
 
 <!--link rel="stylesheet" href="css/shop-list-design.css"/-->
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="/css/w3.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.4/angular.min.js"></script>
@@ -56,7 +56,8 @@
 			<input type="text" ng-model="search" class="w3-input w3-border w3-border-green w3-margin-bottom" placeholder="Enter a location e.g. Budapest"/>
 			<div style="overflow-y:auto;overflow-x:hidden;height:40vh">
 				<ul class="w3-ul" >
-					<li class="w3-padding w3-hover-black w3-small" ng-click="$parent.showDialog=true;$parent.tempAddr=place" ng-repeat="place in places | accentsfilter:search">{{ place.Name}}<br>{{place.Address}}<br>{{place.City}}</li>
+					<li class="w3-padding w3-hover-black w3-small" ng-click="$parent.showDialog=true;$parent.tempAddr=place" ng-repeat="place in places | accentsfilter:search">
+					{{ place.Name}}<br>{{place.Address}}<br>{{place.City}}<br>{{place.PostCode}}</li>
 				</ul>
 			</div>
 		</div>
@@ -68,7 +69,8 @@
 		<span ng-click="showDialog=false" class="material-icons w3-xxxlarge w3-text-black w3-display-topright hoverable" style="z-index:1000">cancel</span>
 			<b>{{tempAddr.Name}}</b><br><br>
 			{{tempAddr.Address}}<br>
-			{{tempAddr.City}}<br><br>
+			{{tempAddr.City}}<br>
+			{{tempAddr.PostCode}}<br><br>
 			Monday: {{tempAddr.Monday}}<br>
 			Tuesday:{{tempAddr.Tuesday}}<br>
 			Wednesday: {{tempAddr.Wednesday}}<br>
