@@ -51,7 +51,8 @@ Orders above <span class="price-total w3-wide">25.000Ft</span>get FREE shipping 
  </slick>
 
  <div class="w3-container w3-col l4 " style="">
-	<div id="product_title" class="w3-margin-top w3-margin-bottom w3-large">{{product.description}}</div>
+	<div id="product_title" class="w3-margin-top w3-margin-bottom w3-large "><span class="bold" style="font-size: 1.1em" ng-bind-html="itemInfo.Description.hu"></span>
+	</div>
 	<div my-cost-str="product.price[currency.toLowerCase()]"id="product_price" class="w3-margin-top w3-margin-bottom price w3-wide w3-large"></div>
 
 	<!--Currency chooser  -->
@@ -83,21 +84,17 @@ Orders above <span class="price-total w3-wide">25.000Ft</span>get FREE shipping 
 		<button id="add_basket_button" class="w3-black w3-button w3-xlarge w3-hover-black  w3-col m6 l12" ng-click="checkBasket()">Add to Basket</button>
 	</div>
 	<div class="w3-container w3-margin-top" id="added-prompt" style="padding:0;opacity:0">
-		<div class="w3-center w3-animate-left w3-padding w3-green w3-xlarge">Item has been Added</div>
-	</div>
-	
-	
-	<div class="gapper w3-hide-small w3-hide-medium" style="height:50px">
+		<div class="w3-center w3-padding w3-green w3-xlarge">Item has been Added</div>
 	</div>
 	
 	<div ng-controller="Accordions" ng-init="des=true;del=false;ret=false;size=false" class="w3-margin-bottom more-info">
 		<div ng-click="des=!des;del=false;ret=false;size=false;" class="w3-border-bottom w3-border-black w3-padding" style="width:100%;height=auto;overflow:auto">
-				<span class="w3-left w3-large">Description</span>
+				<span class="w3-left w3-large w3-text-golden">Description</span>
 				<span class="w3-right w3-large"> <i ng-show="des==false">+</i><i ng-show="des==true">-</i></span>
-		<div ng-show="des==true" class="w3-margin-top"><br>Some random stuff to say. A whole lot to say. What to say but to say what is said</div>
+		<div ng-show="des==true" class="w3-margin-top"><br><span ng-bind-html="itemInfo.FirstDescription.hu"></span><br><span ng-bind-html="itemInfo.MainDescription.hu"></span></div>
 		</div>
-		<div ng-click="size=!size;des=false;del=false;ret=false" class="w3-border-bottom w3-border-black w3-padding" style="width:100%;height=auto;overflow:auto">
-				<span class="w3-left w3-large">Size Chart</span>
+		<div ng-show="itemInfo.Category!='Accessories'" ng-click="size=!size;des=false;del=false;ret=false" class="w3-border-bottom w3-border-black w3-padding" style="width:100%;height=auto;overflow:auto">
+				<span class="w3-left w3-large w3-text-golden">Size Chart</span>
 				<span class="w3-right w3-large"> <i ng-show="size==false">+</i><i ng-show="size==true">-</i></span>
 		</div>
 		<div ng-show="size==true" class="w3-margin-top">
@@ -111,12 +108,12 @@ Orders above <span class="price-total w3-wide">25.000Ft</span>get FREE shipping 
 			</div>
 		</div>
 		<div ng-click="del=!del;des=false;ret=false;size=false;" class="w3-border-bottom w3-border-black w3-padding" style="width:100%;height=auto;overflow:auto">
-				<span class="w3-left w3-large">Delivery</span>
+				<span class="w3-left w3-large w3-text-golden">Delivery</span>
 				<span class="w3-right w3-large"> <i ng-show="del==false">+</i><i ng-show="del==true">-</i></span>
 		<div ng-show="del==true" class="w3-margin-top"><br>Some random stuff to say. A whole lot to say. What to say but to say what is said</div>
 		</div>
 		<div ng-click="ret=!ret;del=false;des=false;size=false;" class="w3-border-bottom w3-border-black w3-padding" style="width:100%;height=auto;overflow:auto">
-				<span class="w3-left w3-large">Returns</span>
+				<span class="w3-left w3-large w3-text-golden">Returns</span>
 				<span class="w3-right w3-large"> <i ng-show="ret==false">+</i><i ng-show="ret==true">-</i></span>
 		<div ng-show="ret==true" class="w3-margin-top"><br>Some random stuff to say. A whole lot to say. What to say but to say what is said</div>
 		</div>

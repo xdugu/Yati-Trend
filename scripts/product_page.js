@@ -103,7 +103,6 @@ app.controller('ProductDisplay',function($scope, $timeout,$http,$location,$windo
 	{
 		$scope.itemInfo = res.data.data;
 		
-		$scope.product.description = $scope.itemInfo.Description[$scope.backbone.lang];
 
 
 		
@@ -114,6 +113,8 @@ app.controller('ProductDisplay',function($scope, $timeout,$http,$location,$windo
 		$scope.product.imgPref = $scope.itemInfo.Image.imagePref;
 		
 		$scope.product.category = $scope.itemInfo.Category;
+		
+		$scope.product.mainDescription = $scope.itemInfo.MainDescription;
 		
 		let numOfImg = $scope.itemInfo.Image.numberOfImages;
 		/*
