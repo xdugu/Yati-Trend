@@ -50,7 +50,7 @@
 					<img class="preview_img" ng-src="{{item.Image.src}}/img_1.jpg"style="width:95%; height:auto;"></img>
 				</div>
 				<div class="w3-display-container w3-col s9 m10 l10 " style="height:15vh;">
-					<div id="description" class="w3-display-topmiddle w3-center w3-small" style="width:100%;">{{item.Description.en}}</div>
+					<div id="description" class="w3-display-topmiddle w3-center" style="font-size: 1em;width:100%;">{{item.Description.en}}</div>
 					<div ng-if="item.Variants.hasVariants" id="size" class="w3-display-left">Size: {{item.Variants.chosenVariant}}</div>
 					<div id="quantity" class="w3-display-bottomleft " style="height: 2vw;">
 						<span ng-click="changeQuantity($index,-1)" class="w3-black w3-round w3-padding w3-hover-grey hoverable">-</span>

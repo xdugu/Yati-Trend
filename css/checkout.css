@@ -31,7 +31,7 @@
 
  .animate-address{
 	transition: all 1s;
-	max-height: 60vh;
+	max-height: 80vh;
 	overflow: hidden;
 }
 
@@ -40,5 +40,5 @@
 }
 
 .animate-address.ng-add{
-	max-height:60vh;
+	max-height:80vh;
 }

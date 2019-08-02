@@ -42,7 +42,10 @@ app.controller('Test', function($scope, $http, $timeout, $location) {
         return false;
     };
 
-	
+	$scope.his = function(){
+		history.pushState(null,'','?hater=you&bater=3');
+		
+	}
 	
 
 

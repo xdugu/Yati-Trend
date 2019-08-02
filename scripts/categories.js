@@ -6,9 +6,15 @@ Storage.prototype.getObj = function(key) {
     return JSON.parse(this.getItem(key))
 }
 
+var scope;
 
 var app = angular.module('myApp', ['ngSanitize','slickCarousel']);
-app.controller('Categories', function($scope, $http, $timeout, $location) {
+
+app.config(['$locationProvider', function($locationProvider) {
+    $locationProvider.html5Mode({ enabled: true, requireBase: false, rewriteLinks: false });
+}]);
+
+app.controller('Categories', function($scope, $http, $timeout, $location,$window) {
 	$scope.products=[];
 	$scope.urlParams = Common_parseUrlParam();
 	//Language stuff
@@ -17,9 +23,9 @@ app.controller('Categories', function($scope, $http, $timeout, $location) {
 	$scope.currency = localStorage.getObj("shopping").currency;
 	$scope.categoryOptions = {
 		 availableOptions: [
-			  {name: 'All',value:''}
+			  {hu: 'Mind', en:'All', value:''}
 			],
-    selectedOption:  {name: 'All',value:''} //This sets the default value of the select in the ui
+    selectedOption:   {hu: 'Mind', en:'All', value:''} //This sets the default value of the select in the ui
     };
 	$scope.slickConfig = {
 		dots: false,
@@ -37,10 +43,24 @@ app.controller('Categories', function($scope, $http, $timeout, $location) {
 		}
 		]	
 	};
+	//Called when different subCategory chosen. To keep consistency when going back to category, I need to change the href
+	$scope.changeSubCat = function (){
+		$window.history.pushState(null,'', "?category="+ $scope.urlParams.category +"&subCategory="+ $scope.categoryOptions.selectedOption.value);
+	}
 	
 	$scope.myFilter = function (product) { 
     return (product.subCategoryName[$scope.backbone.lang]== $scope.categoryOptions.selectedOption.value) || $scope.categoryOptions.selectedOption.value=='' ; 
-};
+	};
+	//We need to monitor a change in the url so we can update the subcategories correctly
+	$scope.$on('$locationChangeStart', function (event, newLoc, oldLoc) { 
+		$scope.urlParams = Common_parseUrlParam();
+	   for(let j=0; j<$scope.categoryOptions.availableOptions.length; j++){
+				if($scope.categoryOptions.availableOptions[j].value ==  $scope.urlParams.subCategory){
+					$scope.categoryOptions.selectedOption = $scope.categoryOptions.availableOptions[j];
+					break;
+				}
+			}
+	 });
 	
 	/////////////////////////////////
 	$http.get('https://api.yati-trend.com/v1/Request/Category?category='+ $scope.urlParams.category).then(function(res){
@@ -66,20 +86,25 @@ app.controller('Categories', function($scope, $http, $timeout, $location) {
 			
 			//building select list to filter results
 			let matchFound=false;
+			//Since we will probably have more than one item with the same sub-category, we have to make sure that we don't
+			//repeat the same subcategory
 			for(let j=0;j<$scope.categoryOptions.availableOptions.length;j++){
-				if($scope.categoryData[i].SubCategoryName[$scope.backbone.lang] == $scope.categoryOptions.availableOptions[j].name){
+				if($scope.categoryData[i].SubCategory == $scope.categoryOptions.availableOptions[j].value){
 					matchFound=true;
 					break;
 				}
 					
 			}
+			//if we don't find a match, we add its subcategory to the list
 			if(!matchFound){
-				let val = $scope.categoryData[i].SubCategoryName[$scope.backbone.lang];
-				$scope.categoryOptions.availableOptions.push({name: val, value: $scope.categoryData[i].SubCategoryName.en});
+				opt = {value: $scope.categoryData[i].SubCategory};
+				opt[$scope.backbone.lang] = $scope.categoryData[i].SubCategoryName[$scope.backbone.lang];
+				$scope.categoryOptions.availableOptions.push(opt);
 			}
 			
 					
 		}
+		//we will check the url to check if a sub category has already been specified to choose this instead of the default for all
 		for(let j=0; j<$scope.categoryOptions.availableOptions.length; j++){
 				if($scope.categoryOptions.availableOptions[j].value ==  $scope.urlParams.subCategory){
 					$scope.categoryOptions.selectedOption = $scope.categoryOptions.availableOptions[j];
@@ -99,3 +124,6 @@ app.controller('Categories', function($scope, $http, $timeout, $location) {
 	
 
 });
+
+
+

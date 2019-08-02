@@ -51,7 +51,7 @@ Orders above <span class="price-total w3-wide">25.000Ft</span>get FREE shipping 
  </slick>
 
  <div class="w3-container w3-col l4 " style="">
-	<div id="product_title" class="w3-margin-top w3-margin-bottom w3-large "><span class="bold" style="font-size: 1.1em" ng-bind-html="itemInfo.Description.hu"></span>
+	<div id="product_title" class="w3-margin-top w3-margin-bottom w3-large "><span class="bold" style="font-size: 1.1em" ng-bind-html="itemInfo.Description[backbone.lang]"></span>
 	</div>
 	<div my-cost-str="product.price[currency.toLowerCase()]"id="product_price" class="w3-margin-top w3-margin-bottom price w3-wide w3-large"></div>
 
@@ -91,7 +91,7 @@ Orders above <span class="price-total w3-wide">25.000Ft</span>get FREE shipping 
 		<div ng-click="des=!des;del=false;ret=false;size=false;" class="w3-border-bottom w3-border-black w3-padding" style="width:100%;height=auto;overflow:auto">
 				<span class="w3-left w3-large w3-text-golden">Description</span>
 				<span class="w3-right w3-large"> <i ng-show="des==false">+</i><i ng-show="des==true">-</i></span>
-		<div ng-show="des==true" class="w3-margin-top"><br><span ng-bind-html="itemInfo.FirstDescription.hu"></span><br><span ng-bind-html="itemInfo.MainDescription.hu"></span></div>
+		<div id="description" ng-show="des==true" class="w3-margin-top"><br><span ng-bind-html="itemInfo.MainDescription[backbone.lang]"></span></div>
 		</div>
 		<div ng-show="itemInfo.Category!='Accessories'" ng-click="size=!size;des=false;del=false;ret=false" class="w3-border-bottom w3-border-black w3-padding" style="width:100%;height=auto;overflow:auto">
 				<span class="w3-left w3-large w3-text-golden">Size Chart</span>
@@ -126,13 +126,15 @@ Orders above <span class="price-total w3-wide">25.000Ft</span>get FREE shipping 
 	
 </div><!--row-->
 
-<div class="w3-block w3-center" style="width:100%">
-	<h1 ng-show="accessories.length>0" class="w3-large bold"> Assessories with this item</h1>
-	<div ng-repeat="x in accessories" class="w3-margin-left" style="width:25%; height:50vh;overflow:hidden;display:inline-block">
-		<a href="{{x.href}}">
-			<img style="width:100%;height:auto" ng-src="{{x.imgSrc}}/img_1.jpg"></img>
+<div class="w3-block w3-center" style="width:100%: ">
+	<h1 ng-show="itemInfo.Accessories.length>0" class="w3-large bold"> Assessories with this item</h1>
+	<div id="accessories">
+	<div ng-repeat="x in itemInfo.Accessories" class="w3-margin-left" style="display:inline-block">
+		<a href="ProductPage.html?itemId={{x.ItemId}}">
+			<img style="width:100%;height:auto" ng-src="{{x.Image.src}}/img_1.jpg"></img>
 		</a>
-		
+		<div my-cost-str="x.Price[currency.toLowerCase()]" class="price w3-wide"></div>
+	</div>
 	</div>
 
 </div>

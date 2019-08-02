@@ -15,23 +15,26 @@
 <link rel="stylesheet" href="/css/common.css"/>
 <link rel="stylesheet" href="/css/categories.css"/>
 
-
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.4/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="/slick/slick.min.js"></script>
  
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.4/angular.min.js"></script>
 <script src="/scripts/common.js" ></script>
 <script src="/scripts/shop.js" ></script>
 <script src="../scripts/test.js"></script>
 <script src="/scripts/directives/directives.js" ></script>
+
+<script>
+function his(){
+	history.pushState(null,'','?hater=you&bater=3');
+}
+
+</script>
 </head> 
 
 <body ng-app="myApp" ng-controller="Test">
 
-<input type="text" ng-model="search">
-    <ul>
-        <li ng-repeat="place in places | filter:ignoreAccents">{{ place.Name}}<br>{{place.Address}}<br>{{place.City}}</li>
-    </ul>
+<button ng-click="his()">Click me</button>
 
 </body>
 </html>

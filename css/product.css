@@ -23,3 +23,32 @@
 {
 	cursor:pointer;
 }
+
+#description img{
+	width:70%;
+}
+
+/*Fixing sizing for accessories*/
+
+div#accessories {
+	white-space: nowrap;
+overflow-x: scroll;	
+	
+}
+
+div#accessories > div{
+	width: 30%;	
+}
+
+@media only screen and (min-width: 601px) {
+	div#accessories {
+		overflow: hidden;	
+}
+    div#accessories > div{
+	width: 15%;	
+
+}
+
+	
+	
+}
