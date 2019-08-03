@@ -10,7 +10,9 @@
 <link rel="stylesheet" href="/css/normalize.css"/>
 <link rel="stylesheet" href="/css/common.css"/>
 <link rel="stylesheet" href="/css/categories.css"/>
+<link rel="stylesheet" href="/css/basket.css"/>
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-131830139-1"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.4/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -76,22 +78,18 @@
 			
 			<div ng-hide="shopping.contact.country =='default'" class="w3-white w3-padding-top w3-margin-top">
 			
-			<br><br>
-			<div ng-if="order.Discount==null" class="w3-padding-top">
+			
+			<div ng-if="order.Discount==null" >
 				<span> Enter your discount code here </span> <br>
-				<input style="width:60%" class="w3-mobile w3-margin-top w3-padding w3-large" ng-model="discounts.code"/>
-				<!-- Temporary fix, two buttons, hide one depending on screen size with mobile having margin top -->
-				<button   ng-disabled="discounts.code.length<5" ng-click="applyDiscount(discounts.code)" 
-				class=" w3-button w3-mobile w3-black w3-hover-grey w3-margin-top w3-hide-large w3-hide-medium">Apply Code</button>	
-				
-				<button style="width:25%" ng-disabled="discounts.code.length<5" ng-click="applyDiscount(discounts.code)" 
-				class=" w3-button w3-black w3-hover-grey w3-hide-small w3-large w3-padding-top">Apply Code</button>					
-			</div>
-			<br>
+				<!-- ccs code for button contained in basket.css -->
+				<input id= "discount-input" class="w3-large" ng-model="discounts.code"/>
+				<button id="discount-button" ng-disabled="discounts.code.length<5" ng-click="applyDiscount(discounts.code)" 
+				class=" w3-button w3-black w3-hover-grey">Apply Code</button>					
+			</div>			
 			<div class="w3-text-red" ng-show="discounts.code.length==0 && discounts.showError">Discount code is not valid</div>
 			<div class="w3-text-green" ng-show="discounts.showSuccess">Discount code successfully applied </div>
-				
-				<form ng-show="shopping.contact.country=='Hungary'" name="deliveryMethod">
+			<div class="w3-container w3-stretch" >
+				<form ng-show="shopping.contact.country=='Hungary'" name="deliveryMethod" class="w3-margin-top">
 				<div class="w3-large"><b>Choose a courier</b></div>
 				  <label>
 					<input type="radio" ng-model="shopping.deliveryMethod" value="FoxpostPickup" class="w3-radio">
@@ -110,7 +108,7 @@
 				<div ng-if="order.Discount!=null" class="w3-large">Discount: <span my-cost-str="order.Costs[shopping.deliveryMethod].discount*-1" class="price"></span></div>
 				<div class="w3-large ">Delivery: <span my-cost-str="order.Costs[shopping.deliveryMethod].delivery" class="price" ></span></div>				
 				<div class="w3-xlarge w3-margin-top ">Total: <span my-cost-str="order.Costs[shopping.deliveryMethod].total" class="price-total"></span></div>
-				
+			</div>
 				<a class="w3-button w3-black w3-round w3-large w3-margin-top w3-padding" href="checkout.html">Proceed to Checkout</a>
 			</div>
 		</div>

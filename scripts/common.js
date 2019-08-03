@@ -12,14 +12,14 @@ var fixedMenu=false;
 	  
 
       $('#header_placeholder').load("header.html", Shop_refreshBasket);	
-
+		checkCookie();
 
     }); 
 
 function checkCookie(){
 	
 	  window.dataLayer = window.dataLayer || [];
-	  window['ga-disable-UA-131830139-2'] = true;
+	  window['ga-disable-UA-131830139-1'] = true;
 	  
 	 
 	 let useCookie = localStorage.getItem("useCookie");
@@ -30,13 +30,13 @@ function checkCookie(){
 			$('#privacy_placeholder').load("/hu/legal/privacy.html"); 
 	 }
 	else if (useCookie=="true"){
-		 window['ga-disable-UA-131830139-2'] = false;
+		 window['ga-disable-UA-131830139-1'] = false;
 	 }
 		 
 	
 	  function gtag(){dataLayer.push(arguments);}
 	  gtag('js', new Date());
-	  gtag('config', 'UA-131830139-2', { 'anonymize_ip': true });
+	  gtag('config', 'UA-131830139-1', { 'anonymize_ip': true });
 
 }
 
@@ -78,7 +78,7 @@ function Common_changeCookie(setting){
 	localStorage.setItem("useCookie",setting);
 	$('#privacy_placeholder').hide();
 	if(setting==true)
-		window['ga-disable-UA-131830139-2']=false;
+		window['ga-disable-UA-131830139-1']=false;
 		
 	
 }
