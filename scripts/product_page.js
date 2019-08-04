@@ -42,9 +42,9 @@ app.controller('ProductDisplay',function($scope, $timeout,$http,$location,$windo
 	$scope.itemInfo;
 	$scope.variantOptions = {
 		 availableOptions: [
-			  {en: 'Please choose a size', hu: 'Valosszon Valamit', value:'default', disable:false}
+			  {en: 'Please choose a size', hu: 'Kérjük, válassz méretet', value:'default', disable:false}
 			],
-    selectedOption:  {en: 'Please choose a size',hu: 'Valosszon Valamit',value:'default', disable:false} //This sets the default value of the select in the ui
+    selectedOption:  {en: 'Please choose a size',hu: 'Kérjük, válassz méretet',value:'default', disable:false} //This sets the default value of the select in the ui
     };
 	$scope.slickConfig={
 				dots: true,
