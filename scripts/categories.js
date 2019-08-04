@@ -49,7 +49,7 @@ app.controller('Categories', function($scope, $http, $timeout, $location,$window
 	}
 	
 	$scope.myFilter = function (product) { 
-    return (product.subCategoryName[$scope.backbone.lang]== $scope.categoryOptions.selectedOption.value) || $scope.categoryOptions.selectedOption.value=='' ; 
+    return (product.subCategory == $scope.categoryOptions.selectedOption.value) || $scope.categoryOptions.selectedOption.value=='' ; 
 	};
 	//We need to monitor a change in the url so we can update the subcategories correctly
 	$scope.$on('$locationChangeStart', function (event, newLoc, oldLoc) { 
@@ -82,6 +82,7 @@ app.controller('Categories', function($scope, $http, $timeout, $location,$window
 			}
 			product.href = 'ProductPage.html?itemId=' +  $scope.categoryData[i].ItemId;
 			product.subCategoryName = $scope.categoryData[i].SubCategoryName;
+			product.subCategory = $scope.categoryData[i].SubCategory;
 			$scope.products.push(product);
 			
 			//building select list to filter results

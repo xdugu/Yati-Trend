@@ -72,7 +72,7 @@ Orders above <span class="price-total w3-wide">25.000Ft</span>get FREE shipping 
 
 	<div ng-show="itemInfo.Variants.hasVariants" class="w3-container" style="width:100%;padding:0">
 		<select id="product_size" class="w3-input w3-border w3-border-black w3-left w3-large" style="width:100%"
-		  ng-options="option.name disable when option.disable for option in variantOptions.availableOptions track by option.value"
+		  ng-options="option[backbone.lang] disable when option.disable for option in variantOptions.availableOptions track by option.value"
 		  ng-model="variantOptions.selectedOption">
 		</select>
 	</div>

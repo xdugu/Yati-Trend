@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="hu">
+<html lang="en">
 <head>
-<title> Termékoldal | YATI Trend </title>
+<title> YATI Trend | Termékek oldala</title>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="icon" type="image/jpeg" href="/images/logo.jpg">
 <meta charset="UTF-8">
 
 <link rel="stylesheet" type="text/css" href="../slick/slick.css"/>
@@ -12,12 +13,15 @@
 <link rel="stylesheet" type="text/css" href="../css/normalize.css"/>
 <link rel="stylesheet" type="text/css" href="../css/common.css"/>
 <link rel="stylesheet" type="text/css" href="../css/product.css"/>
-
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-131830139-1"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular-animate.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.4/angular-sanitize.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 <script type="text/javascript" src="../slick/slick.min.js"></script>
+<script type="text/javascript" src="/slick/angular-slick.js"></script>
 
 <script src="../scripts/common.js" ></script>
 <script src="../scripts/shop.js" ></script>
@@ -29,61 +33,118 @@
 
 <div id="header_placeholder"> </div>
 
-<div class="w3-container discount-info w3-large" >
- <div class="w3-center"> VÁSÁROLJON KETTŐ VAGY TÖBB TERMÉKET ÉS A LEGOLCSÓBBÓL <b>10% KEDVEZMÉNY JÁR</b></div>
- <div class="w3-center"> <b>INGYENES</b> KISZÁLLÍTÁS (Magyarországon) <span class="price-total w3-wide"> 25.000Ft </span>FELETTI VÁSÁRLÁS ESETÉN</div>
+
+
+<div class="w3-container">
+ <div class="w3-center" style="font-size:1em">
+<span class="price-total w3-wide">25.000Ft</span> feletti vásárlás esetén Magyarországon, a kiszállítás INGYENES</div>
+ 
 </div>
+
 	
 <div class="w3-row">
- <div id="img_stage" class="w3-margin-top w3-col l8">
-	<div style="height:85vh; overflow-y:hidden;" ng-repeat="x in [].constructor(3) track by $index">
+ <slick ng-if="product.numOfImg!=0" settings="slickConfig" id="img_stage" class="w3-margin-top w3-col l8" my-image-sizer>
+	<div style="height:1500px; overflow-y:hidden;" ng-repeat="x in [].constructor(product.numOfImg) track by $index">
 		<img ng-if="product.imgSrc!=null" class="sub_image" ng-src="{{product.imgSrc}}/img_{{$index+1}}.jpg" style="width:100%;height:auto;margin:auto"></img>
+		<!-- To prevent situation where the imgSrc is not loaded causing get errors -->
 	</div>
- </div>
+ </slick>
 
  <div class="w3-container w3-col l4 " style="">
-	<div id="product_title" class="w3-margin-top w3-margin-bottom w3-large">{{product.description}}</div>
-	<div my-cost-str="product.price"id="product_price" class="w3-margin-top w3-margin-bottom price w3-wide w3-large"></div>
-
-	<div class="w3-container" style="width:100%;padding:0">
-		<select id="product_size" class="w3-input w3-border w3-border-black w3-left" style="width:50%">
-			<option value="default">Válasszon méretet</option>
-			<option value="S">S</option>
-			<option value="M">M</option>
-			<option value="L">L</option>
-		</select>
-		<span class="w3-margin-left w3-left" style="text-decoration:underline">Mérettáblázat</span>
+	<div id="product_title" class="w3-margin-top w3-margin-bottom w3-large "><span class="bold" style="font-size: 1.1em" ng-bind-html="itemInfo.Description[backbone.lang]"></span>
 	</div>
-	<div id="show_size_prompt" class="w3-container" style="padding:0">
-		<div class="w3-center w3-yellow  w3-margin-top w3-padding">Kérjük válasszon méretet</div>
+	<div my-cost-str="product.price[currency.toLowerCase()]"id="product_price" class="w3-margin-top w3-margin-bottom price w3-wide w3-large"></div>
+
+	<!--Currency chooser  -->
+		<div class="w3-large  w3-hide-small w3-margin-bottom">
+			<span class="w3-white w3-round-large hoverable">
+				<span class="button" onclick="Shop_updateCurrency('HUF')" ng-class="{'w3-tag w3-main-theme':currency=='HUF'}">HUF</span> | 
+				<span class="button" onclick="Shop_updateCurrency('EUR')" ng-class="{'w3-tag w3-main-theme':currency=='EUR'}">EURO</span>
+			</span>
+		</div>
+
+		<div class="w3-large w3-hide-large w3-hide-medium  w3-margin-bottom">
+			<span class="w3-white w3-round-large hoverable">
+				<span class="button" onclick="Shop_updateCurrency('HUF')" ng-class="{'w3-tag w3-main-theme':currency=='HUF'}">HUF</span> | 
+				<span class="button" onclick="Shop_updateCurrency('EUR')" ng-class="{'w3-tag w3-main-theme':currency=='EUR'}">EURO</span>
+			</span>
+		</div>
+
+	<div ng-show="itemInfo.Variants.hasVariants" class="w3-container" style="width:100%;padding:0">
+		<select id="product_size" class="w3-input w3-border w3-border-black w3-left w3-large" style="width:100%"
+		  ng-options="option[backbone.lang] disable when option.disable for option in variantOptions.availableOptions track by option.value"
+		  ng-model="variantOptions.selectedOption">
+		</select>
+	</div>
+	<div id="show_size_prompt" class="w3-container" ng-show="variantOptions.selectedOption.value=='default' && showPrompt" style="padding:0">
+		<div class="w3-center w3-yellow  w3-margin-top w3-padding" > Kérjük válassz méretet</div>
 	</div>
 
 	<div class="w3-row w3-margin-top"  style="">
-		<button id="add_basket_button" class="w3-button w3-xlarge w3-hover-black  w3-col m6 l12" style="background-color:Goldenrod;" ng-click="checkBasket()">Hozzáadás a kosárhoz</button>
+		<button id="add_basket_button" class="w3-black w3-button w3-xlarge w3-hover-black  w3-col m6 l12" ng-click="checkBasket()">Kosárba rakom</button>
 	</div>
 	<div class="w3-container w3-margin-top" id="added-prompt" style="padding:0;opacity:0">
-		<div class="w3-center w3-animate-left w3-padding w3-green w3-large">A termék hozzá lett adva a kosárhoz</div>
+		<div class="w3-center w3-padding w3-green w3-xlarge">A termék a kosaradba került</div>
 	</div>
 	
-	
-	<div class="gapper w3-hide-small w3-hide-medium" style="height:50px">
-	</div>
-	
-	<div ng-controller="Accordions" ng-init="des=false;del=false;ret=false;" class="w3-margin-bottom more-info">
-		<div ng-click="des=!des;del=false;ret=false" class="w3-border-bottom w3-border-black w3-padding" style="width:100%;height=auto;overflow:auto">
-				<span class="w3-left w3-large">Termék leírás</span>
+	<div ng-controller="Accordions" ng-init="des=true;del=false;ret=false;size=false" class="w3-margin-bottom more-info">
+		<div ng-click="des=!des;del=false;ret=false;size=false;" class="w3-border-bottom w3-border-black w3-padding" style="width:100%;height=auto;overflow:auto">
+				<span class="w3-left w3-large w3-text-golden">Leírás</span>
 				<span class="w3-right w3-large"> <i ng-show="des==false">+</i><i ng-show="des==true">-</i></span>
-		<div ng-show="des==true" class="w3-margin-top"><br>Some random stuff to say. A whole lot to say. What to say but to say what is said</div>
+		<div id="description" ng-show="des==true" class="w3-margin-top"><br><span ng-bind-html="itemInfo.MainDescription[backbone.lang]"></span></div>
 		</div>
-		<div ng-click="del=!del;des=false;ret=false" class="w3-border-bottom w3-border-black w3-padding" style="width:100%;height=auto;overflow:auto">
-				<span class="w3-left w3-large">Szállítás</span>
+		<div ng-show="itemInfo.Category!='Accessories'" ng-click="size=!size;des=false;del=false;ret=false" class="w3-border-bottom w3-border-black w3-padding" style="width:100%;height=auto;overflow:auto">
+				<span class="w3-left w3-large w3-text-golden">Mérettáblázat</span>
+				<span class="w3-right w3-large"> <i ng-show="size==false">+</i><i ng-show="size==true">-</i></span>
+		</div>
+		<div ng-show="size==true" class="w3-margin-top">
+			<div style="overflow-x:auto">
+				<table class="w3-table w3-striped">
+				<tr><th>Méret</th><th>Testmagasság(cm)</th><th>Mell(cm)</th><th>Derék(cm)</th><th>Csípő(cm)</th></tr>
+				<tr><td>S</td><td>162-168</td><td>88</td><td>66</td><td>92</td> </tr>
+				<tr><td>M</td><td>166-172</td><td>92</td><td>70</td><td>96</td> </tr>
+				<tr><td>L</td><td>173-176</td><td>96</td><td>74</td><td>100</td> </tr>		
+				</table>
+			</div>
+		</div>
+		<div ng-click="del=!del;des=false;ret=false;size=false;" class="w3-border-bottom w3-border-black w3-padding" style="width:100%;height=auto;overflow:auto">
+				<span class="w3-left w3-large w3-text-golden">Shipping</span>
 				<span class="w3-right w3-large"> <i ng-show="del==false">+</i><i ng-show="del==true">-</i></span>
-		<div ng-show="del==true" class="w3-margin-top"><br>Some random stuff to say. A whole lot to say. What to say but to say what is said</div>
+		<div ng-show="del==true" class="w3-margin-top"><br>
+			We ship our products with the help of GLS (internationally as well) and Foxpost.<br>
+			<u>Countries we ship to:</u> Hungary, Austria, Germany, United Kingdom.
+				In case of other countries, please contact us and we will try to find a way for you.
+			<b>Accepted and confirmed orders are shipped between 2-5 working days.</b> If the item is
+			out of stock, it may take 1-2 weeks to purchase.<br><br>
+			<b> GLS:</b><br>
+			Home delivery fee:<b>1750 Ft ~ 5,5 euro</b><br>
+			Pay on delivery fee:<b>+445 Ft ~ 1,4 euro</b>	<br>
+			<b>International shipping:</b><br>
+			- Austria: €17 <br>
+			- Germany: €19,8 <br>
+			- United Kingdom: €22,7<br><br>
+			<b> Foxpost</b><br>
+			Terminal delivery fee: <b>700 Ft ~ 2, 2 euro</b><br>
+			Pay on delivery: <b>+125 Ft ~ 0,4 euro</b><br>
+			<b>Important to note: At the terminals you can only pay by credit/debit card.</b>
+			<b>Home delivery</b><br>
+			Home delivery fee: <b>1250 Ft ~ 4 euro</b><br>
+			Pay on delivery fee: <b>+125 Ft ~ 0,4 euro</b><br>
 		</div>
-		<div ng-click="ret=!ret;del=false;des=false" class="w3-border-bottom w3-border-black w3-padding" style="width:100%;height=auto;overflow:auto">
-				<span class="w3-left w3-large">Áruvisszaküldés/csere</span>
+		</div>
+		<div ng-click="ret=!ret;del=false;des=false;size=false;" class="w3-border-bottom w3-border-black w3-padding" style="width:100%;height=auto;overflow:auto">
+				<span class="w3-left w3-large w3-text-golden">Returns</span>
 				<span class="w3-right w3-large"> <i ng-show="ret==false">+</i><i ng-show="ret==true">-</i></span>
-		<div ng-show="ret==true" class="w3-margin-top"><br>Some random stuff to say. A whole lot to say. What to say but to say what is said</div>
+		<div ng-show="ret==true" class="w3-margin-top"><br>
+			We offer free returns for full priced items (items purchased on sale or with a discount code are not eligible for a prepaid return label.)<br>
+			You can return any item for a direct exchange within fourteen (14) days of receiving your original order, without reasoning. Any item returned exceeding the 
+			fourteen (14) day return deadline is not be eligible for an exchange.<br><br>
+			If your purchase was made during a sale or promotion period, or a discount code
+			was added to your order, the costs of the return are on you.<br>
+			If the return is approved, then your refund will be processed by bank transfer within fourteen (14) days from the reception of the returned item. 
+			We shall refund the original price that you have paid for the purchased your item.
+		
+		</div>
 		</div>
 	
 	</div>
@@ -94,22 +155,24 @@
 	
 </div><!--row-->
 
-<div class="w3-block w3-center w3-large" style="width:100%">
-	<h1 ng-show="accessories.length>0" class="w3-large"><b>Ehhez a ruhához illő ékszerek</b></h1>
-	<div ng-repeat="x in accessories" class="w3-margin-left" style="width:25%; height:50vh;overflow:hidden;display:inline-block">
-		<a href="{{x.href}}">
-			<img style="width:100%;height:auto" ng-src="{{x.imgSrc}}/img_1.jpg"></img>
+<div class="w3-block w3-center" style="width:100%: ">
+	<h1 ng-show="itemInfo.Accessories.length>0" class="w3-large bold"> Assessories with this item</h1>
+	<div id="accessories">
+	<div ng-repeat="x in itemInfo.Accessories" class="w3-margin-left" style="display:inline-block">
+		<a href="ProductPage.html?itemId={{x.ItemId}}">
+			<img style="width:100%;height:auto" ng-src="{{x.Image.src}}/img_1.jpg"></img>
 		</a>
-		
+		<div my-cost-str="x.Price[currency.toLowerCase()]" class="price w3-wide"></div>
+	</div>
 	</div>
 
 </div>
 	
 
 <div ng-include="'footer.html'" class="w3-margin-top">
-	
-</div>
 
+
+</div>
 
 </body>
 </html>

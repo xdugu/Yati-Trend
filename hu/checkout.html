@@ -1,68 +1,119 @@
 <!DOCTYPE html>
-<html lang="hu">
+<html lang="en">
 <head>
-<title> Yati-Trend | Tovább a pénztárhoz </title>
+<title> Yati-Trend | Check out </title>
+<link rel="icon" type="image/jpeg" href="/images/logo.jpg">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta charset="UTF-8">
 
 
 <!--link rel="stylesheet" href="css/shop-list-design.css"/-->
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="/css/w3.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.4/angular.min.js"></script>
-<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular-animate.js"></script>
 
 <link rel="stylesheet" href="/css/normalize.css"/>
 <link rel="stylesheet" href="/css/common.css"/>
 <link rel="stylesheet" href="/css/checkout.css"/>
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-131830139-1"></script>
 <script src="/scripts/common.js" ></script>
 <script src="/scripts/shop.js" ></script>
 <script src="/scripts/checkout.js" ></script>
+<script src="/scripts/directives/directives.js" ></script>
 
 </head> 
 
 <body>
 
 <div id="header_placeholder"> </div>
-<div id="product_shelf_placeholder" class="w3-container w3-margin-top" ng-app="myApp" ng-controller="Checkout" ng-init="agreed=false">
+<div id="product_shelf_placeholder" class="w3-container w3-margin-top" ng-app="myApp" ng-controller="Checkout" 
+		ng-init="agreed=false;tempAddr={};showDialog=false;">
 	
 
 	<div class="w3-card w3-mobile" style="width:70%">
-	<div class="w3-large w3-center" >Elérhetőség</div>
-	<form name="form1" novalidate class="entry">
-		<input type="text" class="w3-input" name="name" ng-model="user.firstName" required placeholder="Név"  autocomplete="name"/>
+	<div class="w3-large w3-center" >Kapcsolati információk</div>
+	<form name="form1" novalidate class="entry w3-padding">
+		<input type="text" class="w3-input" name="name" ng-model="user.firstName" required placeholder=""  autocomplete="name"/>
+		<label  class="bold w3-text-golden"> Név</label>
 		<span class="w3-text-red" ng-show="form1.name.$touched && form1.name.$invalid">Név megadása szükséges</span>
 		
-		<input type="email" class="w3-input" name="email" ng-model="user.email" placeholder="E-mail" required  autocomplete="email"/>
-		<span class="w3-text-red" ng-show="form1.email.$touched && form1.email.$invalid">E-mail cím megadása szükséges</span>
+		<input type="email" class="w3-input" name="email" ng-model="user.email" placeholder="" required  autocomplete="email"/>
+		<label class="bold w3-text-golden">Email</label>
+		<span class="w3-text-red" ng-show="form1.email.$touched && form1.email.$invalid">Email megadása szükséges</span>
 		
-		<input type="tel" class="w3-input" name="number" ng-model="user.number" placeholder="Telefonszám" autocomplete="tel" required /><br/>
+		<input type="tel" class="w3-input" name="number" ng-model="user.number" placeholder="" autocomplete="tel" required />
+		<label class="bold w3-text-golden">Telefonszám</label>
 		<span class="w3-text-red" ng-show="form1.number.$touched && form1.number.$invalid">Telefonszám megadása szükséges</span>
 	</form>
 	</div>
-	<div class="w3-card w3-margin-top w3-mobile" style="width:70%">
+	<div ng-show="order.deliveryMethod=='FoxpostPickup'" class="w3-margin-top w3-padding w3-card w3-mobile" style="width:70%">
+		<h4 ng-click="showFoxpost=true" ng-class="{'hoverable': !showFoxpost}"> Válassz egy foxpost címet 
+			<span ng-hide="!showFoxpost" class="material-icons w3-xlarge w3-text-black w3-right">keyboard_arrow_down</span>
+			<span ng-hide="showFoxpost" class="material-icons w3-xlarge w3-text-black w3-right">keyboard_arrow_up</span>
+		</h4>
+		<div ng-show="showFoxpost" class="animate-height">
+			<input type="text" ng-model="search" class="w3-input w3-border w3-border-green w3-margin-bottom" placeholder="Enter a location e.g. Budapest"/>
+			<div style="overflow-y:auto;overflow-x:hidden;height:40vh">
+				<ul class="w3-ul" >
+					<li class="w3-padding w3-hover-black w3-small" ng-click="$parent.showDialog=true;$parent.tempAddr=place" ng-repeat="place in places | accentsfilter:search">
+					{{ place.Name}}<br>{{place.Address}}<br>{{place.City}}<br>{{place.PostCode}}</li>
+				</ul>
+			</div>
+		</div>
+	
+	</div>
+	<div class="w3-modal" style="display:block;" ng-show="showDialog">
+		<div class="w3-modal-content w3-container">
+			<div class="w3-display-container">
+		<span ng-click="showDialog=false" class="material-icons w3-xxxlarge w3-text-black w3-display-topright hoverable" style="z-index:1000">cancel</span>
+			<b>{{tempAddr.Name}}</b><br><br>
+			{{tempAddr.Address}}<br>
+			{{tempAddr.City}}<br>
+			{{tempAddr.PostCode}}<br><br>
+			Hétfő: {{tempAddr.Monday}}<br>
+			Kedd:{{tempAddr.Tuesday}}<br>
+			Szerda: {{tempAddr.Wednesday}}<br>
+			Csütörtök: {{tempAddr.Thursday}}<br>
+			Péntek: {{tempAddr.Friday}}<br>
+			Szombat: {{tempAddr.Saturday}}<br>
+			Vasárnap: {{tempAddr.Sunday}}<br><br>
+			{{tempAddr.Description}}<br>
+			<button class="w3-button w3-green w3-margin-top w3-margin-bottom" ng-click="showDialog=false;foxpostChosenLoc(tempAddr)">Megerősítés</button>
+			</div>
+		</div>
+	
+	</div>
+	
+	<div ng-show="!showFoxpost" class="animate-address w3-card w3-margin-top w3-mobile" style="width:70%">
 		<div class="w3-large w3-center" >Szállítási információk</div>
-		<form  name="form" novalidate class="entry">
-			<input type="text" class="w3-input" name="addr" ng-model="user.address1" required placeholder="Szállítási cím"  autocomplete="address-line1" />
-			<span class="w3-text-red" ng-show="form.addr.$touched && form.addr.$invalid">Szállítási cím megadása szükséges</span>
+		<form  name="form" novalidate class="entry w3-padding" >
+		<fieldset ng-disabled="order.deliveryMethod=='FoxpostPickup'" style="border: 0">
+			<input type="text" class="w3-input" name="addr" ng-model="user.address1" required placeholder=""  autocomplete="address-line1" />
+			<label class="bold w3-text-golden"> Cím</label>
+			<span class="w3-text-red" ng-show="form.addr.$touched && form.addr.$invalid">Cím megadása szükséges</span>
 			
-			<input type="text" class="w3-input" ng-model="user.address2" placeholder="Szállítási cím 2 (optional)"  autocomplete="address-line2"/>
-			<input type="text" class="w3-input" name="city" ng-model="user.city" required placeholder="Város"/>
+			<input type="text" class="w3-input" ng-model="user.address2" placeholder=""  autocomplete="address-line2"/>
+			<label class="bold w3-text-golden">Cím 2 (választható)</label>
+			
+			<input type="text" class="w3-input" name="city" ng-model="user.city" required placeholder=""/>
+			<label class="bold w3-text-golden">Város</label>
 			<span class="w3-text-red" ng-show="form.city.$touched && form.city.$invalid">Város megadása szükséges</span>
 			
-			<input type="text" class="w3-input" name="pcode"ng-model="user.postCode" required placeholder="Irányítószám"  autocomplete="postal-code"/>
+			<input type="text" class="w3-input" name="pcode"ng-model="user.postCode" required placeholder=""  autocomplete="postal-code"/>
+			<label class="bold w3-text-golden">Irányítószám</label>
 			<span class="w3-text-red" ng-show="form.pcode.$touched && form.pcode.$invalid">Irányítószám megadása szükséges</span>
 			
 			
 			<input type="text" class="w3-input" name="country" ng-model="user.country" disabled />
-
+			<label class="bold w3-text-golden">Ország</label>
+		</fieldset>
 		</form>
 	</div>
 
 	<label id="terms"  class="w3-block w3-margin-bottom w3-margin-top">
-		<input type="checkbox" ng-disabled="!form.$valid || !form1.$valid" ng-model="agreed"> Ezzel a rendeléssel elfogadom az <a class="underlined" href="terms.html" target="_blank">Általános Szerződési Felételeket</a>
+		<input type="checkbox" ng-disabled="!form.$valid || !form1.$valid" ng-model="agreed"> Elfogadom az <a class="underlined" href="help.html?show=general-terms" target="_blank">általános szerződési feltételeket</a> 
 	</label>
 	
 	<a id="payment-proceed" ng-show="agreed" ng-click="proceedToPayment()" class="w3-button w3-black  w3-margin-bottom w3-padding w3-mobile" style="width:50%">Tovább a fizetéshez</a>		
