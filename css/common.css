@@ -219,6 +219,9 @@ ul#mobile-submenu ul li:hover
 .w3-text-golden{
 	color: var(--main-theme) ;
 }
+	#privacy{
+	width:50%;
+	}
 
 
 

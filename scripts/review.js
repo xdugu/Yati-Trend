@@ -42,8 +42,8 @@ app.controller('Review', function($scope, $http, $timeout) {
 	
 	///////////////////////////////////////////////
 	$scope.updatePaymentMethod = function(method){
-			//localStorage.removeItem("shopping");
-			//localStorage.removeItem("basketId");
+			localStorage.removeItem("shopping");
+			localStorage.removeItem("basketId");
 			$scope.createOrderCode();
 			$scope.shopping['comments']=$scope.temp.comments;
 			$scope.shopping['basketId']= $scope.basketId;

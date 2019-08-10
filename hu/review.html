@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
 <title> Yati-Trend | Rendelés áttekintése</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,7 +27,7 @@
 
 <div id="header_placeholder"> </div>
 <div class="w3-margin-top" ng-controller="Review" ng-init="showBank=false;">
-	<div class="w3-large w3-center w3-xxlarge" style="font-weight:bold">Rendelés áttekintése</div>
+	<div class="w3-large w3-center w3-xlarge" style="font-weight:bold">Rendelés áttekintése</div>
 	<div class="w3-row">
 	<div class="w3-col l6 w3-padding">
 		<div ng-repeat="item in order.Items track by item.ItemId" class="w3-row w3-card toEdit w3-padding w3-margin-top" style="width: 100%; height:15vh;overflow-y:hidden;">
@@ -35,8 +35,8 @@
 					<img class="preview_img" ng-src="{{item.Image.src}}/img_1.jpg"style="width:auto; height:12vh;"></img>
 				</div>
 				<div class="w3-display-container w3-col s10" style="height:11vh;">
-					<div id="description" class="w3-display-topleft" style="width:100%;">{{item.Description.en}}</div>
-					<div id="size" class="w3-display-bottommiddle">Méret: {{item.Variants.chosenVariant}}</div>
+					<div id="description" class="w3-display-topleft" style="width:100%;">{{item.Description[shopping.contact.lang]}}</div>
+					<div ng-if="item.Variants.hasVariants" id="size" class="w3-display-left">Méret: {{item.Variants.chosenVariant}}</div>
 					<div id="quantity" class="w3-display-bottomleft ">Mennyiség: {{item.Quantity}}</div>
 					<div my-cost-str="item.Price[currency.toLowerCase()] * item.Quantity" id="price" class="w3-display-right price theme-color"></div>
 				</div>		
@@ -86,7 +86,7 @@
 	
 	<div class="w3-modal" ng-show="backbone.showBank==true" style="display:block;z-index:1000">
 		<div class="w3-modal-content w3-animate-top w3-card-4" style="top:25vh;">
-		 <span ng-click="backButtonPressed()" class="material-icons w3-large w3-display-topright" style="cursor:pointer">Törlés</span>
+		 <span ng-click="backButtonPressed()" class="material-icons w3-large w3-display-topright" style="cursor:pointer">cancel</span>
 		  <div class="w3-container" ng-show="backbone.showConfirmed==false">
 			<div class="w3-medium" style="margin-top:1vh">Kérjük erősítsd meg, hogy valóban banki átutalással szeretnél fizetni. Amennyiben igen,email-en elküldjük neked az utaláshoz szükséges adatokat.
 			</div>
@@ -122,7 +122,7 @@
 			<a ng-click="backbone.showConfirmed=true; updatePaymentMethod('payOnDelivery')" class="w3-button w3-red w3-margin-top w3-margin-bottom">Megerősítés</a>
 		  </div>
 		   <div class="w3-container" ng-show="backbone.showConfirmed==true">
-			<div class="w3-medium" style="margin-top:1vh">A megerősítő emailt ide küldük el <strong>{{order.contact.email}}</strong>. Csomagodat hamarosan postázzuk.
+			<div class="w3-medium" style="margin-top:1vh">A rendelésről a megerősítő emailt elküldtük számodra.  <strong>{{order.contact.email}}</strong>. Csomagodat hamarosan postázzuk.
 			</div>
 		  </div>
 		</div>

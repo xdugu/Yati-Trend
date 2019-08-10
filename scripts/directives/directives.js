@@ -117,7 +117,7 @@ angular.module('myApp').directive('myNewsletter', function($http) {
                  $http({
 				method: 'POST',
 				crossDomain : true,
-				url: 'https://api.yati-trend.com/v1/Request/AddNewsletter',
+				url: 'https://api.yati-trend.com/v1/Request/AddNewsletter1',
 				data: JSON.stringify(data),
 				headers: {'Content-Type': 'application/json'}
 			}).then(function(res){

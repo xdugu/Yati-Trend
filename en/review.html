@@ -33,8 +33,8 @@
 					<img class="preview_img" ng-src="{{item.Image.src}}/img_1.jpg"style="width:auto; height:12vh;"></img>
 				</div>
 				<div class="w3-display-container w3-col s10" style="height:11vh;">
-					<div id="description" class="w3-display-topleft" style="width:100%;">{{item.Description.en}}</div>
-					<div id="size" class="w3-display-bottommiddle">Size: {{item.Variants.chosenVariant}}</div>
+					<div id="description" class="w3-display-topleft" style="width:100%;">{{item.Description[shopping.contact.lang]}}</div>
+					<div ng-if="item.Variants.hasVariants" id="size" class="w3-display-bottomleft">Size: {{item.Variants.chosenVariant}}</div>
 					<div id="quantity" class="w3-display-bottomleft ">Qty: {{item.Quantity}}</div>
 					<div my-cost-str="item.Price[currency.toLowerCase()] * item.Quantity" id="price" class="w3-display-right price theme-color"></div>
 				</div>		

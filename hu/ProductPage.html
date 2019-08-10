@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
 <title> YATI Trend | Termékek oldala</title>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -32,7 +32,7 @@
 <body ng-app="myApp" ng-controller="ProductDisplay">
 
 <div id="header_placeholder"> </div>
-
+<div id="privacy_placeholder"></div>
 
 
 <div class="w3-container">
@@ -84,7 +84,7 @@
 		<button id="add_basket_button" class="w3-black w3-button w3-xlarge w3-hover-black  w3-col m6 l12" ng-click="checkBasket()">Kosárba rakom</button>
 	</div>
 	<div class="w3-container w3-margin-top" id="added-prompt" style="padding:0;opacity:0">
-		<div class="w3-center w3-padding w3-green w3-xlarge">A termék a kosaradba került</div>
+		<div class="w3-center w3-padding w3-green w3-large">A termék a kosaradba került</div>
 	</div>
 	
 	<div ng-controller="Accordions" ng-init="des=true;del=false;ret=false;size=false" class="w3-margin-bottom more-info">
@@ -108,7 +108,7 @@
 			</div>
 		</div>
 		<div ng-click="del=!del;des=false;ret=false;size=false;" class="w3-border-bottom w3-border-black w3-padding" style="width:100%;height=auto;overflow:auto">
-				<span class="w3-left w3-large w3-text-golden">Shipping</span>
+				<span class="w3-left w3-large w3-text-golden">Szállítás</span>
 				<span class="w3-right w3-large"> <i ng-show="del==false">+</i><i ng-show="del==true">-</i></span>
 		<div ng-show="del==true" class="w3-margin-top"><br>
 			A csomagokat a <u>GLS</u> futárszolgálat illetve a <u>Foxpost</u> segítségével kézbesítjük.<br><br>
@@ -140,7 +140,7 @@
 		</div>
 		</div>
 		<div ng-click="ret=!ret;del=false;des=false;size=false;" class="w3-border-bottom w3-border-black w3-padding" style="width:100%;height=auto;overflow:auto">
-				<span class="w3-left w3-large w3-text-golden">Returns</span>
+				<span class="w3-left w3-large w3-text-golden">Áruvisszaküldés</span>
 				<span class="w3-right w3-large"> <i ng-show="ret==false">+</i><i ng-show="ret==true">-</i></span>
 		<div ng-show="ret==true" class="w3-margin-top"><br>
 			A megrendelt termék kézhezvételét követően 14 nap áll rendelkezésére, hogy visszaküldjön bármely <br>

@@ -11,7 +11,7 @@
 		   <input ng-focus="showPrivacy=true" ng-model="email" ng-blur="showPrivacy=false" class="w3-padding w3-white w3-col m5 l4 w3-input w3-round w3-mobile w3-center w3-margin-top" 
 		   type="email" placeholder="Email" required  autocomplete="email" name="email"/>
 		   </form>
-		   <button ng-disabled="newsletter.email.$invalid || !newsletter.email.$dirty " ng-click="submitEmail(email)" id="register-button" class="w3-col m3 l2 w3-padding w3-round w3-mobile w3-center w3-hover-green w3-black w3-margin-top" style="border:1px solid black">Subscribe</button>
+		   <button ng-disabled="newsletter.email.$invalid || !newsletter.email.$dirty " ng-click="submitEmail(email)" id="register-button" class="w3-col m3 l2 w3-padding w3-round w3-mobile w3-center w3-hover-green w3-black w3-margin-top" style="border:1px solid black">Feliratkozás</button>
 		</div>
 		<div ng-show="newsletter.email.$touched && newsletter.email.$invalid" class="w3-text-red bold">Kérjük valós email címet adj meg </div>
 		<div ng-show="showPrivacy"> Kérjük olvasd el adatvédelmi tájékoztatónkat és általános szerődési felétleinket, hogy megértsd mily módon használjuk a feliratkozásnál megadott adataidat.</div>

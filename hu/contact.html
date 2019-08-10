@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
 <title> Yati-Trend | Kapcsolat</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,10 +37,10 @@
 	<form class="w3-mobile w3-col w3-white l7 m9 w3-padding w3-card-4" name="form1" ng-hide="formSubmitted" novalidate class="entry">
 		<div class="w3-large w3-center" ><b>Kapcsolat</b></div>
 		
-		<input type="text" class="w3-input" name="name" ng-model="user.name" required placeholder="Name"  autocomplete="name"/>
+		<input type="text" class="w3-input" name="name" ng-model="user.name" required placeholder="Név"  autocomplete="name"/>
 		<span class="w3-text-red" ng-show="form1.name.$touched && form1.name.$invalid">Név megadása szükséges</span>
 		
-		<input type="email" class="w3-input" name="email" ng-model="user.email" placeholder="Email address" required  autocomplete="email"/>
+		<input type="email" class="w3-input" name="email" ng-model="user.email" placeholder="Email" required  autocomplete="email"/>
 		<span class="w3-text-red" ng-show="form1.email.$touched && form1.email.$invalid">E-mail megadása szükséges</span>
 		
 		<br>Megjegyzés: Max, hosszúság ({{user.comments.length}}/500)<br>
