@@ -36,9 +36,13 @@
 
 
 <div class="w3-container">
- <div class="w3-center" style="font-size:1em">
-Orders above <span class="price-total w3-wide">25.000Ft</span>get FREE shipping in Hungary</div>
- 
+<div class="w3-center" style="font-size:1em">
+	Orders above <span class="price-total w3-wide">25.000Ft</span>get FREE shipping in Hungary</div>
+</div>
+
+<!--Loading container to show page is loading when fetching data -->
+<div ng-show="backbone.loading" class="w3-container w3-center">
+	<img src="/images/loading_transparent.gif"/>
 </div>
 
 	
@@ -167,6 +171,8 @@ Orders above <span class="price-total w3-wide">25.000Ft</span>get FREE shipping 
 	</div>
 
 </div>
+
+
 	
 
 <div ng-include="'footer.html'" class="w3-margin-top">

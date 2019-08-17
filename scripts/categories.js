@@ -18,7 +18,7 @@ app.controller('Categories', function($scope, $http, $timeout, $location,$window
 	$scope.products=[];
 	$scope.urlParams = Common_parseUrlParam();
 	//Language stuff
-	$scope.backbone = {lang:null};
+	$scope.backbone = {lang:null,loading:true};
 	$scope.backbone.lang= localStorage.getObj("shopping").contact.lang;//for choosing of language	
 	$scope.currency = localStorage.getObj("shopping").currency;
 	$scope.categoryOptions = {
@@ -64,6 +64,7 @@ app.controller('Categories', function($scope, $http, $timeout, $location,$window
 	
 	/////////////////////////////////
 	$http.get('https://api.yati-trend.com/v1/Request/Category?category='+ $scope.urlParams.category).then(function(res){
+		$scope.backbone.loading = false;
 		$scope.categoryData = res.data.data;
 		
 		$('#category-name').append($scope.categoryData[0].CategoryName[$scope.backbone.lang]);

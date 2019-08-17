@@ -6,6 +6,8 @@ Storage.prototype.getObj = function(key) {
     return JSON.parse(this.getItem(key))
 }
 products =  null;
+
+outOfStock = {en:"(Out Of Stock)",hu: "(Nincs raktáron)"};
 			
 var currentProductId;
 
@@ -35,7 +37,7 @@ app.controller('ProductDisplay',function($scope, $timeout,$http,$location,$windo
 	$scope.showVariant2Error = false;
 	$scope.showPrompt = false;
 	
-	$scope.backbone = {lang:null};
+	$scope.backbone = {lang:null, loading:true};
 	$scope.backbone.lang= $scope.shopping.contact.lang;//for choosing of language
 	$scope.basketId = localStorage.getObj("basketId");
 	$scope.changeLanguage = Common_changeLanguage;
@@ -66,6 +68,7 @@ app.controller('ProductDisplay',function($scope, $timeout,$http,$location,$windo
 	$scope.product.id = Common_getUrlParam('itemId=');
 	
 	$http.get('https://api.yati-trend.com/v1/Request/ItemData?itemId='+ $scope.product.id ).then(function(res){
+		$scope.backbone.loading = false;
 		loadProduct(res);
 	});
 	  
@@ -127,7 +130,7 @@ app.controller('ProductDisplay',function($scope, $timeout,$http,$location,$windo
 					val=$scope.itemInfo.Variants.variantList[i].variant;
 				if($scope.itemInfo.Variants.variantList[i].quantity<=0){
 					 itm = {value: val, disable: true};
-					 itm[$scope.backbone.lang] = val+" (Out Of stock)",
+					 itm[$scope.backbone.lang] = val+" " + outOfStock[$scope.backbone.lang],
 					 $scope.variantOptions.availableOptions.push(itm);
 				}
 				else{

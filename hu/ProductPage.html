@@ -37,10 +37,13 @@
 
 <div class="w3-container">
  <div class="w3-center" style="font-size:1em">
-<span class="price-total w3-wide">25.000Ft</span> feletti vásárlás esetén Magyarországon, a kiszállítás INGYENES</div>
- 
+	<span class="price-total w3-wide">25.000Ft</span> feletti vásárlás esetén Magyarországon, a kiszállítás INGYENES
+</div> 
 </div>
-
+<!--Loading container to show page is loading when fetching data -->
+<div ng-show="backbone.loading" class="w3-container w3-center">
+	<img src="/images/loading_transparent.gif"/>
+</div>
 	
 <div class="w3-row">
  <slick ng-if="product.numOfImg!=0" settings="slickConfig" id="img_stage" class="w3-margin-top w3-col l8" my-image-sizer>

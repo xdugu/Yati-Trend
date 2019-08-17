@@ -28,7 +28,12 @@
 <div id="header_placeholder"> </div>
 <div id="product_shelf_placeholder" class="" ng-app="myApp" ng-controller="Basket">
 	<div ng-hide="order.Items.length==0 || order==null" class="w3-xlarge w3-center w3-margin-top" style="font-weight: bold">Kosár tartalma</div>
-	<div ng-show="order.Items.length==0 || order==null" class="w3-xlarge w3-center w3-margin-top" style="font-weight: bold">A kosarad jelenleg még üres</div>
+	<div ng-show="(order.Items.length==0 || order==null) && !backbone.loading" class="w3-xlarge w3-center w3-margin-top" style="font-weight: bold">A kosarad jelenleg még üres</div>
+
+<!--Loading container to show page is loading when fetching data -->
+<div ng-show="backbone.loading" class="w3-container w3-center">
+	<img src="/images/loading_transparent.gif"/>
+</div>
 	
 <div class="w3-row" ng-hide="order.Items.length==0 || order==null">
 

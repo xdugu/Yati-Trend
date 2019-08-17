@@ -14,9 +14,11 @@ app.controller('Basket', function($scope, $http) {
 	$scope.basketId = localStorage.getObj("basketId");
 	$scope.shopping= localStorage.getObj("shopping");
 	$scope.currency = $scope.shopping.currency;
+	$scope.backbone = {loading:true};
 	$scope.discounts = {code:'',showError:false,showSuccess: false};
 	
 	if($scope.basketId==null || $scope.basketId=="" || $scope.basketId.length<2){
+		$scope.backbone.loading = false;
 		$scope.order=null;
 		return;
 	}
@@ -36,11 +38,13 @@ app.controller('Basket', function($scope, $http) {
 					let temp = res.data.data;
 					$scope.order = temp.Item;
 					Shop_updateBasketSize(temp.Item.Items.length);
+					$scope.backbone.loading = false;
 				}
 			}).catch(function(err){
 				Shop_updateBasketSize(0);//Probably the basket could not be found
 				//localStorage.setObj("basketId","");
 				$scope.order=null;
+				$scope.backbone.loading = false;
 			});
 	
 

@@ -57,6 +57,11 @@
 	</select>
 </div>
 
+<!--Loading container to show page is loading when fetching data -->
+<div ng-show="backbone.loading" class="w3-container w3-center">
+	<img src="/images/loading_transparent.gif"/>
+</div>
+
 
 <div id="product-shelf-placeholder" class="w3-container" style="padding:0;margin:0" >
 	<a ng-repeat="product in products | filter: myFilter" href="{{product.href}}" class="w3-left w3-center w3-large w3-mobile my-product" style="width:48.5%; margin-top:2vh;cursor:pointer">
@@ -75,6 +80,7 @@
 		<div my-cost-str="product.price[currency.toLowerCase()]" class="price w3-padding theme-color"></div>
 	</a>
 </div>
+
 
 <div ng-include="'footer.html'" class="w3-margin-top">
 
