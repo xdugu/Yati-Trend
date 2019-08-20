@@ -46,9 +46,9 @@
 </div>
 	
 <div class="w3-row">
- <slick ng-if="product.numOfImg!=0" settings="slickConfig" id="img_stage" class="w3-margin-top w3-col l8" my-image-sizer>
-	<div style="height:1500px; overflow-y:hidden;" ng-repeat="x in [].constructor(product.numOfImg) track by $index">
-		<img ng-if="product.imgSrc!=null" class="sub_image" ng-src="{{product.imgSrc}}/img_{{$index+1}}.jpg" style="width:100%;height:auto;margin:auto"></img>
+ <slick ng-if="itemInfo.Image!=null" settings="slickConfig" id="img_stage" class="w3-margin-top w3-col l8" my-image-sizer>
+	<div style="height:1500px; overflow-y:hidden;" ng-repeat="name in itemInfo.Image.names track by $index">
+		<img class="sub_image" ng-src="{{$parent.itemInfo.Image.src}}/{{name}}" style="width:100%;height:auto;margin:auto"></img>
 		<!-- To prevent situation where the imgSrc is not loaded causing get errors -->
 	</div>
  </slick>
@@ -56,7 +56,7 @@
  <div class="w3-container w3-col l4 " style="">
 	<div id="product_title" class="w3-margin-top w3-margin-bottom w3-large "><span class="bold" style="font-size: 1.1em" ng-bind-html="itemInfo.Description[backbone.lang]"></span>
 	</div>
-	<div my-cost-str="product.price[currency.toLowerCase()]"id="product_price" class="w3-margin-top w3-margin-bottom price w3-wide w3-large"></div>
+	<div my-cost-str="itemInfo.Price[currency.toLowerCase()]"id="product_price" class="w3-margin-top w3-margin-bottom price w3-wide w3-large"></div>
 
 	<!--Currency chooser  -->
 		<div class="w3-large  w3-hide-small w3-margin-bottom">

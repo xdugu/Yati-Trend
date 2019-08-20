@@ -15,7 +15,10 @@ angular.module('myApp').directive('myCostStr', function() {
 			}
 			
 			if($scope.currency=="EUR"){
-				myCost = "€" + Number.parseFloat(costSign * myCost).toFixed(2);
+				if(myCost==0)
+					myCost = "€0";
+				else
+					myCost = "€" + Number.parseFloat(costSign * myCost).toFixed(2);
 				myCost+= " EUR";
 				
 			}

@@ -75,9 +75,8 @@ app.controller('Categories', function($scope, $http, $timeout, $location,$window
 
 			product.description = $scope.categoryData[i].Description[$scope.backbone.lang];
 			product.price = $scope.categoryData[i].Price;
-			product.imgSrc = $scope.categoryData[i].Image.src;
-			product.imgPref = $scope.categoryData[i].Image.imgPref;
-			product.numberOfImages = $scope.categoryData[i].Image.numberOfImages;
+			product.Image = $scope.categoryData[i].Image;
+			product.numberOfImages = product.Image.names.length;
 			if($scope.categoryData[i].Image.numberOfImages<=1){
 				$scope.slickConfig.slidesToShow = 1;
 			}

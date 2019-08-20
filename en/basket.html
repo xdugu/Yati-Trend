@@ -54,7 +54,7 @@
 	<div class="w3-col l6 w3-padding">
 		<div ng-repeat="item in order.Items" class="w3-row w3-card w3-margin-top w3-padding" style="width: 100%; height:20vh;overflow:hidden;">
 				<div class="w3-col s3 m2 l2 " style="height:18vh; overflow: hidden;">
-					<img class="preview_img" ng-src="{{item.Image.src}}/img_1.jpg"style="width:95%; height:auto;"></img>
+					<img class="preview_img" ng-src="{{item.Image.src}}/{{item.Image.names[0]}}"style="width:95%; height:auto;"></img>
 				</div>
 				<div class="w3-display-container w3-col s9 m10 l10 " style="height:15vh;">
 					<div id="description" class="w3-display-topmiddle w3-center" style="font-size: 1em;width:100%;">{{item.Description.en}}</div>

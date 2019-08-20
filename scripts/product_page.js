@@ -105,26 +105,7 @@ app.controller('ProductDisplay',function($scope, $timeout,$http,$location,$windo
 	function loadProduct(res)
 	{
 		$scope.itemInfo = res.data.data;
-		
 
-
-		
-		$scope.product.price = $scope.itemInfo.Price;
-		
-		$scope.product.imgSrc = $scope.itemInfo.Image.src;
-		
-		$scope.product.imgPref = $scope.itemInfo.Image.imagePref;
-		
-		$scope.product.category = $scope.itemInfo.Category;
-		
-		$scope.product.mainDescription = $scope.itemInfo.MainDescription;
-		
-		let numOfImg = $scope.itemInfo.Image.numberOfImages;
-		/*
-		$scope.product.firstInfo = $scope.itemInfo.additionalInfo.FirstInfo.en;
-		$scope.product.addInfo = $scope.itemInfo.additionalInfo.AdditionalInfo.en;
-		$scope.product.prodInfo = $scope.itemInfo.additionalInfo.ProductInfo.en;
-		*/
 		if($scope.itemInfo.Variants.hasVariants){
 			for(let i=0;i<$scope.itemInfo.Variants.variantList.length;i++){
 					val=$scope.itemInfo.Variants.variantList[i].variant;
@@ -141,12 +122,6 @@ app.controller('ProductDisplay',function($scope, $timeout,$http,$location,$windo
 						
 			}
 		}
-
-
-		if(!isNaN(numOfImg))
-			$scope.product.numOfImg = numOfImg;
-		else
-			$scope.product.numOfImg = 1;
 ////////////////////////////////////////////////////////////
 			
 	}
