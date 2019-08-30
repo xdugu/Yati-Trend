@@ -10,7 +10,7 @@
 <link rel="stylesheet" type="text/css" href="/slick/slick-theme.css"/>
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-<link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css"/>
+<link rel="stylesheet" type="text/css" href="/css/w3.css"/>
 <link rel="stylesheet" type="text/css" href="/css/normalize.css"/>
 <link rel="stylesheet" type="text/css" href="/css/common.css"/>
 <link rel="stylesheet" type="text/css" href="/css/index.css"/>
@@ -26,84 +26,42 @@
 <script src="/scripts/shop.js" ></script>
 <script src="/scripts/directives/directives.js" ></script>
 
+
 </head> 
 
 <body  ng-app="myApp" ng-controller="HomePage">
 
 <header id="header_placeholder"> </header>
 <div id="privacy_placeholder"></div>
-<div class="w3-center" style="font-size:1em"> 
-	Orders above <span class="price-total w3-wide">25.000Ft</span>get FREE shipping in Hungary</div>
+
+<div> <h1>Welcome to Yati-Trend - The home of Afro-pean fashion</h1></div>
+
+<div class="w3-container" style="overflow-y:hidden" my-image-sizer>
+ <div class="w3-show-inline-block w3-right w3-mobile w3-animate-left" style="width:66%;height:100%;margin:0;overflow:hidden;">
+	<img class="w3-round" src="/images/home/group_crop.jpg" style="width:100%; height:auto"></img>
+ </div>
+ <div class="w3-show-inline-block w3-left w3-text-white" style="background-color: goldenrod;height:100%;width:33%; font-size: 2.8vw;text-align:center;">
+  <div style="padding: 10% 0">
+  Explore Afropean fashion <br><br>
+  Shop the look <br><br>
+  Order above 25000Ft to get free shipping in Hungary<br><br>
+  <a class="w3-button w3-text-white w3-black" > Shop Now</a>
+  </div>
+ </div>
 </div>
 
-<div id="list" class="w3-container" style="padding:0">
-<a href="Categories.html?category=Clothes&subCategory=Blouses" class="w3-mobile w3-margin-top w3-left" style="width:48.5%; overflow:hidden;" >
-	<slick settings="slickConfig">
-		<div style="overflow: hidden;" class="w3-display-container display">
-			<img  data-lazy="/images/shop/women/blouse_women_01/img_1.jpg" style="width:100%;height:auto;margin:auto"></img>
-			<div class="w3-display-topleft w3-xxlarge w3-wide" style="">Blouses</div>
-		</div>
-		<div style="overflow: hidden;" class="w3-display-container display">
-			<img  data-lazy="/images/shop/women/blouse_women_01/img_2.jpg" style="width:100%;height:auto;margin:auto"></img>
-			<div class="w3-display-topleft w3-xxlarge w3-wide" style="">Blouses</div>
-		</div>
-		<div style="overflow: hidden;" class="w3-display-container display">
-			<img  data-lazy="/images/shop/women/blouse_women_01/img_3.jpg" style="width:100%;height:auto;margin:auto"></img>
-			<div class="w3-display-topleft w3-xxlarge w3-wide" style="">Blouses</div>
-		</div>
-
-	</slick>
-</a> 
-
-<a href="Categories.html?category=Clothes&subCategory=Trousers" class="w3-mobile w3-margin-top w3-left" style="width:48.5%; overflow:hidden;" >
-	<slick settings="slickConfig">
-		<div style="overflow: hidden;" class="w3-display-container display">
-			<img  data-lazy="/images/shop/women/trouser_women_01/img_1.jpg" style="width:100%;height:auto;margin:auto"></img>
-			<div class="w3-display-topleft w3-xxlarge w3-wide" style="">Trousers</div>
-		</div>
-		<div style="overflow: hidden;" class="w3-display-container display">
-			<img  data-lazy="/images/shop/women/trouser_women_01/img_2.jpg" style="width:100%;height:auto;margin:auto"></img>
-			<div class="w3-display-topleft w3-xxlarge w3-wide" style="">Trousers</div>
-		</div>
-		<div style="overflow: hidden;" class="w3-display-container display">
-			<img  data-lazy="/images/shop/women/trouser_women_01/img_3.jpg" style="width:100%;height:auto;margin:auto"></img>
-			<div class="w3-display-topleft w3-xxlarge w3-wide" style="">Trousers</div>
-		</div>
-	</slick>
-</a>
-<a href="Categories.html?category=Clothes&subCategory=Jumpsuits" class="w3-mobile w3-margin-top w3-left" style="width:48.5%; overflow:hidden;" >
-	<slick settings="slickConfig">
-		<div style="overflow: hidden;" class="w3-display-container display">
-			<img  data-lazy="/images/shop/women/jumpsuit_women_01/img_1.jpg" style="width:100%;height:auto;margin:auto"></img>
-			<div class="w3-display-topleft w3-xxlarge w3-wide" style="">Jumpsuits</div>
-		</div>
-		<div style="overflow: hidden;" class="w3-display-container display">
-			<img  data-lazy="/images/shop/women/jumpsuit_women_01/img_2.jpg" style="width:100%;height:auto;margin:auto"></img>
-			<div class="w3-display-topleft w3-xxlarge w3-wide" style="">Jumpsuits</div>
-		</div>
-		<div style="overflow: hidden;" class="w3-display-container display">
-			<img  data-lazy="/images/shop/women/jumpsuit_women_01/img_3.jpg" style="width:100%;height:auto;margin:auto"></img>
-			<div class="w3-display-topleft w3-xxlarge w3-wide" style="">Jumpsuits</div>
-		</div>
-	</slick>
-</a>
-<a href="Categories.html?category=Clothes&subCategory=Dresses" class="w3-mobile w3-margin-top w3-left" style="width:48.5%; overflow:hidden;" >
-	<slick settings="slickConfig">
-		<div style="overflow: hidden;" class="w3-display-container display">
-			<img  data-lazy="/images/shop/women/dress_women_01/img_1.jpg" style="width:100%;height:auto;margin:auto"></img>
-			<div class="w3-display-topleft w3-xxlarge w3-wide" style="">Dresses</div>
-		</div>
-		<div style="overflow: hidden;" class="w3-display-container display">
-			<img  data-lazy="/images/shop/women/dress_women_01/img_2.jpg" style="width:100%;height:auto;margin:auto"></img>
-			<div class="w3-display-topleft w3-xxlarge w3-wide" style="">Dresses</div>
-		</div>
-		<div style="overflow: hidden;" class="w3-display-container display">
-			<img  data-lazy="/images/shop/women/dress_women_01/img_3.jpg" style="width:100%;height:auto;margin:auto"></img>
-			<div class="w3-display-topleft w3-xxlarge w3-wide" style="">Dresses</div>
-		</div>
-	</slick>
-</a>
-
+<div id="main" class="w3-container" style="width:100% !important; padding: 0; overflow-y: hidden" my-image-sizer>
+ <div class="w3-show-inline-block w3-right w3-mobile w3-padding" style="width:33.33%;margin:0">
+	<img class="w3-round" src="/images/home/main1.jpg" style="width:100%; height:auto"></img>
+ </div>
+ 
+ <div class="w3-show-inline-block w3-right w3-mobile" style="width:33.33%; height:auto;margin:0;padding:8px 0">
+	<img class="w3-round" src="/images/shop/women/skirt_women_03/img_2.jpg" style="width:100%; height:auto;overflow:hidden"></img>
+ </div>
+ <!--div class="w3-show-inline-block w3-right w3-xxlarge w3-animate-left w3-mobile" style="width:30%">Welcome to the Yati-Trend shop, the home of Afropean fashion</div-->
+<div class="w3-show-inline-block w3-right w3-mobile w3-padding " style="width:33.33%;margin:0">
+	<img class="w3-round" src="/images/home/main2.jpg" style="width:100%; height:auto"></img>
+</div>
  
 </div>
 
