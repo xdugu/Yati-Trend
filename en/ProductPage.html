@@ -31,7 +31,7 @@
 
 <body ng-app="myApp" ng-controller="ProductDisplay">
 
-<div id="header_placeholder"> </div>
+<header id="header_placeholder"> </header>
 <div id="privacy_placeholder"></div>
 
 
@@ -85,7 +85,9 @@
 	</div>
 
 	<div class="w3-row w3-margin-top"  style="">
-		<button id="add_basket_button" class="w3-black w3-button w3-xlarge w3-hover-black  w3-col m6 l12" ng-click="checkBasket()">Add to Basket</button>
+		<button ng-hide="!itemInfo.Variants.hasVariants && itemInfo.Quantity<=0" id="add_basket_button" 
+				class="w3-black w3-button w3-xlarge w3-hover-black  w3-col m6 l12" ng-click="checkBasket()">Add to Basket</button>
+		 <span ng-show="!itemInfo.Variants.hasVariants && itemInfo.Quantity<=0" class="w3-text-red w3-center w3-xlarge">Out Of Stock</span>
 	</div>
 	<div class="w3-container w3-margin-top" id="added-prompt" style="padding:0;opacity:0">
 		<div class="w3-center w3-padding w3-green w3-large">Item has been Added</div>
