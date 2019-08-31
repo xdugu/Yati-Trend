@@ -88,23 +88,27 @@ angular.module('myApp').directive('myImageSizer', function($interval) {
   return {
 	restrict: 'A',
     link: function($scope,elem, attr) {
+	    let lastSize = 0;
 		let promise = $interval(function(){
 			indexOfShortestImage=0;
 			shortestHeight=2000;
 			images = $(elem).find('img');
 			for(let i=0;i< images.length; i++){
-				if(!images[i].complete || images[i].src.indexOf('loading')>=0)
+				if(!images[i].complete)
 					return;
-				if(images[i].height<shortestHeight)
+				if(images[i].height<shortestHeight && images[i].src.indexOf('loading')<0)
 				{
 					shortestHeight = images[i].height;
 					indexOfShortestImage = i;
 				}
 			}
+			if(shortestHeight != lastSize){
 			$(elem).children('div').css({'height': shortestHeight.toString() + 'px'});
-			$interval.cancel(promise);
+			 lastSize = shortestHeight;
+			}
+			//$interval.cancel(promise);
 
-		},100);
+		},500);
     }
   };
 });

@@ -69,10 +69,10 @@
 				<img class="shop_img w3-center" lazy-load="{{product.Image.src}}/{{product.Image.names[0]}}" style="width:auto; height:100%;"></img> 
 		</div>
 		<slick ng-if="product.numberOfImages>1" settings="slickConfig" my-image-sizer>
-			<div style="width:100%; height: 1000px; overflow-y:hidden;">
+			<div style="width:100%; overflow-y:hidden;">
 				<img class="shop_img" lazy-load="{{product.Image.src}}/{{product.Image.names[0]}}" style="width:100%; height:auto;"></img> 
 			</div>
-			<div  style="width:100%; height:1000px; overflow-y:hidden;">
+			<div  class="w3-hide-small" style="width:100%; overflow-y:hidden;">
 				<img class="shop_img w3-center" lazy-load="{{product.Image.src}}/{{product.Image.names[1]}}" style="width:100%; height:auto;"></img> 
 			</div>
 		</slick>

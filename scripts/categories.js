@@ -34,6 +34,7 @@ app.controller('Categories', function($scope, $http, $timeout, $location,$window
 		slidesToScroll: 1,
 		autoplay: false,
 		arrows:false,
+		swipe: false,
 		responsive: [
 		{
 			breakpoint: 900, // mobile and tablet breakpoint
