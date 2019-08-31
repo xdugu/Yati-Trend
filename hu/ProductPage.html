@@ -31,7 +31,7 @@
 
 <body ng-app="myApp" ng-controller="ProductDisplay">
 
-<div id="header_placeholder"> </div>
+<header id="header_placeholder"> </header>
 <div id="privacy_placeholder"></div>
 
 
@@ -47,7 +47,7 @@
 	
 <div class="w3-row">
  <slick ng-if="itemInfo.Image!=null" settings="slickConfig" id="img_stage" class="w3-margin-top w3-col l8" my-image-sizer>
-	<div style="height:1500px; overflow-y:hidden;" ng-repeat="name in itemInfo.Image.names track by $index">
+	<div style="overflow-y:hidden;" ng-repeat="name in itemInfo.Image.names track by $index">
 		<img class="sub_image" ng-src="{{$parent.itemInfo.Image.src}}/{{name}}" style="width:100%;height:auto;margin:auto"></img>
 		<!-- To prevent situation where the imgSrc is not loaded causing get errors -->
 	</div>
@@ -185,10 +185,7 @@
 </div>
 	
 
-<div ng-include="'footer.html'" class="w3-margin-top">
-
-
-</div>
+<footer ng-include="'footer.html'" class="w3-margin-top"></footer>
 
 </body>
 </html>

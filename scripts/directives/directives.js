@@ -102,7 +102,8 @@ angular.module('myApp').directive('myImageSizer', function($interval) {
 					indexOfShortestImage = i;
 				}
 			}
-			if(shortestHeight != lastSize){
+			if(shortestHeight != lastSize && shortestHeight!=2000){
+				//check if image has changed size and that also all the images are not just loading gifs
 			$(elem).children('div').css({'height': shortestHeight.toString() + 'px'});
 			 lastSize = shortestHeight;
 			}
@@ -146,9 +147,15 @@ function lazyLoad(){
     return {
         restrict: 'A',
         link: function(scope, element, attrs){
+			//at the moment, looking at intersection for just one image of group
 			const img = angular.element(element)[0];
 			img.src = "/images/loading.gif";
-            const observer = new IntersectionObserver(loadImg);           
+			let options = {
+				root: null,
+				rootMargin: '30% 10%', //setting margin to prempt loading
+				threshold: 0
+			}
+            const observer = new IntersectionObserver(loadImg, options);           
             observer.observe(img)
 
             function loadImg(changes){
