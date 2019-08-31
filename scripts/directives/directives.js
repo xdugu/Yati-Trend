@@ -93,7 +93,7 @@ angular.module('myApp').directive('myImageSizer', function($interval) {
 			shortestHeight=2000;
 			images = $(elem).find('img');
 			for(let i=0;i< images.length; i++){
-				if(!images[i].complete)
+				if(!images[i].complete || images[i].src.indexOf('loading')>=0)
 					return;
 				if(images[i].height<shortestHeight)
 				{
@@ -133,3 +133,30 @@ angular.module('myApp').directive('myNewsletter', function($http) {
         }
     }
 });
+
+angular
+    .module('myApp')
+    .directive('lazyLoad', lazyLoad)
+
+function lazyLoad(){
+    return {
+        restrict: 'A',
+        link: function(scope, element, attrs){
+			const img = angular.element(element)[0];
+			img.src = "/images/loading.gif";
+            const observer = new IntersectionObserver(loadImg);           
+            observer.observe(img)
+
+            function loadImg(changes){
+                changes.forEach(change => {
+                    if(change.intersectionRatio > 0){
+						if(!change.target.src.includes(attrs.lazyLoad)){
+							change.target.src = attrs.lazyLoad;
+						}
+                    }
+                })
+            }    
+
+        }
+    }
+}
