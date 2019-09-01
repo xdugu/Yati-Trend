@@ -51,12 +51,12 @@
 		<div class="w3-large w3-center w3-large" style="font-weight:bold">Rendelés részletei</div>
 			<div>{{shopping.contact.firstName}}</div>
 			<div>{{shopping.contact.email}}</div>
-			<div>{{order.contact.number}}</div>
+			<div>{{shopping.contact.number}}</div>
 			
 			<div class="w3-margin-top"><strong>Címzett:</strong></div>
 			<div>{{shopping.contact.firstName}}</div>
 			<div>{{shopping.contact.address1}}</div>
-			<div ng-hide="order.contact.address2==''">{{shopping.contact.address2}}</div>
+			<div ng-hide="shopping.contact.address2==''">{{shopping.contact.address2}}</div>
 			<div>{{shopping.contact.city}}</div>
 			<div>{{shopping.contact.postCode}}</div>
 			<div>{{shopping.contact.country}}</div>
@@ -93,7 +93,7 @@
 			<a ng-click="backbone.showConfirmed=true;updatePaymentMethod('bankTransfer')" class="w3-button w3-red w3-margin-top w3-margin-bottom">Megerősítés</a>
 		  </div>
 		   <div class="w3-container" ng-show="backbone.showConfirmed==true">
-			<div class="w3-medium" style="margin-top:1vh">Sikeresen elküldtük a banki utaláshoz szükséges adatokat a következő email címre <strong>{{order.contact.email}}</strong> 
+			<div class="w3-medium" style="margin-top:1vh">Sikeresen elküldtük a banki utaláshoz szükséges adatokat a következő email címre <strong>{{shopping.contact.email}}</strong> 
 			Kérjük, hogy saját érdekedben az utalást minél előbb tedd meg, hogy mi is minél hamarabb előkészíthessük és kézbesíthessük számodra a megrenelt terméket/termékeket.
 			</div>
 		  </div>
@@ -122,7 +122,7 @@
 			<a ng-click="backbone.showConfirmed=true; updatePaymentMethod('payOnDelivery')" class="w3-button w3-red w3-margin-top w3-margin-bottom">Megerősítés</a>
 		  </div>
 		   <div class="w3-container" ng-show="backbone.showConfirmed==true">
-			<div class="w3-medium" style="margin-top:1vh">A rendelésről a megerősítő emailt elküldtük számodra.  <strong>{{order.contact.email}}</strong>. Csomagodat hamarosan postázzuk.
+			<div class="w3-medium" style="margin-top:1vh">A rendelésről a megerősítő emailt elküldtük számodra.  <strong>{{shopping.contact.email}}</strong>. Csomagodat hamarosan postázzuk.
 			</div>
 		  </div>
 		</div>

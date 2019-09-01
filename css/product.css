@@ -40,6 +40,14 @@ div#accessories > div{
 	width: 30%;	
 }
 
+.content {
+	transition: all linear 0.7s;
+	max-height: 1000px;
+}
+.content.ng-hide{
+	max-height: 0px;
+}
+
 @media only screen and (min-width: 601px) {
 	div#accessories {
 		overflow: hidden;	

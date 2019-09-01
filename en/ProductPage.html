@@ -97,13 +97,13 @@
 		<div ng-click="des=!des;del=false;ret=false;size=false;" class="w3-border-bottom w3-border-black w3-padding" style="width:100%;height=auto;overflow:auto">
 				<span class="w3-left w3-large w3-text-golden">Description</span>
 				<span class="w3-right w3-large"> <i ng-show="des==false">+</i><i ng-show="des==true">-</i></span>
-		<div id="description" ng-show="des==true" class="w3-margin-top"><br><span ng-bind-html="itemInfo.MainDescription[backbone.lang]"></span></div>
+		<div id="description" ng-show="des==true" class="w3-margin-top content"><br><span ng-bind-html="itemInfo.MainDescription[backbone.lang]"></span></div>
 		</div>
 		<div ng-show="itemInfo.Category!='Accessories'" ng-click="size=!size;des=false;del=false;ret=false" class="w3-border-bottom w3-border-black w3-padding" style="width:100%;height=auto;overflow:auto">
 				<span class="w3-left w3-large w3-text-golden">Size Chart</span>
 				<span class="w3-right w3-large"> <i ng-show="size==false">+</i><i ng-show="size==true">-</i></span>
 		</div>
-		<div ng-show="size==true" class="w3-margin-top">
+		<div ng-show="size==true" class="w3-margin-top content">
 			<div style="overflow-x:auto">
 				<table class="w3-table w3-striped">
 				<tr><th>Size</th><th>Height(cm)</th><th>Bust(cm)</th><th>Waist(cm)</th><th>Hips(cm)</th></tr>
@@ -116,7 +116,7 @@
 		<div ng-click="del=!del;des=false;ret=false;size=false;" class="w3-border-bottom w3-border-black w3-padding" style="width:100%;height=auto;overflow:auto">
 				<span class="w3-left w3-large w3-text-golden">Shipping</span>
 				<span class="w3-right w3-large"> <i ng-show="del==false">+</i><i ng-show="del==true">-</i></span>
-		<div ng-show="del==true" class="w3-margin-top"><br>
+		<div ng-show="del==true" class="w3-margin-top content"><br>
 			We ship our products with the help of GLS (internationally as well) and Foxpost.<br>
 			<u>Countries we ship to:</u> Hungary, Austria, Germany, United Kingdom.
 				In case of other countries, please contact us and we will try to find a way for you.
@@ -141,7 +141,7 @@
 		<div ng-click="ret=!ret;del=false;des=false;size=false;" class="w3-border-bottom w3-border-black w3-padding" style="width:100%;height=auto;overflow:auto">
 				<span class="w3-left w3-large w3-text-golden">Returns</span>
 				<span class="w3-right w3-large"> <i ng-show="ret==false">+</i><i ng-show="ret==true">-</i></span>
-		<div ng-show="ret==true" class="w3-margin-top"><br>
+		<div ng-show="ret==true" class="w3-margin-top content"><br>
 			We offer free returns for full priced items (items purchased on sale or with a discount code are not eligible for a prepaid return label.)<br>
 			You can return any item for a direct exchange within fourteen (14) days of receiving your original order, without reasoning. Any item returned exceeding the 
 			fourteen (14) day return deadline is not be eligible for an exchange.<br><br>
