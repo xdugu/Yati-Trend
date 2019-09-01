@@ -152,7 +152,7 @@ function lazyLoad(){
 			img.src = "/images/loading.gif";
 			let options = {
 				root: null,
-				rootMargin: '30% 10%', //setting margin to prempt loading
+				rootMargin: '30% 10% 80% 10%', //setting margin to prempt loading
 				threshold: 0
 			}
             const observer = new IntersectionObserver(loadImg, options);           
