@@ -84,6 +84,7 @@ app.controller('Categories', function($scope, $http, $timeout, $location,$window
 			product.href = 'ProductPage.html?itemId=' +  $scope.categoryData[i].ItemId;
 			product.subCategoryName = $scope.categoryData[i].SubCategoryName;
 			product.subCategory = $scope.categoryData[i].SubCategory;
+			product.category = $scope.categoryData[i].Category;
 			$scope.products.push(product);
 			
 			//building select list to filter results
