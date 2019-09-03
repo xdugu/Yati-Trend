@@ -40,11 +40,11 @@ div#accessories > div{
 	width: 30%;	
 }
 
-.content {
+.info-content {
 	transition: all linear 0.7s;
 	max-height: 1000px;
 }
-.content.ng-hide{
+.info-content.ng-hide{
 	max-height: 0px;
 }
 
