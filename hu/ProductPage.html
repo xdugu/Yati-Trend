@@ -176,7 +176,7 @@
 	<div id="accessories">
 	<div ng-repeat="x in itemInfo.Accessories" class="w3-margin-left" style="display:inline-block">
 		<a href="ProductPage.html?itemId={{x.ItemId}}">
-			<img style="width:100%;height:auto" ng-src="{{x.Image.src}}/img_1.jpg"></img>
+			<img style="width:100%;height:auto" ng-src="{{x.Image.src}}/{{x.Image.names[0]}}"></img>
 		</a>
 		<div my-cost-str="x.Price[currency.toLowerCase()]" class="price w3-wide"></div>
 	</div>

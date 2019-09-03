@@ -48,8 +48,8 @@
 	
 <div class="w3-row">
  <slick ng-if="itemInfo.Image!=null" settings="slickConfig" id="img_stage" class="w3-margin-top w3-col l8" my-image-sizer>
-	<div style="height:1500px; overflow-y:hidden;" ng-repeat="name in itemInfo.Image.names track by $index">
-		<img class="sub_image" ng-src="{{$parent.itemInfo.Image.src}}/{{name}}" style="width:100%;height:auto;margin:auto"></img>
+	<div style="; overflow-y:hidden;" ng-repeat="name in itemInfo.Image.names track by $index">
+		<img class="sub_image" data-lazy="{{$parent.itemInfo.Image.src}}/{{name}}" style="width:100%;height:auto;margin:auto"></img>
 		<!-- To prevent situation where the imgSrc is not loaded causing get errors -->
 	</div>
  </slick>
@@ -166,7 +166,7 @@
 	<div id="accessories">
 	<div ng-repeat="x in itemInfo.Accessories" class="w3-margin-left" style="display:inline-block">
 		<a href="ProductPage.html?itemId={{x.ItemId}}">
-			<img style="width:100%;height:auto" ng-src="{{x.Image.src}}/img_1.jpg"></img>
+			<img style="width:100%;height:auto" ng-src="{{x.Image.src}}/{{x.Image.names[0]}}"></img>
 		</a>
 		<div my-cost-str="x.Price[currency.toLowerCase()]" class="price w3-wide"></div>
 	</div>

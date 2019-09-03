@@ -52,6 +52,7 @@ app.controller('ProductDisplay',function($scope, $timeout,$http,$location,$windo
 				slidesToShow: 2,
 				slidesToScroll: 1,
 				autoplay: false,
+				lazyload: 'ondemand',
 				responsive: [
 				{
 					breakpoint: 480, // mobile breakpoint
