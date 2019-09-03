@@ -132,29 +132,15 @@ workbox.routing.registerRoute(
   })
 );
 
-//since img_1.jpg files appear first, for faster loading, we will save then in their own cache
-workbox.routing.registerRoute(
-  /\img_1.(?:png|gif|jpg|jpeg|svg)$/,
-  new workbox.strategies.CacheFirst({
-    cacheName: 'first-img-cache',
-    plugins: [
-      new workbox.expiration.Plugin({
-        maxEntries: 50,
-        maxAgeSeconds: 60 * 30, // 30 minutes
-      }),
-    ],
-  }),
-); 
-
 //to reduce network load, secondary image caches have been added
 workbox.routing.registerRoute(
   /\.(?:png|gif|jpg|jpeg|svg)$/,
   new workbox.strategies.CacheFirst({
-    cacheName: 'secondary-img-cache',
+    cacheName: 'img-cache',
     plugins: [
       new workbox.expiration.Plugin({
-        maxEntries: 30,
-        maxAgeSeconds:  1 * 60 * 60, // 24 
+        maxEntries: 60,
+        maxAgeSeconds:  24 * 60 * 60, // 24 hours
 		 purgeOnQuotaError: true, // Opt-in to automatic cleanup.
       }),
     ],
