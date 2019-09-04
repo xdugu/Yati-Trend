@@ -92,8 +92,8 @@
 				<button id="discount-button" ng-disabled="discounts.code.length<5" ng-click="applyDiscount(discounts.code)" 
 				class=" w3-button w3-black w3-hover-grey">Kuponkód érvényesítése</button>					
 			</div>			
-			<div class="w3-text-red" ng-show="discounts.code.length==0 && discounts.showError">A kuponkód helytelen</div>
-			<div class="w3-text-green" ng-show="discounts.showSuccess">Kuponkódod sikeresen érvényesítésre került </div>
+			<div class="w3-text-red w3-container" ng-show="discounts.code.length==0 && discounts.showError">A kuponkód helytelen</div>
+			<div class="w3-text-green w3-container" ng-show="discounts.showSuccess">Kuponkódod sikeresen érvényesítésre került </div>
 			<div class="w3-container w3-stretch" >
 				<form ng-show="shopping.contact.country=='Hungary'" name="deliveryMethod" class="w3-margin-top">
 				<div class="w3-large"><b>Kérjük válassz a szállítási módok közül</b></div>
