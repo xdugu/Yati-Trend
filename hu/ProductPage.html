@@ -46,9 +46,9 @@
 </div>
 	
 <div class="w3-row">
- <slick ng-if="itemInfo.Image!=null" settings="slickConfig" id="img_stage" class="w3-margin-top w3-col l8" my-image-sizer>
+ <slick ng-if="itemInfo.Image!=null" settings="slickConfig" id="img_stage" class="w3-margin-top w3-col l8">
 	<div style="overflow-y:hidden;" ng-repeat="name in itemInfo.Image.names track by $index">
-		<img class="sub_image" ng-src="{{$parent.itemInfo.Image.src}}/{{name}}" style="width:100%;height:auto;margin:auto"></img>
+		<img class="sub_image" data-lazy="{{$parent.itemInfo.Image.src}}/{{name}}" style="width:100%;height:auto;margin:auto"></img>
 		<!-- To prevent situation where the imgSrc is not loaded causing get errors -->
 	</div>
  </slick>
@@ -152,7 +152,7 @@
 			terméket indoklás nélkül. Bármely termék, amely a 14 napos határidőn kívül érkezik vissza hozzánk,<br>
 			 nem minősíthető visszáruként, így nem is cserélhetőek ki.<br><br>
 
-			 Az áru visszaküldésére abban az esetben van lehetőség, amennyiben a ruhadarab hordatlan állapotú,<br> 
+			 Az áru visszaküldésére abban az esetben van lehetőség, amennyiben a ruhadarab hordatlan állapotú, 
 			tökéletes állapotban van, minden kiegészítője rajta van és a rajta levő eredeti címkék is érintetlenek.
 			<br><br>
 			3-5 napon belül értesítjük Önt a visszatérítés jóváhagyásáról vagy elutasításáról.<br>
@@ -172,7 +172,7 @@
 </div><!--row-->
 
 <div class="w3-block w3-center" style="width:100%: ">
-	<h1 ng-show="itemInfo.Accessories.length>0" class="w3-large bold"> Assessories with this item</h1>
+	<h1 ng-show="itemInfo.Accessories.length>0" class="w3-large bold">Kiegészítők ehhez a termékhez</h1>
 	<div id="accessories">
 	<div ng-repeat="x in itemInfo.Accessories" class="w3-margin-left" style="display:inline-block">
 		<a href="ProductPage.html?itemId={{x.ItemId}}">
