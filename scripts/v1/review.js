@@ -94,7 +94,7 @@ app.controller('Review', function($scope, $http, $timeout) {
 	var script = document.createElement("script");
 	paypalIdTest = "ARepdsMSrfrrl7TM-WgW3OuVO1UXOTUGzCcfIn1kHc8kZ4dS35xA5MY13sPDYtrqDdL34lukvDkrr4gk";
 	paypalIdLive = "ARPzjpvRIiwqLcKb-idrLmOUOyinmWbEJnVk-xZJkNrB7ebehE7DXRPI60-xvvoBI1EI2Z_OLTWanD_k";
-	script.src = "https://www.paypal.com/sdk/js?client-id=" + paypalIdTest + "&currency="+ $scope.currency;
+	script.src = "https://www.paypal.com/sdk/js?client-id=" + paypalIdLive + "&currency="+ $scope.currency;
 	
 	script.onload = function(){
 	paypal.Buttons({
