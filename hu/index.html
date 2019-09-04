@@ -1,158 +1,126 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-<title> YATI-Trend Webshop | Hamarosan jövünk</title>
+<title> YATI-Trend Shop | Home</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/jpeg" href="/images/logo.jpg">
 <meta charset="UTF-8">
 <meta name="theme-color" content="Goldenrod">
+<link rel="stylesheet" type="text/css" href="/slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="/slick/slick-theme.css"/>
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-<link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css"/>
-<link rel="stylesheet" type="text/css" href="/css/normalize.css"/>
-<link rel="stylesheet" type="text/css" href="/css/common.css"/>
-<link rel="stylesheet" type="text/css" href="/css/index.css"/>
+<link rel="stylesheet" type="text/css" href="../css/w3.css"/>
+<link rel="stylesheet" type="text/css" href="/css/v1/normalize.css"/>
+<link rel="stylesheet" type="text/css" href="/css/v1/common.css"/>
+<link rel="stylesheet" type="text/css" href="/css/v1/index.css"/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-131830139-1"></script>
 
-  
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.4/angular.min.js"></script>
+<script type="text/javascript" src="/slick/slick.min.js"></script>
+<script type="text/javascript" src="/slick/angular-slick.js"></script>
  
-<script src="/scripts/index.js" ></script>
-<script src="../scripts/directives/directives.js" ></script>
-
+<script src="/scripts/v1/common.js" ></script>
+<script src="/scripts/v1/index.js" ></script>
+<script src="/scripts/v1/shop.js" ></script>
+<script src="/scripts/v1/directives/directives.js" ></script>
 <style>
-body{
-	width: 100%;
-	height: 100%;
-  font-family: "Courier New", Courier, monospace;
-
-}
-#background_img
-{
-	position: fixed;
-	top: 0vw;
-	z-index: -100;
-	opacity: 0;
-	width: 100vw;
-	
-	transition: opacity 3s linear;
+.advertised div{
+  width:33%;
+  height: auto;
 }
 
-#text{
-	overflow-y: hidden;
-	max-height: 0px;
-	transition: max-height 3s linear;
+h1{
+ font-size: 1.3em;
+}
+@media (max-width:600px){
+  .advertised{
+	overflow-x: scroll;
+  }
+  .advertised div{
+    width: 60%;
+  }
 
-}
-.myVideo {
-  position: fixed;
-  top: 0px;
-  left: 0;
-  width: 100%;
-  opacity: 1;
-  transition-delay: 2s;
-  transition: opacity 3s linear;
-  
-  /*min-height: 100%;*/
-  /*min-width: 100%;*/  
-}
-.landscape{
-	display:none;
-}
-
-.fa:hover{
-	color: Goldenrod !important;
-
-}
-
-@media only screen and (min-width: 600px) {
-  .myVideo {
-  top: -500px;
-  left: 0;
-  width: 100%; 
-}
-
-}
-@media only screen and (min-width: 1100px) {
-  .myVideo {
-  top: 0px;
-  left: 0;
-  width: 100%; 
-}
-
-.landscape{
-	display:block;
-}
-
-.portrait{
-	display:none;
-
-}
 }
 
 </style>
-
-
 </head> 
 
-<body  ng-app="myApp" ng-controller="HomePage" >
-<!--img id="background_img" src="/images/main_pic.jpg"/-->
+<body  ng-app="myApp" ng-controller="HomePage">
 
-<video autoplay playsinline muted loop class="myVideo portrait">
-  <source src="/videos/back3.mov" >
-</video>
+<header id="header_placeholder"> </header>
+<div id="privacy_placeholder"></div>
 
-<video autoplay playsinline muted loop class="myVideo landscape">
-  <source src="/videos/back_land2.mov" >
-</video>
+<div> <h1>Üdvözlünk a Yati-Trend oldalán – Az afro-európai divat hazájában</h1></div>
 
-	<div id="text" style="width:100%;background-color:white;opacity: 0.8; z-index:1000;" >
-		<div style="font-size: 1.2em; height: 100%; color: black;text-align:center;" class="bold "> 
-		<div>
-			<a href="/hu/index.html"><img  src="../images/hun_flag.jpg" style="height:3vh;width:auto"></img></a>
-			<a href="/en/index.html"><img class="w3-margin-left" src="../images/eng_flag.jpg" style="height:3vh;width:auto"></img></a>
-		</div>
-			
-		<img  src="/images/logo.jpg" style="margin: auto; width:20%; display: block"/>
-			Üdvözlünk az afro-európai divat otthonában, ahol az afrikai divat egybefonódik az európaival<br><br>
-			Webshopunk hamarosan elérhető lesz!<br><br>
-			Iratkozz fel hírlevelünkre, hogy elsőnek értesülj webshopunk nyitásáról<br><br>
-			Köszönetképpen 10% kedvezményt kapsz weboldalunk elindításakor
-		
-			<div style="margin: 10px auto; width:80%" ng-init="showPrivacy=false; showThanks=false; showError=false;email=''">
-				<div class="" my-newsletter="true" ng-show="!showThanks && !showError">
-				  <form name="newsletter">
-				   <input ng-focus="showPrivacy=true" ng-model="email" ng-blur="showPrivacy=false" class="w3-mobile w3-border w3-border-black"
-				   type="email" placeholder="Email" required  autocomplete="email" name="email" style="width:50%; text-align:center"/>
-				   </form>
-				   <button ng-disabled="newsletter.email.$invalid || !newsletter.email.$dirty " ng-click="submitEmail(email)" id="register-button" class="w3-margin-top w3-button" style="border:1px solid black">Feliratkozás</button>
-				</div>
-				<div ng-show="newsletter.email.$touched && newsletter.email.$invalid" class="w3-text-red bold">E-mail cím megadása szükséges</div>
-				<div ng-if="showThanks" style="color: Goldenrod" >Köszönjük a feliratkozást</div>
-				<div ng-if="showError" class="w3-text-red bold"> Hiba lépett fel, kérjük próbáld meg később</div>
-				<div class="w3-margin-top"><i class="fa fa-copyright w3-text-black"></i> Copyright Yati-Trend 2019</div>
-				<div class="w3-xxlarge " >
-					<i class="fa fa-facebook hoverable w3-text-black "></i>
-					<i class="fa fa-instagram hoverable w3-text-black "></i>
-				</div>
-		   </div>
-		   
-		   
-		   </div>
-		   
-		   
-		   
+<div class="w3-container" style="overflow-y:hidden" my-image-sizer>
+ <div class="w3-show-inline-block w3-right w3-mobile w3-animate-left" style="width:66%;height:100%;margin:0;overflow:hidden;">
+	<img class="w3-round" src="/images/home/group.jpg" style="width:100%; height:auto"></img>
+ </div>
+ <!-- Desktop and tablets only -->
+ <div class="w3-show-inline-block w3-left w3-text-white w3-hide-small" style="background-color: goldenrod;height:100%;width:33%; font-size: 2vw;text-align:center;">
+  <div style="padding: 20% 0">
+  Fedezd fel Te is az afro-európai divatot <br><br>
+  Tedd magad még egyedibbé ruháink által, hiszen az egyediség, az elegancia és a színek nálunk kéz a kézben járnak.  <br><br>
+  Vásárolj 25.000 Ft felett és a szállítást mi álljuk Magyarország egész területén<br><br>
+  <a class="w3-button w3-text-white w3-black" href="Categories.html?category=Clothes"> Vásárolj most</a>
+  </div>
+ </div> 
+</div>
+
+<!-- Mobile only display -->
+<div class="w3-text-white w3-hide-large w3-hide-medium w3-margin" style="background-color: goldenrod;height:300px;font-size: 1em;text-align:center;">
+  <div style="padding: 5% 0">
+	  Fedezd fel Te is az afro-európai divatot <br><br>
+	  Tedd magad még egyedibbé ruháink által, hiszen az egyediség, az elegancia és a színek nálunk kéz a kézben járnak.  <br><br>
+	  Vásárolj 25.000 Ft felett és a szállítást mi álljuk Magyarország egész területén<<br><br>
+	  <a class="w3-button w3-text-white w3-black" href="Categories.html?category=Clothes"> Vásárolj most</a>
+  </div>
+</div>
+ 
+ 
+<div  class="advertised w3-padding" style="overflow-y: hidden;white-space: nowrap;">
+	<div class="w3-show-inline-block w3-display-container"> 
+		<img class="w3-round" lazy-load="/images/home/main1.jpg" style="width:100%"></img>
+		<a class="w3-round w3-button w3-black w3-display-bottommiddle w3-margin-bottom" 
+			href="Categories.html?category=Clothes&subCategory=Blouses" style="font-size:1.3em;">Blúzok</a>
 	</div>
-	
-	<div id="arrow" style="visibility:hidden;position:relative;width:10%;margin: 16px auto;z-index:10001;">
-		<span id="actual_arrow" ng-click="rowUp()" class="material-icons w3-jumbo hoverable" style="color:black;background-color:white;border-radius: 50%;z-index:20001">expand_less</span>
+
+	<div class="w3-show-inline-block w3-display-container"> 
+		<img class="w3-round" lazy-load="/images/shop/women/skirt_women_03/img_2.jpg" style="width:100%"></img>
+		<a class="w3-round w3-button w3-black w3-display-bottommiddle w3-margin-bottom" 
+			href="Categories.html?category=Clothes&subCategory=Skirts" style="font-size:1.3em;">Szoknyák</a>
 	</div>
+
+	<div class="w3-show-inline-block w3-display-container">
+		<img class="w3-round" lazy-load="/images/home/main2.jpg" style="width:100%"></img>
+		<a class="w3-round w3-button w3-black w3-display-bottommiddle w3-margin-bottom" 
+			href="Categories.html?category=Clothes&subCategory=Jumpsuits" style="font-size:1.3em;">Overálok</a>
+	</div>
+ 
+</div>
+
+
+<div id="main" class="w3-container" style="width:100% !important; padding: 0; overflow-y: hidden">
+	<h1 style="font-size: 2em" >Rólunk </h1>
 	
+  <div class="w3-show-inline-block w3-left w3-padding w3-mobile" style="width:25%;margin:0">
+	<img class="w3-round " lazy-load="/images/home/about_pic.jpg" style="width:100%; height:auto"></img>
+ </div>
+ <div class="w3-show-inline-block w3-left w3-padding w3-mobile" style="width: 74%">
 	
-	<!--div class="my-bg" class="" style="width: 100vw"></div-->
+	<p style="font-size: 1em">
+		A Yati-Trendet azért hoztuk létre, hogy az itt élő emberek is megismerhessék az afrikai ruhákat
+		és megtapasztalhassák milyen érzés is ilyen ruhákat hordani.
+		Férjem, Yayra Ghánából származik, ahol nagy divatnak örvend a színes és mintás ruhák viselete. . . .</p>
+	<a class="underlined w3-padding hoverable" href="about.html" style="font-size:1em"> Tovább olvasom</a>
+ </div>
 
 
+</div>
 
+<footer ng-include="'footer.html'" class="w3-margin-top"></footer>
 
 
 </body>
