@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title> Yati-Trend | Unsubscribe </title>
+<meta charset="UTF-8">
+<link rel="icon" type="image/jpeg" href="/images/logo.jpg">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="goldenrod">
+
+
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="/css/w3.css"/>
+<link rel="stylesheet" type="text/css" href="/css/v1/normalize.css"/>
+<link rel="stylesheet" type="text/css" href="/css/v1/common.css"/>
+
+ <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-131830139-1"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.4/angular.min.js"></script>
+ 
+<script src="/scripts/v1/common.js" ></script>
+<script src="/scripts/v1/unsubscribe.js" ></script>
+<script src="/scripts/v1/shop.js" ></script>
+
+<style>
+h1{
+ font-size: 1.7em !important;
+}
+
+</style>
+
+</head> 
+
+<body ng-app="myApp" ng-controller="Unsubscribe">
+
+<header id="header_placeholder"> </header>
+<div class="w3-container">
+	<h1> Unsubscribe from Newsletter</h1> <br>
+	<form name="unsubscribe" novalidate ng-hide="unsubscribeSuccess">
+	 <input class="w3-mobile w3-padding w3-margin-top" ng-model="email" type="email" required style="width:50%" />
+	 <button class="w3-button w3-black w3-mobile" ng-disabled="unsubscribe.$invalid" style="width:25%" ng-click="sendUnsubscribe()">Unsubscribe</button>
+	</form>
+	<div ng-show="unsubscribeSuccess" class="w3-text-green"> You have been successfully removed from our mailing list </div>
+	<div ng-show="unsubscribeFail" class="w3-text-red"> Something went wrong. Please check your email address and try again</div>
+</div>
+
+
+</body>
+</html>
