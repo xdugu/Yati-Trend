@@ -37,13 +37,13 @@ h1{
 
 <header id="header_placeholder"> </header>
 <div class="w3-container">
-	<h1> Lemondás a hírlevélről</h1> <br>
+	<h1> Leiratkozás a hírlevélről</h1> <br>
 	<form name="unsubscribe" novalidate ng-hide="unsubscribeSuccess">
 	 <input class="w3-mobile w3-padding w3-margin-top" ng-model="email" type="email" required style="width:50%" />
-	 <button class="w3-button w3-black w3-mobile" ng-disabled="unsubscribe.$invalid" style="width:25%" ng-click="sendUnsubscribe()"> Lemondás</button>
+	 <button class="w3-button w3-black w3-mobile" ng-disabled="unsubscribe.$invalid" style="width:25%" ng-click="sendUnsubscribe()"> Leiratkozás</button>
 	</form>
-	<div ng-show="unsubscribeSuccess" class="w3-text-green"> Sikeresen eltávolították a levelezőlistánkról </div>
-	<div ng-show="unsubscribeFail" class="w3-text-red">Valami elromlott. Kérjük, ellenőrizze e-mail címét, és próbálja újra</div>
+	<div ng-show="unsubscribeSuccess" class="w3-text-green"> Sikeresen leiratkoztál a levelezőlistánkról </div>
+	<div ng-show="unsubscribeFail" class="w3-text-red">Hiba történt. Kérjük, ellenőrizd az e-mail címet, és próbáld újra</div>
 </div>
 
 
