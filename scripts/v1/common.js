@@ -27,6 +27,7 @@ var fixedMenu=false;
 
     }); 
 
+// Cookie setings
 function checkCookie(){
 	
 	  window.dataLayer = window.dataLayer || [];
@@ -34,13 +35,10 @@ function checkCookie(){
 	  
 	 
 	 let useCookie = localStorage.getItem("useCookie");
-	 if(useCookie == null){
-		 if(isPathCorrect())
-			$('#privacy_placeholder').load("legal/privacy.html");
-		 else
-			$('#privacy_placeholder').load("/hu/legal/privacy.html"); 
-	 }
-	else if (useCookie=="true"){
+	  if(useCookie == null){
+		  Common_changeCookie(true);
+	 } 
+	 else if (useCookie=="true"){
 		 window['ga-disable-UA-131830139-1'] = false;
 	 }
 		 

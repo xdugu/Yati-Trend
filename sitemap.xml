@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+	<url>
+	<loc>https://fashion.yati-trend.com/hu/index.html</loc>
+	<xhtml:link 
+               rel="alternate"
+               hreflang="en"
+               href="https://fashion.yati-trend.com/en/index.html"/>
+	<xhtml:link 
+               rel="alternate"
+               hreflang="hu"
+               href="https://fashion.yati-trend.com/hu/index.html"/>
+	<priority>1.00</priority>
+	</url>
+	<url>
+	<loc>
+	https://fashion.yati-trend.com/hu/Categories.html?category=Clothes
+	</loc>
+	<xhtml:link 
+               rel="alternate"
+               hreflang="en"
+               href="https://fashion.yati-trend.com/en/Categories.html?category=Clothes"/>
+	<xhtml:link 
+               rel="alternate"
+               hreflang="hu"
+               href="https://fashion.yati-trend.com/hu/Categories.html?category=Clothes"/>
+	<priority>0.80</priority>
+	</url>
+	<url>
+	<loc>
+	https://fashion.yati-trend.com/hu/Categories.html?category=Accessories
+	</loc>
+	<xhtml:link 
+               rel="alternate"
+               hreflang="en"
+               href="https://fashion.yati-trend.com/en/Categories.html?category=Accessories"/>
+	<xhtml:link 
+               rel="alternate"
+               hreflang="hu"
+               href="https://fashion.yati-trend.com/hu/Categories.html?category=Accessories"/>
+	<priority>0.70</priority>
+	</url>
+	<url>
+	<loc>https://fashion.yati-trend.com/hu/about.html</loc>
+	<xhtml:link 
+               rel="alternate"
+               hreflang="en"
+               href="https://fashion.yati-trend.com/en/about.html"/>
+	<xhtml:link 
+               rel="alternate"
+               hreflang="hu"
+               href="https://fashion.yati-trend.com/hu/about.html"/>
+	<priority>0.80</priority>
+	</url>
+</urlset>
