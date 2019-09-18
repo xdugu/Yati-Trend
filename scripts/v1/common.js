@@ -29,17 +29,21 @@ var fixedMenu=false;
 
 // Cookie setings
 function checkCookie(){
+	 
 	
 	  window.dataLayer = window.dataLayer || [];
 	  window['ga-disable-UA-131830139-1'] = true;
-	  
 	 
 	 let useCookie = localStorage.getItem("useCookie");
 	  if(useCookie == null){
 		  Common_changeCookie(true);
+		  fbq('init', '780727239050016'); 
+		  fbq('track', 'PageView');
 	 } 
 	 else if (useCookie=="true"){
 		 window['ga-disable-UA-131830139-1'] = false;
+		 fbq('init', '780727239050016'); 
+	     fbq('track', 'PageView');
 	 }
 		 
 	
