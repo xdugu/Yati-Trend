@@ -61,6 +61,7 @@ app.controller('Review', function($scope, $http, $timeout) {
 				data: JSON.stringify($scope.shopping),
 				headers: {'Content-Type': 'application/json'}
 			});
+			ga('send', 'event', 'Basket', 'OrderComplete', $scope.basketId);
 		
 	}
 	
