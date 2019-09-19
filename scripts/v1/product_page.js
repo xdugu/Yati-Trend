@@ -73,8 +73,7 @@ app.controller('ProductDisplay',function($scope, $timeout,$http,$location,$windo
 	});
 	  
 	$scope.checkBasket = function(){//called when customer presses the "Add to Basket" button
-		  let data = {itemId: $scope.product.id, basketId:$scope.basketId};
-		 fbq('track', 'AddToCart', {content_ids: [$scope.product.id], content_type: "product", contents: [{'id': $scope.product.id, 'quantity': 1}]});
+		  let data = {itemId: $scope.product.id, basketId:$scope.basketId};		 
 		  if($scope.itemInfo.Variants.hasVariants){
 			  if($scope.variantOptions.selectedOption.value=='default'){
 				 $scope.showPrompt = true;
@@ -98,6 +97,8 @@ app.controller('ProductDisplay',function($scope, $timeout,$http,$location,$windo
 					$scope.showPrompt = false;	
 				}
 			}); 
+		fbq('track', 'AddToCart', {content_ids: [$scope.product.id], content_type: "product", contents: [{'id': $scope.product.id, 'quantity': 1}]});
+		ga('send', 'event', 'Basket', 'AddToBasket');
 
 	 }
 	 
