@@ -63,12 +63,13 @@ app.controller('Basket', function($scope, $http) {
 					$scope.order = res.data.data;
 				}
 			});
+			ga('send', 'event', 'Basket', 'QuantityChange', $scope.order[index].ItemId, $scope.order.Items[index].Quantity + direction);
 		}
 	}
 	
 	$scope.removeItem = function(index)
 	{
-		$scope.order.Items.splice(index,1);//pre splice the removed item to make the ui seem for responsive
+		
 		$http({
 				method: 'POST',
 				crossDomain : true,
@@ -81,6 +82,8 @@ app.controller('Basket', function($scope, $http) {
 					Shop_updateBasketSize(res.data.data.Items.length);
 				}
 			});
+		ga('send', 'event', 'Basket', 'RemovedItem', $scope.order.Items[index].ItemId);
+		$scope.order.Items.splice(index,1);//pre splice the removed item to make the ui seem more responsive
 	}
 	
 	$scope.updateDeliveryCost = function()//called when customer chooses/changes the Country to post 
@@ -117,10 +120,11 @@ app.controller('Basket', function($scope, $http) {
 			}).then(function(res){
 					$scope.order = res.data.data;
 					$scope.discounts.showSuccess=true;
-					
+			      ga('send', 'event', 'Basket', 'DiscountUsed', code);		
 			}).catch(function(err){
 				$scope.discounts.code='';
 				$scope.discounts.showError=true;
+			   ga('send', 'event', 'Basket', 'DiscountFailed', code);
 			});
 			
 	}
