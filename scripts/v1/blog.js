@@ -33,5 +33,19 @@ app.controller('BlogList', function($scope, $http, $timeout, $location, $window)
 
 });
 
+app.controller('BlogView', function($scope, $http, $timeout, $location, $window) {
+	$scope.products=[];
+	$scope.urlParams = Common_parseUrlParam();
+	//Language stuff
+	$scope.backbone = {lang:null,loading:true};
+	$scope.backbone.lang= localStorage.getObj("shopping").contact.lang;//for choosing of language	
+	$scope.blogList = [];
+
+	
+
+	
+
+});
+
 
 
