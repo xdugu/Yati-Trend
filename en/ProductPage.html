@@ -52,7 +52,7 @@ src="https://www.facebook.com/tr?id=780727239050016&ev=PageView
 
 <div class="w3-container">
 <div class="w3-center" style="font-size:1em">
-	Orders above <span class="price-total w3-wide">25.000Ft</span>get FREE shipping in Hungary</div>
+	Orders above <span class="price-total w3-wide">€120</span>get FREE shipping in Europe</div>
 </div>
 
 <!--Loading container to show page is loading when fetching data -->
@@ -180,7 +180,7 @@ src="https://www.facebook.com/tr?id=780727239050016&ev=PageView
 	<div id="accessories">
 	<div ng-repeat="x in itemInfo.Accessories" class="w3-margin-left" style="display:inline-block;overflow: hidden">
 		<a href="ProductPage.html?itemId={{x.ItemId}}">
-			<img style="width:auto;height:150px" lazy-load="{{x.Image.src}}/{{x.Image.names[0]}}"></img>
+			<img style="width:auto;height:160px" lazy-load="{{x.Image.src}}/{{x.Image.names[0]}}"></img>
 		</a>
 		<div my-cost-str="x.Price[currency.toLowerCase()]" class="price w3-wide"></div>
 	</div>

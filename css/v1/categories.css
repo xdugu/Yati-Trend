@@ -14,9 +14,12 @@ div#product-shelf-placeholder
 {
 	font-family: 'Montserrat', serif;	
 }
-
-#product-shelf-placeholder a:nth-child(odd){
- clear:left;
+/* For large screens, we will display three items per row for accessories */
+.accessory-sizing{
+	width:32%; 
+}
+.normal-sizing{
+	width:48.5%; 
 }
 
 .price

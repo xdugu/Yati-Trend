@@ -48,9 +48,11 @@ app.controller('BlogView', function($scope, $http, $timeout, $location, $window)
 	$scope.backbone = {lang:null,loading:true};
 	$scope.backbone.lang= localStorage.getObj("shopping").contact.lang;//for choosing of language	
 	$scope.blogList = [];
+	$scope.loading = true;
 	
 	if($scope.urlParams.id !=null){
-		$http.get('https://api.yati-trend.com/v1/Request/Blog/GetBlogList').then(function(res){
+		$http.get('https://api.yati-trend.com/v1/Request/Blog/GetBlogList').then(function(res
+		$scope.loading = false;
 				    $scope.blogList = res.data.data;
 		for(let i=0; i< $scope.blogList.length; i++){
 			if($scope.blogList[i].id == parseInt($scope.urlParams.id)){
