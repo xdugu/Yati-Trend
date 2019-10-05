@@ -1,24 +1,31 @@
 
+h1{
+	font-size: 1.5em;
+}
+.advertised div{
+  width:33%;
+  height: auto;
+}
+.blog-view > div{
+  width:33%;
+  height: auto;
+}
 
-.sub-menu:hover{
- color:white;
- }
- .display{
-	height:70vh;
- }
- 
+h1{
+ font-size: 1.6em;
+}
 
-/* Using mobile first design so setting for bigger screens*/
-@media only screen and (min-width: 601px) {
-#list a:nth-child(odd){
-	margin-left:1vw;
-}
-#list a:nth-child(even){
-	margin-left:1vw;
-}
-.display{
-	height:60vw;
-}
+
+@media (max-width:600px){
+  .advertised{
+	overflow-x: scroll;
+  }
+  .advertised div{
+    width: 60%;
+  }
+  .blog-view div{
+	width: 100%;
+  }
 
 }
 

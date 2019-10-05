@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title> Yati-Trend | Blogs </title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="description" content="Find our latest news and styles by browing our list of blogs">
+<link rel="icon" type="image/jpeg" href="/images/logo.jpg">
+<link rel="stylesheet" type="text/css" href="/slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="/slick/slick-theme.css"/>
+
+<link rel="stylesheet" href="/css/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+<link rel="stylesheet" href="/css/v1/normalize.css"/>
+<link rel="stylesheet" href="/css/v1/common.css"/>
+<link rel="stylesheet" href="/css/v1/categories.css"/>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-131830139-1"></script>
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+</script>
+<noscript>
+ <img height="1" width="1" 
+src="https://www.facebook.com/tr?id=780727239050016&ev=PageView
+&noscript=1"/>
+</noscript>
+<!-- End Facebook Pixel Code -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.4/angular-sanitize.js"></script>
+<script type="text/javascript" src="/slick/slick.min.js"></script>
+<script type="text/javascript" src="/slick/angular-slick.js"></script>
+ 
+<script src="/scripts/v1/common.js" ></script>
+<script src="/scripts/v1/shop.js" ></script>
+<script src="/scripts/v1/blog.js"></script>
+<script src="/scripts/v1/directives/directives.js" ></script>
+
+<style>
+/*
+body{
+background-image: url('/images/home/group.jpg');
+height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}*/
+</style>
+</head> 
+
+<body ng-app="myApp" ng-controller="BlogList" >
+
+<header id="header_placeholder" class="w3-white"> </header>
+<div id="privacy_placeholder"></div>
+
+<div >
+<div class="w3-container w3-mobile" style="max-width: 900px; margin: auto">
+<div class="w3-center w3-margin-top w3-border-bottom w3-border-black" style="font-size: 2em"> Blogs</div>
+<div ng-repeat="item in blogList" class="w3-container w3-padding w3-margin-top w3-white w3-border-bottom w3-border-black" style="width: 100%;">
+	<div class="w3-left w3-mobile" style="width: 50%">
+		<img class="preview_img" lazy-load="{{item[backbone.lang]['previewImg']}}"style="width:100%; height:auto;"></img>
+	</div>
+	<div class="w3-left w3-mobile" style="width: 49%;">
+		<div class="w3-text-grey w3-center">Published On: {{item.publishDate}}</div>
+		<div style="padding: 15% 0">
+			<div id="description" class=" w3-center" style="font-size: 1.5em;"><b>{{item[backbone.lang]['title']}}</b></div>
+			<div  class=" w3-center" style="font-size: 1em;width:100%; margin-top:30px">{{item[backbone.lang]['previewText']}}</div>
+			<div class="w3-center" style="margin-top:30px"><a class="w3-button w3-black" href="BlogView.html?id={{item.id}}">Read More</a></div>
+		</div>
+	</div>						
+</div>
+</div>
+
+</div>
+
+
+
+
+
+<footer ng-include="'footer.html'" class="w3-margin-top"></footer>
+
+</body>
+</html>

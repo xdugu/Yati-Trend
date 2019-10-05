@@ -25,8 +25,15 @@ app.controller('BlogList', function($scope, $http, $timeout, $location, $window)
 	
 	/////////////////////////////////
 	$http.get('https://api.yati-trend.com/v1/Request/Blog/GetBlogList').then(function(res){
-			
-	    $scope.blogList = res.data.data;
+		let tBlogList = res.data.data;
+		for( let i=0; i< tBlogList.length; i++){
+			if(tBlogList[i].published)
+			{
+				d = new Date(tBlogList[i].publishDate);
+				tBlogList[i].publishDate = d.toLocaleString();
+				$scope.blogList.push(tBlogList[i]);
+			}
+		}
 		
 	});
 	

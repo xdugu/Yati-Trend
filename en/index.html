@@ -44,26 +44,6 @@ src="https://www.facebook.com/tr?id=780727239050016&ev=PageView
 <script src="/scripts/v1/index.js" ></script>
 <script src="/scripts/v1/shop.js" ></script>
 <script src="/scripts/v1/directives/directives.js" ></script>
-<style>
-.advertised div{
-  width:33%;
-  height: auto;
-}
-
-h1{
- font-size: 1.6em;
-}
-@media (max-width:600px){
-  .advertised{
-	overflow-x: scroll;
-  }
-  .advertised div{
-    width: 60%;
-  }
-
-}
-
-</style>
 </head> 
 
 <body  ng-app="myApp" ng-controller="HomePage">
@@ -82,7 +62,7 @@ h1{
   <div style="padding: 20% 0">
   Explore Afropean fashion <br><br>
   Shop the look <br><br>
-  Orders above 25000Ft get free shipping in Hungary<br><br>
+  Orders above ‎€120 get FREE Shipping in Europe<br><br>
   <a class="w3-button w3-text-white w3-black" href="Categories.html?category=Clothes"> Shop Now</a>
   </div>
  </div> 
@@ -93,7 +73,7 @@ h1{
   <div style="padding: 5% 0">
 	  Explore Afropean fashion <br><br>
 	  Shop the look <br><br>
-	  Orders above 25000Ft get free shipping in Hungary<br><br>
+	  Orders above ‎€120 get FREE Shipping in Europe<br><br>
 	  <a class="w3-button w3-text-white w3-black" href="Categories.html?category=Clothes"> Shop Now</a>
   </div>
 </div>
@@ -118,6 +98,18 @@ h1{
 			href="Categories.html?category=Clothes&subCategory=Jumpsuits" style="font-size:1.3em;">Jumpsuits</a>
 	</div>
  
+</div>
+
+
+<div  class="blog-view">
+	<div class="w3-center w3-margin-top" style="width:100%; font-size:2em">Latest Blogs</div>
+	<div class="w3-left w3-padding" ng-repeat="item in blogList track by $index" ng-class="{'w3-hide-small': $index >= 1}"> 
+			<img class="w3-round" lazy-load="{{item['previewImg']}}" style="width:100%"></img>
+			<div style="font-size:1.5em;"><b>{{item.en.title}}</b></div>
+			<div style="font-size: 1em">{{item.en.previewText.substring(0,120)}} <b>...</b> 
+				<a href="BlogView.html?id={{item.id}}" class="underlined"><b>Read more</b></a>
+			</div>
+	</div>
 </div>
 
 
