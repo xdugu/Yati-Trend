@@ -107,7 +107,6 @@ angular.module('myApp').directive('myImageSizer', function($interval) {
 			$(elem).children('div').css({'height': shortestHeight.toString() + 'px'});
 			 lastSize = shortestHeight;
 			}
-			//$interval.cancel(promise);
 
 		},500);
     }

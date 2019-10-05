@@ -38,10 +38,10 @@ src="https://www.facebook.com/tr?id=780727239050016&ev=PageView
 <script type="text/javascript" src="../slick/slick.min.js"></script>
 <script type="text/javascript" src="/slick/angular-slick.js"></script>
 
-<script src="../scripts/v1/common.js" ></script>
-<script src="../scripts/v1/shop.js" ></script>
-<script src="../scripts/v1/product_page.js" ></script>
-<script src="../scripts/v1/directives/directives.js" ></script>
+<script src="/scripts/v1/common.js" ></script>
+<script src="/scripts/v1/shop.js" ></script>
+<script src="/scripts/v1/product_page.js" ></script>
+<script src="/scripts/v1/directives/directives.js" ></script>
 </head> 
 
 <body ng-app="myApp" ng-controller="ProductDisplay">
@@ -178,9 +178,9 @@ src="https://www.facebook.com/tr?id=780727239050016&ev=PageView
 <div class="w3-block w3-center" style="width:100%: ">
 	<h1 ng-show="itemInfo.Accessories.length>0" class="w3-large bold"> Accessories with this item</h1>
 	<div id="accessories">
-	<div ng-repeat="x in itemInfo.Accessories" class="w3-margin-left" style="display:inline-block">
+	<div ng-repeat="x in itemInfo.Accessories" class="w3-margin-left" style="display:inline-block;overflow: hidden">
 		<a href="ProductPage.html?itemId={{x.ItemId}}">
-			<img style="width:100%;height:auto" ng-src="{{x.Image.src}}/{{x.Image.names[0]}}"></img>
+			<img style="width:auto;height:150px" lazy-load="{{x.Image.src}}/{{x.Image.names[0]}}"></img>
 		</a>
 		<div my-cost-str="x.Price[currency.toLowerCase()]" class="price w3-wide"></div>
 	</div>
