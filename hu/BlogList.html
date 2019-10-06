@@ -68,7 +68,7 @@ height: 500px;
 </div>
 
 <div class="w3-container w3-mobile" style="max-width: 900px; margin: auto">
-<div class="w3-center w3-margin-top w3-border-bottom w3-border-black" style="font-size: 2em"> Blogok</div>
+<div class="w3-center w3-margin-top w3-border-bottom w3-border-black" style="font-size: 2em"> Blog</div>
 <div ng-repeat="item in blogList" class="w3-container w3-padding w3-margin-top w3-white w3-border-bottom w3-border-black" style="width: 100%;">
 	<div class="w3-left w3-mobile" style="width: 50%">
 		<img class="preview_img" lazy-load="{{item[backbone.lang]['previewImg']}}"style="width:100%; height:auto;"></img>
@@ -78,7 +78,7 @@ height: 500px;
 		<div style="padding: 15% 0">
 			<div id="description" class=" w3-center" style="font-size: 1.5em;"><b>{{item[backbone.lang]['title']}}</b></div>
 			<div  class=" w3-center" style="font-size: 1em;width:100%; margin-top:30px">{{item[backbone.lang]['previewText']}}</div>
-			<div class="w3-center" style="margin-top:30px"><a class="w3-button w3-black" href="BlogView.html?id={{item.id}}">Olvass tovább</a></div>
+			<div class="w3-center" style="margin-top:30px"><a class="w3-button w3-black" href="BlogView.html?id={{item.id}}">Tovább olvasom</a></div>
 		</div>
 	</div>						
 </div>

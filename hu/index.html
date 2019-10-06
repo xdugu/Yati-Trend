@@ -101,12 +101,12 @@ src="https://www.facebook.com/tr?id=780727239050016&ev=PageView
 </div>
 
 <div  class="blog-view">
-	<div class="w3-center w3-margin-top" style="width:100%; font-size:2em">Legújabb blog</div>
+	<div class="w3-center w3-margin-top" style="width:100%; font-size:2em">Legújabb blog bejegyzés</div>
 	<div class="w3-left w3-padding" ng-repeat="item in blogList track by $index" ng-class="{'w3-hide-small': $index >= 1}"> 
 			<img class="w3-round" lazy-load="{{item['previewImg']}}" style="width:100%"></img>
 			<div style="font-size:1.5em;"><b>{{item.hu.title}}</b></div>
 			<div style="font-size: 1em">{{item.hu.previewText.substring(0,120)}} <b>...</b>
-				<a href="BlogView.html?id={{item.id}}" class="underlined"><b>Read more</b></a>
+				<a href="BlogView.html?id={{item.id}}" class="underlined"><b>Tovább olvasom</b></a>
 			</div>
 	</div>
 </div>
