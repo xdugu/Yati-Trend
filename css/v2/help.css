@@ -1,0 +1,11 @@
+.heading
+{
+	text-decoration: underline;
+	text-decoration-color: Goldenrod;
+	cursor:pointer;
+}
+.links a{
+ text-decoration: underline;
+
+}
+

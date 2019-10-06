@@ -1,0 +1,31 @@
+
+h1{
+	font-size: 1.5em;
+}
+.advertised div{
+  width:33%;
+  height: auto;
+}
+.blog-view > div{
+  width:33%;
+  height: auto;
+}
+
+h1{
+ font-size: 1.6em;
+}
+
+
+@media (max-width:600px){
+  .advertised{
+	overflow-x: scroll;
+  }
+  .advertised div{
+    width: 60%;
+  }
+  .blog-view div{
+	width: 100%;
+  }
+
+}
+
