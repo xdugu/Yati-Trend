@@ -163,6 +163,7 @@ angular.module('myApp').directive('myNewsletter', function($http) {
 				headers: {'Content-Type': 'application/json'}
 			}).then(function(res){
 					$scope.showThanks = true;
+					Common_hideNewsletterPrompt(2000);
 				
 			}).catch(function(err){
 				$scope.showError = true;

@@ -13,6 +13,7 @@ var fixedMenu=false;
 
       $('#header_placeholder').load("header.html", Shop_refreshBasket);	
 		checkCookie();
+		Common_checkNewsletterDisplay();
 		if ('serviceWorker' in navigator) {
 		  window.addEventListener('load', function() {
 			navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
@@ -33,9 +34,13 @@ function checkCookie(){
 	
 	  window.dataLayer = window.dataLayer || [];
 	  window['ga-disable-UA-131830139-1'] = true;
+	  
+	  //checking that we are on live site and not testing
+	  let url = window.location.href;
+	  inTestSite = url.indexOf('yati-trend');
 	 
 	 let useCookie = localStorage.getItem("useCookie");
-	  if(useCookie == null){
+	 if(useCookie == null && inTestSite>=0){
 		  Common_changeCookie(true);
 		  fbq('init', '780727239050016'); 
 		  fbq('track', 'PageView');
@@ -113,16 +118,6 @@ function Common_checkSubMenu(menu)
 	}
 }
 
-function Common_getUrlParam(param){
-	let url = window.location.href;
-	pos = url.search(param);
-	if(pos>=0)
-	{
-		return url.substring(param.length+pos, url.length);
-	}
-	else return null;
-	
-}
 
 function Common_parseUrlParam(){
 	let url = window.location.href;
@@ -189,29 +184,32 @@ $(window).scroll(function(){
 
 });
 
-//This function will search for the item id in the product xml file and return the tag
-function Common_getItemById(library, pathname)
-{
-	 path='//item';
-		let nodes = library.evaluate(path, library, null, XPathResult.ANY_TYPE, null);
-		let tags =  nodes.iterateNext();
-		while (tags)
-		{
-			if(pathname.search(tags.id)>=0){
-				return tags;
-			}
-			tags = nodes.iterateNext();
-		}
+//this function is called to check if newsletter prompt should be shown
+function Common_checkNewsletterDisplay(){
+	params = localStorage.getObj("params");
+	if(params == null){
+		params = {showNewsletterPrompt : true};
+		localStorage.setObj("params", params);
+	}
+	
+	if(params.showNewsletterPrompt == true){
+		setTimeout(function(){
+		$('#newsletter_modal').css({display:"block"});
+		}, 7000);
 		
-	return null;
+	}
+	
 }
 
-function Common_getItemInner(library,path){
-	let nodes = library.evaluate(path, library, null, XPathResult.ANY_TYPE, null);
-	let tags =  nodes.iterateNext();
-	if(tags==null)
-		return null;
-	return tags.innerHTML;
+//this function is called to hide the newsletter. A delay function is added
+//for when the user signs up so there is a delay to see the result of the sign up
+function Common_hideNewsletterPrompt(delay){
+	params = localStorage.getObj("params");
+	params.showNewsletterPrompt = false;
+	localStorage.setObj("params", params);
+	setTimeout(function(){
+		$('#newsletter_modal').css({display:"none"});
+	}, delay);
 }
 
 function Common_isElementInView(elem)

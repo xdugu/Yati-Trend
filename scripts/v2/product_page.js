@@ -65,7 +65,7 @@ app.controller('ProductDisplay',function($scope, $timeout,$http,$location,$windo
 			  };
 	
 	
-	$scope.product.id = Common_getUrlParam('itemId=');
+	$scope.product.id = Common_parseUrlParam().itemId;
 	
 	$http.get('https://api.yati-trend.com/v1/Request/ItemData?itemId='+ $scope.product.id ).then(function(res){
 		$scope.backbone.loading = false;

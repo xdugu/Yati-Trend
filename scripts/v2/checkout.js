@@ -12,6 +12,9 @@ app.controller('Checkout',  function($scope, $http, $timeout) {
 	$scope.user=$scope.order.contact;
 	$scope.places =[];
 	$scope.showFoxpost=true;
+	//since angular uses a different way to display and hide, we set the modals to display block
+	// but in actual fact, they are still hidden
+	$('.w3-modal').css({display: "block"});
 	$http.get("/foxpostdb.json").then(function(resp){
 		$scope.places = resp.data;
 	});
