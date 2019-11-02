@@ -14,7 +14,7 @@ var shopping={ contact:{firstName:"",lastName:"",email:"",address1:"",address2:"
 				country:"default",number:"",postCode:"", countryCode:"", 
 				lang:"hu"},
 				currency:"HUF", paymentMethod:"bankTransfer", lastBasketSize: 0,
-				deliveryMethod:"FoxpostPickup"
+				deliveryMethod:"FoxpostPickup", aflink:""
 }
 
 //first function to be called initialise parameters that other scripts need	
@@ -44,6 +44,11 @@ function Shop_initialise(){
 function Shop_refreshBasket()
 {
 	let myOrder=localStorage.getObj("shopping");
+	urlParams = Common_parseUrlParam();
+	if(urlParams.aflink !=null){
+		myOrder.aflink = urlParams.aflink;
+		localStorage.setObj("shopping", myOrder);
+	}
 	
 	if (myOrder.lastBasketSize>0)
 	{
