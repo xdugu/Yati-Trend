@@ -64,7 +64,7 @@ app.controller('Categories', function($scope, $http, $timeout, $location,$window
 	 });
 	
 	/////////////////////////////////
-	$http.get('https://api.yati-trend.com/v1/Request/Category?category='+ $scope.urlParams.category).then(function(res){
+	$http.get('https://api.yati-trend.com/test/Request/Category?category='+ $scope.urlParams.category).then(function(res){
 		$scope.backbone.loading = false;
 		$scope.categoryData = res.data.data;
 		
