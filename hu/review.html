@@ -56,11 +56,16 @@ src="https://www.facebook.com/tr?id=780727239050016&ev=PageView
 					<div id="description" class="w3-display-topleft" style="width:100%;">{{item.Description[shopping.contact.lang]}}</div>
 					<div ng-if="item.Variants.hasVariants" id="size" class="w3-display-left">Méret: {{item.Variants.chosenVariant}}</div>
 					<div id="quantity" class="w3-display-bottomleft ">Mennyiség: {{item.Quantity}}</div>
-					<div my-cost-str="item.Price[currency.toLowerCase()] * item.Quantity" id="price" class="w3-display-right price theme-color"></div>
+					<div class="w3-display-right">
+						<div my-cost-str="item.Price[currency.toLowerCase()] * item.Quantity" id="price" class="price theme-color"></div>
+						<div ng-show="item.Price.original.discountEnabled" class="price" style="text-decoration: line-through;"
+							my-cost-str="item.Price.original[currency.toLowerCase()] * item.Quantity">
+						</div>
+					</div>
 				</div>		
 		</div>
 		<div class="w3-margin-top" style="font-weight: bold">Részösszeg: <span my-cost-str="order.Costs[shopping.deliveryMethod].subTotal" class="price"></span></div>
-		<div ng-if="order.Discount!=null" style="font-weight: bold">Kedvezmény: <span my-cost-str="order.Costs[shopping.deliveryMethod].discount*-1" class="price"></span></div>
+		<div ng-if="order.Discount!=null" style="font-weight: bold">Kedvezmény: <b>-</b><span my-cost-str="order.Costs[shopping.deliveryMethod].discount*-1" class="price"></span></div>
 		<div  style="font-weight: bold">Szállítás: <span my-cost-str="order.Costs[shopping.deliveryMethod].delivery" class="price"></span></div>
 		<div class="w3-xlarge" style="font-weight: bold">Végösszeg: <span my-cost-str="order.Costs[shopping.deliveryMethod].total" class="price theme-color"></span></div>
 	</div>

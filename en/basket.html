@@ -68,11 +68,11 @@ src="https://www.facebook.com/tr?id=780727239050016&ev=PageView
 </div>
 
 	<div class="w3-col l6 w3-padding">
-		<div ng-repeat="item in order.Items" class="w3-row w3-card w3-margin-top w3-padding" style="width: 100%; height:20vh;overflow:hidden;">
+		<div ng-repeat="item in order.Items" class="w3-row w3-card w3-margin-top w3-padding" style="width: 100%; height:22vh;overflow:hidden;">
 				<div class="w3-col s3 m2 l2 " style="height:18vh; overflow: hidden;">
 					<img class="preview_img" ng-src="{{item.Image.src}}/{{item.Image.names[0]}}"style="width:95%; height:auto;"></img>
 				</div>
-				<div class="w3-display-container w3-col s9 m10 l10 " style="height:15vh;">
+				<div class="w3-display-container w3-col s9 m10 l10 " style="height:17vh;">
 					<div id="description" class="w3-display-topmiddle w3-center" style="font-size: 1em;width:100%;">{{item.Description.en}}</div>
 					<div ng-if="item.Variants.hasVariants" id="size" class="w3-display-left">Size: {{item.Variants.chosenVariant}}</div>
 					<div id="quantity" class="w3-display-bottomleft " style="height: 2vw;">
@@ -80,7 +80,12 @@ src="https://www.facebook.com/tr?id=780727239050016&ev=PageView
 						<span class="w3-padding">{{item.Quantity}}</span>
 						<span ng-click="changeQuantity($index,1)" class="w3-black w3-round w3-padding w3-hover-grey hoverable">+</span>
 					</div>
-					<div my-cost-str="item.Price[currency.toLowerCase()] * item.Quantity" id="price" class="w3-display-right price theme-color"></div>
+					<div class="w3-display-right">
+						<div my-cost-str="item.Price[currency.toLowerCase()] * item.Quantity" id="price" class="price theme-color"></div>
+						<div ng-show="item.Price.original.discountEnabled" class="price" style="text-decoration: line-through;"
+							my-cost-str="item.Price.original[currency.toLowerCase()] * item.Quantity">
+						</div>
+					</div>
 					<div id="remove" ng-click="removeItem($index)" class="w3-display-bottomright hoverable" Style="text-decoration: underline">Remove</div>
 				</div>		
 		</div>
@@ -126,7 +131,7 @@ src="https://www.facebook.com/tr?id=780727239050016&ev=PageView
 				  </label><br/>
 				</form>
 				<div class="w3-large w3-margin-top ">SubTotal: <span my-cost-str="order.Costs[shopping.deliveryMethod].subTotal" class="price" ></span></div>
-				<div ng-if="order.Discount!=null" class="w3-large">Discount: <span my-cost-str="order.Costs[shopping.deliveryMethod].discount*-1" class="price"></span></div>
+				<div ng-if="order.Discount!=null" class="w3-large">Discount: <b>-</b> <span my-cost-str="order.Costs[shopping.deliveryMethod].discount" class="price"></span></div>
 				<div class="w3-large ">Delivery: <span my-cost-str="order.Costs[shopping.deliveryMethod].delivery" class="price" ></span></div>				
 				<div class="w3-xlarge w3-margin-top ">Total: <span my-cost-str="order.Costs[shopping.deliveryMethod].total" class="price-total"></span></div>
 			</div>

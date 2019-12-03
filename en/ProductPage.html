@@ -75,7 +75,8 @@ src="https://www.facebook.com/tr?id=780727239050016&ev=PageView
 	<div  ng-show="itemInfo.Price.original.discountEnabled">
 		<span my-cost-str="itemInfo.Price.original[currency.toLowerCase()]"id="product_price" 
 			class="price w3-wide w3-text-red w3-small" style="text-decoration: line-through;"> </span>
-		<span class="w3-small">(-{{itemInfo.Price.original.discountPercentage}}%)</span></div>
+		<span class="w3-small">(-{{itemInfo.Price.original.discountPercentage}}%)</span>
+	</div>
 	<div my-cost-str="itemInfo.Price[currency.toLowerCase()]"id="product_price" class=" w3-margin-bottom price w3-wide w3-large"></div>
 
 	<!--Currency chooser  -->

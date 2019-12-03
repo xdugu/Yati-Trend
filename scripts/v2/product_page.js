@@ -54,6 +54,7 @@ app.controller('ProductDisplay',function($scope, $timeout,$http,$location,$windo
 				slidesToShow: 2,
 				slidesToScroll: 1,
 				autoplay: false,
+				lazyLoad: 'ondemand',
 				responsive: [
 				{
 					breakpoint: 480, // mobile breakpoint
@@ -67,7 +68,7 @@ app.controller('ProductDisplay',function($scope, $timeout,$http,$location,$windo
 	
 	$scope.product.id = Common_parseUrlParam().itemId;
 	
-	$http.get('https://api.yati-trend.com/test/Request/ItemData?itemId='+ $scope.product.id ).then(function(res){
+	$http.get('https://api.yati-trend.com/v1/Request/ItemData?itemId='+ $scope.product.id ).then(function(res){
 		$scope.backbone.loading = false;
 		loadProduct(res);
 	});

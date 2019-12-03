@@ -15,7 +15,10 @@ div#product-shelf-placeholder
 	font-family: 'Montserrat', serif;	
 }
 
-#product-shelf-placeholder a:nth-child(odd){
+#product-shelf-placeholder .accessory-sizing:nth-child(3n+1) {
+ clear:left;
+}
+#product-shelf-placeholder .normal-sizing:nth-child(odd) {
  clear:left;
 }
 /* For large screens, we will display three items per row for accessories */

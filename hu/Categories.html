@@ -99,6 +99,11 @@ src="https://www.facebook.com/tr?id=780727239050016&ev=PageView
 			</div>
 		</slick>
 		<div class="description w3-padding">{{product.description}}</div>
+		<div ng-show="product.price.original.discountEnabled">
+			<span my-cost-str="product.price.original[currency.toLowerCase()]" 
+				class="price theme-color w3-small w3-text-red" style="text-decoration: line-through;"></span>
+			<span class="w3-small">(-{{product.price.original.discountPercentage}}%)</span>
+		</div>
 		<div my-cost-str="product.price[currency.toLowerCase()]" class="price w3-padding theme-color"></div>
 	</a>
 </div>

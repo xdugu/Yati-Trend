@@ -125,7 +125,7 @@ workbox.routing.registerRoute(
     cacheName: 'js-css-html-json-xml-cache',
 	plugins: [
       new workbox.expiration.Plugin({
-        maxAgeSeconds: 60 * 20 //expire after 20 minutes
+        maxAgeSeconds: 86400 * 20 //expire after 20 days
       }),
 	  pluginIgnoreParams
     ],
@@ -140,7 +140,7 @@ workbox.routing.registerRoute(
     plugins: [
       new workbox.expiration.Plugin({
         maxEntries: 60,
-        maxAgeSeconds:  24 * 60 * 60, // 24 hours
+        maxAgeSeconds:  86400 * 30 , // 1 month
 		 purgeOnQuotaError: true, // Opt-in to automatic cleanup.
       }),
     ],
