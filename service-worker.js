@@ -125,7 +125,7 @@ workbox.routing.registerRoute(
     cacheName: 'js-css-html-json-xml-cache',
 	plugins: [
       new workbox.expiration.Plugin({
-        maxAgeSeconds: 86400 * 20 //expire after 20 days
+        maxAgeSeconds: 60 * 20 //expire after 20 minutes
       }),
 	  pluginIgnoreParams
     ],
@@ -134,7 +134,7 @@ workbox.routing.registerRoute(
 
 //to reduce network load, secondary image caches have been added
 workbox.routing.registerRoute(
-  /\.(?:png|gif|jpg|jpeg|svg)$/,
+  /\.(?:png|gif|jpg|jpeg|JPG|JPEG|svg)$/,
   new workbox.strategies.CacheFirst({
     cacheName: 'img-cache',
     plugins: [
