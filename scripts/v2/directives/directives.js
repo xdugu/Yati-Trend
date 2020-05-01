@@ -205,3 +205,15 @@ function lazyLoad(){
         }
     }
 }
+
+// filter to round number to an integer
+angular.module('myApp').filter('roundToInt',function(){
+
+    return function(value, direction) {  
+		if(direction == 'up')
+			return Math.floor(value);
+		else // round down by default
+			return Math.ceil(value);
+    };
+	
+});
